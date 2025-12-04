@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartDoctor — Виртуальный медицинский ассистент
+  </title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0dfafa94, #021d3f);
+      min-height: 90vh;
+    }
+    body {
+        padding: 5vh 0px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0px auto;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(169, 62, 62, 0.18);
+    }
+
+    .header {
+      background: linear-gradient(90deg, #00e3cc, #18ba1b);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .main {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+
+    .chat-col {
+      flex: 1 1 540px;
+      display: flex;
+      flex-direction: column;
+      min-height: 500px;
+    }
+
+    .chat-window {
+      background: #fafafe;
+      border-radius: 10px;
+      padding: 15px;
+      flex: 1 1 auto;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 400px;
+    }
+    .chat-window::-webkit-scrollbar {
+        display: none;
+    }
+
+    .msg {
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 14px;
+      line-height: 1.4;
+    }
+
+    .msg.user {
+      align-self: flex-end;
+      background: #31d81879;
+      color: #120808;
+      text-align: right;
+    }
+
+    .msg.ai {
+      align-self: flex-start;
+      background: #409a46;
+      color: #120a0a;
+      text-align: left;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .input-row input[type="text"] {
+      flex: 1;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid #57971a;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .input-row button {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #00de37;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .input-row button:hover {
+      background: #4e920a;
+    }
+
+    .doctors-col {
+      width: 400px;
+      max-width: 40%;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .filter-row input[type="text"] {
+      flex: 1;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid #d0d7df;
+      outline: none;
+    }
+
+    .filter-row button {
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: none;
+      background: #7bb60d;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .filter-row button:hover {
+      background: #0bb111;
+    }
+
+    .doctors-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      /* max-height: 520px; */
+      height: 450px;
+      overflow: auto;
+      padding-right: 6px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      /* overflow: hidden; */
+      display: flex;
+      gap: 12px;
+      padding: 10px;
+      align-items: stretch;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .card .photo {
+      width: 120px;
+      height: 120px;
+      flex: 0 0 120px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .card .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card .info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card .info h4 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .card .info .meta {
+      color: #5b636b;
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .card .info .meta strong {
+      color: #222;
+    }
+
+    .card .actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: auto;
+    }
+
+
+
+    .call-btn {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: none;
+      background: #0e7182;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .call-btn:hover {
+      opacity: 0.9;
+    }
+
+    .rating {
+      color: #0b7965;
+      font-weight: 700;
+    }
+
+    @media(max-width:980px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .doctors-col {
+        width: 100%;
+        max-width: none;
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header">SmartDoctor — Виртуальный медицинский ассистент
+    </div>
+    <div class="main">
+      <div class="chat-col">
+        <div class="chat-window" id="chatWindow"></div>
+        <div class="input-row">
+          <input list="list" id="userInput" type="text" placeholder="Опишите симптомы или спросите 'какой врач нужен?'">
+          <button id="sendBtn" type="button">Отправить</button>
+        </div>
+      </div>
+      <div class="doctors-col">
+        <div class="filter-row">
+          <input id="filterInput" type="text" placeholder="Фильтр по имени или специализации">
+          <button id="clearFilter">Сброс</button>
+        </div>
+        <div class="doctors-list" id="doctorsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <datalist id="list">
+    <option value="сердце"></option>
+    <option value="ухо"></option>
+    <option value="живот"></option>
+    <option value="кашель"></option>
+    <option value="пульс"></option>
+    <option value="простуда"></option>
+    <option value="насморк"></option>
+  </datalist>
+
+  <script>
+  const chatWindow = document.getElementById('chatWindow');
+  const userInput = document.getElementById('userInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const doctorsList = document.getElementById('doctorsList');
+  const filterInput = document.getElementById('filterInput');
+  const clearFilter = document.getElementById('clearFilter');
+
+  const doctors = [
+    { fullName: "Алишер Рахимович Каримов", spec: "Терапевт", rating: 4.8, hospital: "Центральная клиника", address: "ул. Рудаки, 12", phone: "+992901234567", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+    { fullName: "Мадина Алиевна Юсуфова", spec: "ЛОР", rating: 4.9, hospital: "МЦ Сомон", address: "пр. Исмоили Сомони, 23", phone: "+992909876543", img: "https://randomuser.me/api/portraits/women/44.jpg" },
+    { fullName: "Сохиб Рахматович Тошев", spec: "Невролог", rating: 4.7, hospital: "Клиника Шифо", address: "ул. Айни, 45", phone: "+992904567890", img: "https://randomuser.me/api/portraits/men/65.jpg" },
+    { fullName: "Лола Камоловна Гадоева", spec: "Гастроэнтеролог", rating: 4.85, hospital: "Центр здоровья", address: "ул. Фирдоуси, 7", phone: "+992907654321", img: "https://randomuser.me/api/portraits/women/22.jpg" },
+    { fullName: "Фарид Шарифович Назаров", spec: "Кардиолог", rating: 4.9, hospital: "МЦ Сомон", address: "пр. Исмоили Сомони, 23", phone: "+992006668219", img: "https://randomuser.me/api/portraits/men/33.jpg" }
+  ];
+
+  function addMessage(text, sender) {
+    const div = document.createElement('div');
+    div.className = 'msg ' + (sender === 'user' ? 'user' : 'ai');
+    div.textContent = text;
+    chatWindow.appendChild(div);
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }
+
+  function renderDoctors(list) {
+    doctorsList.innerHTML = '';
+    list.forEach(doc => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const photo = document.createElement('div');
+      photo.className = 'photo';
+      const img = document.createElement('img');
+      img.src = doc.img;
+      img.alt = doc.fullName;
+      photo.appendChild(img);
+
+      const info = document.createElement('div');
+      info.className = 'info';
+
+      const h4 = document.createElement('h4');
+      h4.textContent = doc.fullName;
+
+      const meta1 = document.createElement('p');
+      meta1.className = 'meta';
+      meta1.innerHTML = 'Специальность: <strong>' + doc.spec + '</strong>';
+
+      const meta2 = document.createElement('p');
+      meta2.className = 'meta';
+      meta2.innerHTML = 'Рейтинг: <span class="rating">' + doc.rating + '</span>';
+
+      const meta3 = document.createElement('p');
+      meta3.className = 'meta';
+      meta3.textContent = 'Больница: ' + doc.hospital;
+
+      const meta4 = document.createElement('p');
+      meta4.className = 'meta';
+      meta4.textContent = 'Адрес: ' + doc.address;
+
+      const meta5 = document.createElement('p');
+      meta5.className = 'meta';
+      meta5.textContent = 'Телефон: ' + doc.phone;
+
+      const actions = document.createElement('div');
+      actions.className = 'actions';
+
+      const callBtn = document.createElement('button');
+      callBtn.className = 'call-btn';
+      callBtn.type = 'button';
+      callBtn.textContent = 'Позвонить';
+      callBtn.addEventListener('click', () => {
+        addMessage('Вы запросили звонок доктору ' + doc.fullName + '. Телефон: ' + doc.phone, 'ai');
+      });
+
+      actions.appendChild(callBtn);
+
+      info.append(h4, meta1, meta2, meta3, meta4, meta5, actions);
+      card.append(photo, info);
+      doctorsList.appendChild(card);
+    });
+  }
+
+  renderDoctors(doctors);
+
+  filterInput.addEventListener('input', function () {
+    const q = filterInput.value.trim().toLowerCase();
+    if (!q) {
+      renderDoctors(doctors);
+      return;
+    }
+    const filtered = doctors.filter(d => d.fullName.toLowerCase().includes(q) || d.spec.toLowerCase().includes(q));
+    renderDoctors(filtered);
+  });
+
+  clearFilter.addEventListener('click', () => {
+    filterInput.value = '';
+    renderDoctors(doctors);
+  });
+
+  // -----------------------------  
+  //  AI логика подбора врача  
+  // -----------------------------
+  function generateResponse(text) {
+    const t = text.toLowerCase();
+    const intro = "Спасибо, я внимательно прочитал ваше сообщение. ";
+
+    // База: симптомы → специалист
+    const symptomMap = [
+      { symptoms: ["сердце", "давление", "пульс", "грудь", "тахикард"], spec: "Кардиолог" },
+      { symptoms: ["живот", "желудок", "тошнота", "рвота", "диарея", "кишеч"], spec: "Гастроэнтеролог" },
+      { symptoms: ["голова", "головная боль", "головокруж", "мозг", "немеют"], spec: "Невролог" },
+      { symptoms: ["ухо", "горло", "нос", "кашель", "насморк", "простуда"], spec: "ЛОР" },
+      { symptoms: ["температура", "кашель", "озноб", "слабость"], spec: "Терапевт" }
+    ];
+
+    // Поиск нужного специалиста
+    let matchedSpec = null;
+
+    for (const rule of symptomMap) {
+      if (rule.symptoms.some(s => t.includes(s))) {
+        matchedSpec = rule.spec;
+        break;
+      }
+    }
+
+    // Если нашли специальность — выбираем врача
+    if (matchedSpec) {
+      const foundDoctors = doctors.filter(d => d.spec.toLowerCase() === matchedSpec.toLowerCase());
+
+      if (foundDoctors.length > 0) {
+        const doc = foundDoctors[Math.floor(Math.random() * foundDoctors.length)];
+
+        return (
+          intro +
+          `По вашим симптомам рекомендую обратиться к врачу: ${doc.fullName} (${doc.spec}).\n` +
+          `Телефон: ${doc.phone}\nАдрес: ${doc.address}`
+        );
+      }
+    }
+
+    // Если спрашивает "какой врач?"
+    if (t.includes('какой врач') || t.includes('какой доктор')) {
+      return intro + "Пожалуйста, опишите симптомы, чтобы я мог определить нужного специалиста.";
+    }
+
+    return intro + "Опишите, пожалуйста, симптомы подробнее, чтобы я смог подобрать врача.";
+  }
+
+  function processUserMessage(text) {
+    setTimeout(() => {
+      addMessage(generateResponse(text), 'ai');
+    }, 300);
+  }
+
+  sendBtn.addEventListener('click', () => {
+    const val = userInput.value.trim();
+    if (!val) return;
+    addMessage(val, 'user');
+    userInput.value = '';
+    processUserMessage(val);
+  });
+
+  userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      sendBtn.click();
+    }
+  });
+
+  window.addEventListener('load', () => {
+    addMessage("Здравствуйте! Я SmartDoctor. Опишите симптомы или спросите 'какой врач нужен?'", 'ai');
+  });
+</script>
+
+</body>
+
+</html>
