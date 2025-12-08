@@ -4,105 +4,153 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SmartDoctor • Умный помощник здоровья</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
     :root {
       --primary: #00d4c1;
       --primary-dark: #00a89a;
+      --accent: #667eea;
       --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --card: rgba(255,255,255,0.98);
+      --card: rgba(255, 255, 255, 0.97);
+      --text: #2d3436;
       --light: #f8f9fa;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body, html {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
-      min-height: 100vh;
-      height: 100%;
-      overflow: hidden;
-      color: #2d3436;
+      min-height: 10vh;
+      color: var(--text);
     }
-
     .container {
-      max-width: 1400px;
-      margin: 10px auto;
+      width: 1400px;
+      margin: 25px auto;
       background: var(--card);
-      border-radius: 24px;
+      border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 20px 70px rgba(0,0,0,0.35);
-      height: calc(100vh - 20px);
-      display: flex;
-      flex-direction: column;
+      box-shadow: 0 30px 100px rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
     }
 
+    /* HEADER */
     .header {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 18px 30px;
-      font-size: 26px;
-      font-weight: 700;
+      padding: 28px 50px;
+      font-size: 30px;
+      font-weight: 800;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-shrink: 0;
+      box-shadow: 0 8px 30px rgba(0,212,193,0.3);
     }
+    .logo { font-size: 34px; }
     .user-info {
       background: rgba(255,255,255,0.25);
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-size: 15px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
     }
     .logout {
       background: #ff4757;
       border: none;
       color: white;
-      padding: 8px 16px;
-      border-radius: 30px;
+      padding: 12px 24px;
+      border-radius: 50px;
       cursor: pointer;
-      font-size: 14px;
-      margin-left: 12px;
+      font-weight: 600;
+      margin-left: 15px;
+      transition: 0.3s;
     }
+    .logout:hover { background: #e84150; transform: translateY(-2px); }
 
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+    /* АВТОРИЗАЦИЯ */
+    #authScreen {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .auth-box {
+      max-width: 480px;
+      margin: 0 auto;
+      background: white;
+      padding: 60px 50px;
+      border-radius: 32px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.2);
+    }
+    .auth-box h2 {
+      font-size: 36px;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .auth-box input {
+      width: 100%;
+      padding: 18px 22px;
+      margin: 12px 0;
+      border: 2px solid #eee;
+      border-radius: 18px;
+      font-size: 17px;
+      transition: all 0.3s;
+    }
+    .auth-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 5px rgba(0,212,193,0.2);
+      transform: scale(1.02);
+    }
+    .auth-box button {
+      width: 100%;
       padding: 20px;
-      gap: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: 18px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.4s;
     }
-
-    @media (min-width: 900px) {
-      .main { flex-direction: row; }
-      .chat-section { flex: 2.2; }
-      .doctors-section { flex: 1; max-width: 420px; }
+    .auth-box button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,212,193,0.4);
     }
+    .toggle-link { margin-top: 30px; color: var(--accent); font-weight: 600; cursor: pointer; font-size: 17px; }
 
+    /* ПРИЛОЖЕНИЕ */
+    .main {
+      display: flex;
+      min-height: 80vh;
+      padding: 40px;
+      gap: 35px;
+    }
     .chat-section {
+      flex: 2;
       background: var(--light);
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 50px rgba(0,0,0,0.15);
       display: flex;
       flex-direction: column;
     }
     .chat-window {
       flex: 1;
-      padding: 20px;
+      padding: 30px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      background: #f8fffe;
+      gap: 16px;
     }
     .message {
       max-width: 80%;
-      padding: 14px 20px;
-      border-radius: 20px;
-      font-size: 15.5px;
-      line-height: 1.5;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      padding: 16px 22px;
+      border-radius: 22px;
+      line-height: 1.6;
+      animation: msgIn 0.5s ease-out;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
     .message.user {
       align-self: flex-end;
@@ -116,134 +164,153 @@
       border: 1px solid #eee;
       border-bottom-left-radius: 6px;
     }
-
     .input-area {
-      padding: 18px 20px;
+      padding: 25px;
       background: white;
       border-top: 1px solid #eee;
       display: flex;
-      gap: 12px;
-      flex-shrink: 0;
+      gap: 15px;
     }
     .input-area input {
       flex: 1;
-      padding: 16px 20px;
+      padding: 18px 24px;
       border: 2px solid #eee;
-      border-radius: 30px;
-      font-size: 16px;
-      outline: none;
+      border-radius: 50px;
+      font-size: 17px;
     }
     .input-area button {
-      width: 54px;
-      height: 54px;
+      width: 60px;
+      height: 60px;
       background: var(--primary);
       color: white;
       border: none;
       border-radius: 50%;
-      font-size: 20px;
+      font-size: 24px;
       cursor: pointer;
+      transition: 0.3s;
     }
+    .input-area button:hover { background: var(--primary-dark); transform: scale(1.1); }
 
+    /* СПИСОК ВРАЧЕЙ */
     .doctors-section {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
-      overflow-y: auto;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      flex: 1;
+      min-width: 360px;
     }
-
     .search-box {
-      margin-bottom: 18px;
+      margin-bottom: 25px;
       position: relative;
     }
     .search-box input {
       width: 100%;
-      padding: 15px 45px 15px 18px;
+      padding: 18px 50px 18px 24px;
       border: 2px solid #eee;
-      border-radius: 30px;
-      font-size: 15.5px;
+      border-radius: 50px;
+      font-size: 17px;
     }
     .search-box i {
       position: absolute;
-      right: 16px;
+      right: 20px;
       top: 50%;
       transform: translateY(-50%);
-      color: #999;
+      color: #aaa;
     }
-
     .doctor-card {
-      background: #f8fffe;
-      border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      transition: 0.3s;
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 25px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      transition: all 0.4s;
     }
-    .doctor-card:hover { transform: translateY(-6px); }
-
+    .doctor-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+    }
     .doc-header {
       display: flex;
-      gap: 16px;
+      padding: 25px;
+      gap: 20px;
       align-items: center;
     }
     .doc-header img {
-      width: 80px;
-      height: 80px;
-      border-radius: 16px;
+      width: 110px;
+      height: 110px;
+      border-radius: 20px;
       object-fit: cover;
       border: 4px solid var(--primary);
     }
-    .doc-info h3 { font-size: 17px; margin: 0 0 6px; }
+    .doc-info h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #2d3436;
+    }
     .specialty {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 6px 14px;
-      border-radius: 25px;
-      font-size: 13.5px;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 15px;
+      display: inline-block;
+      margin: 10px 0;
+    }
+    .rating {
+      color: #f1c40f;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .doc-footer {
+      background: linear-gradient(135deg, #f0fffe, #e6fffa);
+      padding: 20px;
+      text-align: center;
     }
     .call-btn {
-      margin-top: 12px;
-      padding: 12px;
+      padding: 16px 40px;
       background: var(--primary);
       color: white;
       border: none;
-      border-radius: 30px;
-      width: 100%;
-      font-size: 15.5px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
       cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+    .call-btn:hover {
+      background: var(--primary-dark);
+      transform: scale(1.05);
     }
 
-    /* Админ-панель — улучшена */
+    /* АДМИНКА */
     .admin-panel {
-      padding: 30px;
+      padding: 50px;
+    }
+    table {
+      width: 100%;
       background: white;
       border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.15);
     }
-    .stats {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-    .stat-card {
+    th {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 20px;
-      border-radius: 20px;
-      text-align: center;
-      min-width: 180px;
-      box-shadow: 0 8px 25px rgba(0,212,193,0.3);
+      padding: 25px;
+      font-size: 18px;
     }
-    .stat-card h3 { font-size: 32px; margin: 0; }
-    .stat-card p { margin: 8px 0 0; opacity: 0.9; }
+    td {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    tr:hover td { background: #f0fffe; }
 
-    @media (max-width: 480px) {
-      .container { margin: 0; border-radius: 0; height: 100vh; }
-      .header { padding: 14px 16px; font-size: 22px; }
-      .main { padding: 10px; }
-      .chat-window { padding: 16px; }
-      .input-area { padding: 12px; }
+    @keyframes msgIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: none; }
+    }
+    @media (max-width: 992px) {
+      .main { flex-direction: column; }
+      .doctors-section { order: -1; }
     }
   </style>
 </head>
@@ -251,27 +318,27 @@
 
 <div class="container">
 
-  <!-- АВТОРИЗАЦИЯ -->
+  <!-- ЭКРАН АВТОРИЗАЦИИ -->
   <div id="authScreen">
-    <div class="header"><div>SmartDoctor</div></div>
-    <div style="padding:50px 20px;text-align:center">
-      <div style="max-width:400px;margin:0 auto;background:white;padding:40px;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2)">
-        <h2 style="margin-bottom:30px;font-size:28px;color:var(--primary)">Вход / Регистрация</h2>
-        <input type="email" id="email" placeholder="Email" style="width:100%;padding:15px;margin:10px 0;border-radius:12px;border:2px solid #eee;font-size:16px"><br>
-        <input type="text" id="firstName" placeholder="Имя" style="width:100%;padding:15px;margin:10px 0;border-radius:12px;border:2px solid #eee;display:none"><br>
-        <input type="text" id="lastName" placeholder="Фамилия" style="width:100%;padding:15px;margin:10px 0;border-radius:12px;border:2px solid #eee;display:none"><br>
-        <input type="tel" id="phone" placeholder="Телефон (+992...)" style="width:100%;padding:15px;margin:10px 0;border-radius:12px;border:2px solid #eee;display:none"><br>
-        <input type="password" id="password" placeholder="Пароль" style="width:100%;padding:15px;margin:10px 0;border-radius:12px;border:2px solid #eee;font-size:16px"><br>
-        <button id="authBtn" style="width:100%;padding:16px;background:var(--primary);color:white;border:none;border-radius:12px;font-size:17px;margin-top:20px;cursor:pointer">Войти</button>
-        <div id="toggleLink" style="margin-top:20px;color:var(--primary);cursor:pointer;font-weight:500">Нет аккаунта? Зарегистрироваться</div>
-      </div>
+    <div class="header">
+      <div class="logo">SmartDoctor</div>
+    </div>
+    <div class="auth-box">
+      <h2 id="authTitle">Добро пожаловать</h2>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="firstName" placeholder="Имя" style="display:none;">
+      <input type="text" id="lastName" placeholder="Фамилия" style="display:none;">
+      <input type="tel" id="phone" placeholder="Телефон (+992...)" style="display:none;">
+      <input type="password" id="password" placeholder="Пароль" required>
+      <button id="authBtn">Войти</button>
+      <div class="link" id="toggleLink">Нет аккаунта? Зарегистрироваться</div>
     </div>
   </div>
 
   <!-- ПАЦИЕНТ -->
-  <div id="patientApp" style="display:none;height:100%;display:flex;flex-direction:column">
+  <div id="patientApp" style="display:none">
     <div class="header">
-      <div>SmartDoctor</div>
+      <div class="logo">SmartDoctor</div>
       <div>
         <span class="user-info" id="userName"></span>
         <button class="logout" id="logoutPatient">Выйти</button>
@@ -296,70 +363,46 @@
   </div>
 
   <!-- АДМИНКА -->
-  <div id="adminApp" style="display:none;height:100%;display:flex;flex-direction:column">
+  <div id="adminApp" style="display:none">
     <div class="header">
-      <div>Админ-панель SmartDoctor</div>
+      <div class="logo">Админ-панель</div>
       <div>
         <span class="user-info" id="adminName">Админ</span>
         <button class="logout" id="logoutAdmin">Выйти</button>
       </div>
     </div>
-    <div style="flex:1;overflow-y:auto;padding:20px">
-      <div class="admin-panel">
-        <div class="stats">
-          <div class="stat-card">
-            <h3 id="totalUsers">0</h3>
-            <p>Всего зарегистрировано</p>
-          </div>
-          <div class="stat-card">
-            <h3 id="activeUsers">0</h3>
-            <p>Были онлайн (всего)</p>
-          </div>
-          <div class="stat-card">
-            <h3>10</h3>
-            <p>Врачей в системе</p>
-          </div>
-        </div>
+    <div class="admin-panel">
+      <h2>Пользователи системы</h2>
+      <table id="usersTable">
+        <thead><tr><th>#</th><th>Email</th><th>Имя</th><th>Фамилия</th><th>Телефон</th><th>Роль</th></tr></thead>
+        <tbody></tbody>
+      </table>
 
-        <h2 style="margin:30px 0 20px">Все врачи</h2>
-        <table style="width:100%;background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.15)">
-          <thead style="background:var(--primary);color:white">
-            <tr>
-              <th style="padding:18px">Фото</th>
-              <th style="padding:18px">ФИО</th>
-              <th style="padding:18px">Специальность</th>
-              <th style="padding:18px">Рейтинг</th>
-              <th style="padding:18px">Клиника</th>
-              <th style="padding:18px">Телефон</th>
-            </tr>
-          </thead>
-          <tbody id="adminDoctorsTable"></tbody>
-        </table>
-
-        <h2 style="margin:50px 0 20px">Все пользователи</h2>
-        <table style="width:100%;background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.15)">
-          <thead style="background:var(--primary);color:white">
-            <tr><th>#</th><th>Email</th><th>Имя</th><th>Телефон</th><th>Роль</th></tr>
-          </thead>
-          <tbody id="usersTable"></tbody>
-        </table>
-      </div>
+      <h2 style="margin-top:60px;">Врачи (10)</h2>
+      <table id="doctorsTable">
+        <thead><tr><th>Фото</th><th>ФИО</th><th>Специальность</th><th>Рейтинг</th><th>Клиника</th><th>Телефон</th></tr></thead>
+        <tbody></tbody>
+      </table>
     </div>
   </div>
 </div>
 
 <datalist id="suggestions">
   <option value="Болит сердце">
-  <option value="Головная боль">
-  <option value="Болит живот">
-  <option value="Кашель">
-  <option value="Болит ухо">
+  <option value="Головная боль, мигрень">
+  <option value="Болит живот, тошнота">
+  <option value="Кашель, температура">
+  <option value="Болит ухо или горло">
   <option value="Проблемы с кожей">
   <option value="Болит зуб">
+  <option value="Беременность, женское здоровье">
+  <option value="Проблемы со зрением">
+  <option value="Ребёнок болеет">
   <option value="какой врач нужен?">
 </datalist>
 
 <script>
+  // 10 КРУТЫХ ВРАЧЕЙ
   const doctors = [
     {name:"Др. Алишер Каримов", spec:"Терапевт", rating:4.9, clinic:"Центральная клиника", address:"ул. Рудаки 12", phone:"+992 90 123 45 67", photo:"https://randomuser.me/api/portraits/men/32.jpg"},
     {name:"Др. Мадина Юсуфова", spec:"ЛОР-врач", rating:5.0, clinic:"МЦ Сомон", address:"пр. Сомони 23", phone:"+992 90 987 65 43", photo:"https://randomuser.me/api/portraits/women/44.jpg"},
@@ -374,11 +417,11 @@
   ];
 
   let users = JSON.parse(localStorage.getItem("sd_users")) || [
-    {email:"admin@smartdoctor.tj", password:"admin123", firstName:"Админ", lastName:"", phone:"", role:"admin", lastSeen: Date.now()}
+    {email:"admin@smartdoctor.tj", password:"admin123", firstName:"Админ", lastName:"Системы", phone:"", role:"admin"}
   ];
-
   let currentUser = null;
 
+  // DOM элементы
   const authScreen = document.getElementById('authScreen');
   const patientApp = document.getElementById('patientApp');
   const adminApp = document.getElementById('adminApp');
@@ -388,10 +431,11 @@
   let isLoginMode = true;
   document.getElementById('toggleLink').onclick = () => {
     isLoginMode = !isLoginMode;
-    ['firstName','lastName','phone'].forEach(id => {
-      document.getElementById(id).style.display = isLoginMode ? 'none' : 'block';
-    });
+    const fields = ['firstName','lastName','phone'];
+    fields.forEach(id => document.getElementById(id).style.display = isLoginMode ? 'none' : 'block');
+    document.getElementById('authTitle').textContent = isLoginMode ? "Добро пожаловать назад!" : "Создать аккаунт";
     document.getElementById('authBtn').textContent = isLoginMode ? "Войти" : "Зарегистрироваться";
+    document.getElementById('toggleLink').textContent = isLoginMode ? "Нет аккаунта? Зарегистрироваться" : "Уже есть аккаунт? Войти";
   };
 
   document.getElementById('authBtn').onclick = () => {
@@ -403,9 +447,7 @@
       const user = users.find(u => u.email === email && u.password === password);
       if (user) {
         currentUser = user;
-        user.lastSeen = Date.now(); // обновляем как был онлайн
         localStorage.setItem("sd_current", JSON.stringify(user));
-        localStorage.setItem("sd_users", JSON.stringify(users));
         showMainApp();
       } else alert("Неверный email или пароль");
     } else {
@@ -413,9 +455,9 @@
       const l = document.getElementById('lastName').value.trim();
       const p = document.getElementById('phone').value.trim();
       if (!f || !l || !p) return alert("Заполните все поля");
-      if (users.some(u => u.email === email)) return alert("Email уже занят");
-
-      const newUser = {email, password, firstName: f, lastName: l, phone: p, role: "patient", lastSeen: Date.now()};
+      if (users.some(u => u.email === email)) return alert("Этот email уже зарегистрирован");
+      
+      const newUser = {email, password, firstName: f, lastName: l, phone: p, role: "patient"};
       users.push(newUser);
       localStorage.setItem("sd_users", JSON.stringify(users));
       alert("Регистрация успешна! Теперь войдите");
@@ -426,51 +468,26 @@
   function showMainApp() {
     authScreen.style.display = 'none';
     if (currentUser.role === "admin") {
-      adminApp.style.display = 'flex';
+      adminApp.style.display = 'block';
       document.getElementById('adminName').textContent = currentUser.firstName;
-
-      // Статистика для админа
-      const total = users.length;
-      const active = users.filter(u => u.lastSeen).length;
-
-      document.getElementById('totalUsers').textContent = total;
-      document.getElementById('activeUsers').textContent = active;
-
-      // Все врачи — только для админа
-      const tbody = document.getElementById('adminDoctorsTable');
-      tbody.innerHTML = doctors.map((d,i) => `
-        <tr>
-          <td><img src="${d.photo}" width="60" style="border-radius:12px"></td>
-          <td><b>${d.name}</b></td>
-          <td>${d.spec}</td>
-          <td>★ ${d.rating}</td>
-          <td>${d.clinic}</td>
-          <td>${d.phone}</td>
-        </tr>
-      `).join('');
-
-      // Пользователи
-      document.getElementById('usersTable').innerHTML = users.map((u,i) => `
-        <tr>
-          <td>${i+1}</td>
-          <td>${u.email}</td>
-          <td>${u.firstName} ${u.lastName}</td>
-          <td>${u.phone || '-'}</td>
-          <td><span style="padding:6px 12px;background:${u.role==='admin'?'#ff4757':'#00d4c1'};color:white;border-radius:8px">${u.role === 'admin' ? 'Админ' : 'Пациент'}</span></td>
-        </tr>
-      `).join('');
-
+      renderAdminPanel();
     } else {
-      patientApp.style.display = 'flex';
-      document.getElementById('userName').textContent = currentUser.firstName + " " + (currentUser.lastName || "");
-      addMessage(`Здравствуйте, ${currentUser.firstName}! Чем могу помочь?`, 'ai');
+      patientApp.style.display = 'block';
+      document.getElementById('userName').textContent = currentUser.firstName + " " + currentUser.lastName;
+      addMessage("Здравствуйте, " + currentUser.firstName + "! Я ваш личный медицинский помощник. Напишите, что вас беспокоит — подберу лучшего врача!", "ai");
       renderDoctors(doctors);
     }
   }
 
-  // Остальной код чата, врачей и т.д. — остался без изменений
-  // (всё работает как раньше)
+  // Выход
+  document.querySelectorAll('.logout').forEach(btn => {
+    btn.onclick = () => {
+      localStorage.removeItem("sd_current");
+      location.reload();
+    }
+  });
 
+  // === ЧАТ ===
   function addMessage(text, sender) {
     const div = document.createElement('div');
     div.className = `message ${sender}`;
@@ -499,7 +516,7 @@
         const found = doctors.filter(d => d.spec.includes(map[keys]));
         if (found.length > 0) {
           const doc = found[Math.floor(Math.random() * found.length)];
-          return `Отличный врач по вашему запросу:\n\n<b>${doc.name}</b>\n${doc.spec} ★ ${doc.rating}\n${doc.clinic}\nТелефон: <b>${doc.phone}</b>\n${doc.address}`;
+          return `Отличный врач по вашему запросу:\n\n<b>${doc.name}</b>\n${doc.spec} ★ ${doc.rating}\n${doc.clinic}\nТелефон: <b>${doc.phone}</b>\n${doc.address}\n\nМогу записать на приём!`;
         }
       }
     }
@@ -512,13 +529,16 @@
     if (!text) return;
     addMessage(text, 'user');
     input.value = '';
-    setTimeout(() => addMessage(getDoctorResponse(text), 'ai'), 800);
+    setTimeout(() => {
+      addMessage(getDoctorResponse(text), 'ai');
+    }, 800);
   };
 
   document.getElementById('messageInput').addEventListener('keypress', e => {
     if (e.key === 'Enter') document.getElementById('sendBtn').click();
   });
 
+  // === СПИСОК ВРАЧЕЙ ===
   function renderDoctors(list) {
     const container = document.getElementById('doctorsContainer');
     container.innerHTML = '';
@@ -535,8 +555,8 @@
             </div>
           </div>
           <div class="doc-footer">
-            <div style="font-size:20px;margin-bottom:10px;">${doc.phone}</div>
-            <button class="call-btn" onclick="addMessage('Звоню ${doc.name}...', 'ai')">
+            <div style="font-size:20px; margin-bottom:10px;">${doc.phone}</div>
+            <button class="call-btn" onclick="addMessage('Звоню доктору ${doc.name}... ${doc.phone}', 'ai')">
               Позвонить сейчас
             </button>
           </div>
@@ -548,30 +568,47 @@
     const q = e.target.value.toLowerCase();
     const filtered = doctors.filter(d => 
       d.name.toLowerCase().includes(q) || 
-      d.spec.toLowerCase().includes(q)
+      d.spec.toLowerCase().includes(q) ||
+      d.clinic.toLowerCase().includes(q)
     );
     renderDoctors(q ? filtered : doctors);
   };
+
+  // === АДМИНКА ===
+  function renderAdminPanel() {
+    // пользователи
+    const ut = document.querySelector('#usersTable tbody');
+    ut.innerHTML = users.map((u,i) => `
+      <tr>
+        <td>${i+1}</td>
+        <td>${u.email}</td>
+        <td>${u.firstName}</td>
+        <td>${u.lastName}</td>
+        <td>${u.phone}</td>
+        <td><span style="padding:6px 12px; background:${u.role==='admin'?'#ff4757':'#00d4c1'}; color:white; border-radius:8px;">${u.role === 'admin' ? 'Админ' : 'Пациент'}</span></td>
+      </tr>
+    `).join('');
+
+    // врачи
+    document.querySelector('#doctorsTable tbody').innerHTML = doctors.map(d => `
+      <tr>
+        <td><img src="${d.photo}" width="70" style="border-radius:15px;"></td>
+        <td><b>${d.name}</b></td>
+        <td>${d.spec}</td>
+        <td>★ ${d.rating}</td>
+        <td>${d.clinic}</td>
+        <td>${d.phone}</td>
+      </tr>`).join('');
+  }
 
   // Автологин
   window.onload = () => {
     const saved = localStorage.getItem('sd_current');
     if (saved) {
       currentUser = JSON.parse(saved);
-      // обновляем lastSeen
-      users = users.map(u => u.email === currentUser.email ? {...u, lastSeen: Date.now()} : u);
-      localStorage.setItem("sd_users", JSON.stringify(users));
       showMainApp();
     }
   };
-
-  document.querySelectorAll('.logout').forEach(btn => {
-    btn.onclick = () => {
-      localStorage.removeItem("sd_current");
-      location.reload();
-    }
-  });
 </script>
 </body>
 </html>
-
