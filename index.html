@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- 1 -->
+  <!-- 2 -->
+  <!-- 3 -->
   <!-- Meta tags for proper rendering and responsiveness -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- 5 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <!-- 7 -->
   <title>SmartDoctor • Умный помощник здоровья</title>
-  
+  <!-- 9 -->
   <!-- Fonts and icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- 11 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
+  <!-- 13 -->
   <!-- Main styles -->
   <style>
+    /* 15 */
     /* Root variables for easy theming */
     :root {
       --primary: #00d4c1;
@@ -26,14 +33,15 @@
       --shadow: 0 20px 60px rgba(0,0,0,0.3);
       --transition: all 0.4s ease;
     }
-    
+    /* 30 */
     /* Reset and base styles */
     * { 
       margin: 0; 
       padding: 0; 
       box-sizing: border-box; 
+      touch-action: manipulation; 
     }
-    
+    /* 37 */
     body, html {
       font-family: 'Inter', sans-serif;
       background: var(--bg, var(--bg-light));
@@ -42,7 +50,7 @@
       overflow: hidden;
       transition: background 0.8s ease;
     }
-    
+    /* 45 */
     /* Main container */
     .container {
       width: 100%;
@@ -56,7 +64,7 @@
       display: flex;
       flex-direction: column;
     }
-    
+    /* 57 */
     /* Auth screen styles */
     #authScreen {
       flex: 1;
@@ -64,11 +72,11 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 30px;
+      padding: 20px;
       position: relative;
-      overflows: hidden;
+      overflow: hidden;
     }
-    
+    /* 67 */
     #authScreen::before {
       content: '';
       position: absolute;
@@ -81,11 +89,11 @@
       animation: rotate 20s linear infinite;
       pointer-events: none;
     }
-    
+    /* 79 */
     @keyframes rotate {
       100% { transform: rotate(360deg); }
     }
-    
+    /* 82 */
     .auth-content {
       position: relative;
       z-index: 2;
@@ -93,19 +101,19 @@
       max-width: 420px;
       width: 100%;
     }
-    
+    /* 89 */
     .auth-icon {
       font-size: 80px;
       color: var(--primary);
       margin-bottom: 20px;
       animation: float 4s ease-in-out infinite;
     }
-    
+    /* 95 */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
-    
+    /* 99 */
     .auth-logo {
       font-size: 48px;
       font-weight: 800;
@@ -114,24 +122,24 @@
       -webkit-text-fill-color: transparent;
       margin-bottom: 16px;
     }
-    
+    /* 107 */
     .auth-subtitle {
       font-size: 18px;
       color: #555;
       margin-bottom: 40px;
       opacity: 0.9;
     }
-    
+    /* 113 */
     .auth-box {
-      background: var(--card);
-      padding: 40px 35px;
+      background: white;
+      padding: 45px 35px 70px 35px;
       border-radius: 28px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
-      max-height: 85vh;
-      overflow-y: auto;
+      width: 100%;
+      max-width: 420px;
     }
-    
+    /* 122 */
     .auth-box h2 {
       font-size: 28px;
       margin-bottom: 30px;
@@ -140,59 +148,56 @@
       -webkit-text-fill-color: transparent;
       text-align: center;
     }
-    
+    /* 130 */
     .auth-box input {
       width: 100%;
-      padding: 16px 20px;
-      margin: 12px 0;
-      border: 2px solid var(--border);
-      background: var(--input-bg);
-      color: var(--text);
+      padding: 18px 20px;
+      margin: 14px 0;
+      border: 2px solid #eee;
       border-radius: 16px;
-      font-size: 16px;
-      transition: var(--transition);
+      font-size: 17px;
+      transition: all 0.3s;
     }
-    
+    /* 139 */
     .auth-box input:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 5px rgba(0,212,193,0.2);
-      transform: scale(1.02);
     }
-    
+    /* 144 */
     .auth-box button {
       width: 100%;
-      padding: 18px;
+      padding: 20px;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
       border: none;
       border-radius: 16px;
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 700;
       cursor: pointer;
-      margin-top: 20px;
-      transition: var(--transition);
+      margin-top: 25px;
+      transition: 0.4s;
       box-shadow: 0 8px 25px rgba(0,212,193,0.3);
     }
-    
+    /* 157 */
     .auth-box button:hover {
       transform: translateY(-4px);
       box-shadow: 0 15px 35px rgba(0,212,193,0.4);
     }
-    
+    /* 161 */
     .toggle-link {
-      margin-top: 24px;
+      margin-top: 28px;
       color: var(--primary);
       font-weight: 600;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 17px;
       transition: 0.3s;
     }
-    
+    /* 169 */
     .toggle-link:hover {
       text-decoration: underline;
     }
-    
+    /* 172 */
     /* Header styles */
     .header {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -205,18 +210,18 @@
       gap: 10px;
       flex-shrink: 0;
     }
-    
+    /* 183 */
     .header-left { 
       display: flex; 
       align-items: center; 
       gap: 12px; 
     }
-    
+    /* 188 */
     .logo { 
       font-size: 28px; 
       color: white; 
     }
-    
+    /* 192 */
     .header-right { 
       display: flex; 
       align-items: center; 
@@ -224,7 +229,7 @@
       flex-wrap: wrap; 
       justify-content: flex-end; 
     }
-    
+    /* 199 */
     .user-info { 
       display: flex; 
       align-items: center; 
@@ -236,7 +241,7 @@
       font-size: 14px; 
       backdrop-filter: blur(10px); 
     }
-    
+    /* 210 */
     .user-avatar { 
       width: 36px; 
       height: 36px; 
@@ -245,11 +250,11 @@
       border: 2px solid white; 
       transition: var(--transition); 
     }
-    
+    /* 218 */
     .user-avatar:hover { 
       transform: scale(1.1); 
     }
-    
+    /* 221 */
     .logout, .settings-btn { 
       background: rgba(255,255,255,0.2); 
       border: none; 
@@ -261,12 +266,12 @@
       font-size: 14px; 
       transition: var(--transition); 
     }
-    
+    /* 232 */
     .logout:hover, .settings-btn:hover { 
       background: rgba(255,255,255,0.3); 
       transform: translateY(-2px); 
     }
-    
+    /* 236 */
     /* Modal styles */
     .modal {
       display: none;
@@ -277,448 +282,465 @@
       align-items: center;
       justify-content: center;
     }
-    
+    /* 246 */
     .modal.open { 
       display: flex; 
     }
-    
+    /* 249 */
     .modal-content {
-      background: var(--card);
+      background: white;
       padding: 30px;
       border-radius: 24px;
       width: 90%;
       max-width: 550px;
       box-shadow: var(--shadow);
       text-align: center;
-      color: var(--text);
       max-height: 90vh;
       overflow-y: auto;
     }
-    
+    /* 260 */
     .modal h3 { 
       margin-bottom: 25px; 
       font-size: 26px; 
       font-weight: 700; 
       color: var(--primary); 
     }
-    
-    .settings-section {
-      margin-bottom: 35px;
-      text-align: left;
-      padding: 20px;
-      background: rgba(0,212,193,0.05);
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    /* 266 */
+    .settings-section { 
+      margin-bottom: 35px; 
+      padding: 20px; 
+      background: rgba(0,212,193,0.05); 
+      border-radius: 16px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
     }
-    
-    .settings-section h4 {
-      font-size: 20px;
-      margin-bottom: 18px;
-      color: var(--primary);
-      font-weight: 600;
-      text-align: center;
+    /* 273 */
+    .settings-section h4 { 
+      font-size: 20px; 
+      margin-bottom: 18px; 
+      color: var(--primary); 
+      font-weight: 600; 
+      text-align: center; 
     }
-    
-    .current-avatar-preview {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--primary);
-      margin: 20px auto;
-      box-shadow: 0 8px 25px rgba(0,212,193,0.3);
+    /* 280 */
+    .current-avatar-preview { 
+      width: 120px; 
+      height: 120px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      border: 4px solid var(--primary); 
+      margin: 20px auto; 
+      box-shadow: 0 8px 25px rgba(0,212,193,0.3); 
     }
-    
-    .bg-options, .avatar-options {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+    /* 289 */
+    .language-selector { 
+      display: flex; 
+      justify-content: center; 
+      gap: 15px; 
+      margin-bottom: 20px; 
     }
-    
-    .bg-option, .avatar-option {
-      height: 110px;
-      border-radius: 16px;
-      cursor: pointer;
-      border: 4px solid transparent;
-      transition: var(--transition);
-      background-size: cover;
-      background-position: center;
+    /* 295 */
+    .lang-flag { 
+      font-size: 32px; 
+      cursor: pointer; 
+      transition: 0.3s; 
+      opacity: 0.6; 
     }
-    
-    .bg-option.active, .avatar-option.active {
-      border-color: var(--primary);
-      transform: scale(1.08);
-      box-shadow: 0 10px 30px rgba(0,212,193,0.4);
+    /* 301 */
+    .lang-flag.active { 
+      opacity: 1; 
+      transform: scale(1.2); 
     }
-    
-    .avatar-option {
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-color: #f0f8ff;
+    /* 305 */
+    .bg-options, .avatar-options { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 15px; 
     }
-    
-    .modal-buttons {
-      display: flex;
-      gap: 15px;
-      margin-top: 30px;
+    /* 310 */
+    .bg-option, .avatar-option { 
+      height: 110px; 
+      border-radius: 16px; 
+      cursor: pointer; 
+      border: 4px solid transparent; 
+      transition: var(--transition); 
+      background-size: cover; 
+      background-position: center; 
     }
-    
-    .modal-btn {
-      flex: 1;
-      padding: 14px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 16px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: var(--transition);
+    /* 319 */
+    .bg-option.active, .avatar-option.active { 
+      border-color: var(--primary); 
+      transform: scale(1.08); 
+      box-shadow: 0 10px 30px rgba(0,212,193,0.4); 
     }
-    
-    .modal-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
+    /* 324 */
+    .avatar-option { 
+      background-size: contain; 
+      background-repeat: no-repeat; 
+      background-color: #f0f8ff; 
     }
-    
-    .modal-btn.secondary {
-      background: #95a5a6;
+    /* 329 */
+    .modal-buttons { 
+      display: flex; 
+      gap: 15px; 
+      margin-top: 30px; 
     }
-    
+    /* 334 */
+    .modal-btn { 
+      flex: 1; 
+      padding: 14px; 
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      border-radius: 16px; 
+      font-size: 16px; 
+      cursor: pointer; 
+      transition: var(--transition); 
+    }
+    /* 345 */
+    .modal-btn:hover { 
+      background: var(--primary-dark); 
+      transform: translateY(-3px); 
+    }
+    /* 349 */
+    .modal-btn.secondary { 
+      background: #95a5a6; 
+    }
+    /* 352 */
     /* Main layout */
-    .main {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-      position: relative;
+    .main { 
+      display: flex; 
+      flex: 1; 
+      overflow: hidden; 
+      position: relative; 
     }
-    
-    .chat-section {
-      flex: 1;
-      background: var(--light);
-      display: flex;
-      flex-direction: column;
+    /* 359 */
+    .chat-section { 
+      flex: 1; 
+      background: var(--light); 
+      display: flex; 
+      flex-direction: column; 
     }
-    
-    .chat-controls {
-      display: flex;
-      gap: 10px;
-      padding: 12px 20px;
-      justify-content: flex-end;
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
+    /* 365 */
+    .chat-controls { 
+      display: flex; 
+      gap: 10px; 
+      padding: 12px 20px; 
+      justify-content: flex-end; 
+      background: var(--card); 
+      border-bottom: 1px solid var(--border); 
+      flex-wrap: wrap; 
     }
-    
-    .chat-btn {
-      padding: 10px 18px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 25px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(0,212,193,0.2);
+    /* 374 */
+    .chat-btn { 
+      padding: 10px 18px; 
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      border-radius: 25px; 
+      font-size: 14px; 
+      cursor: pointer; 
+      transition: var(--transition); 
+      box-shadow: 0 4px 15px rgba(0,212,193,0.2); 
     }
-    
-    .chat-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
+    /* 385 */
+    .chat-btn:hover { 
+      background: var(--primary-dark); 
+      transform: translateY(-2px); 
     }
-    
-    .chat-window {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      justify-content: flex-end;
+    /* 389 */
+    .chat-window { 
+      flex: 1; 
+      padding: 20px; 
+      overflow-y: auto; 
+      display: flex; 
+      flex-direction: column; 
+      gap: 16px; 
+      justify-content: flex-end; 
     }
-    
-    .message {
-      max-width: 75%;
-      padding: 14px 20px;
-      border-radius: 20px;
-      line-height: 1.6;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      word-wrap: break-word;
-      font-size: 15.5px;
-      animation: msgIn 0.5s ease-out;
+    /* 398 */
+    .message { 
+      max-width: 75%; 
+      padding: 14px 20px; 
+      border-radius: 20px; 
+      line-height: 1.6; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+      word-wrap: break-word; 
+      font-size: 15.5px; 
+      animation: msgIn 0.5s ease-out; 
     }
-    
-    @keyframes msgIn {
-      from { opacity: 0; transform: translateY(30px) scale(0.9); }
-      to { opacity: 1; transform: none; }
+    /* 408 */
+    @keyframes msgIn { 
+      from { opacity: 0; transform: translateY(30px) scale(0.9); } 
+      to { opacity: 1; transform: none; } 
     }
-    
-    .message.user {
-      align-self: flex-end;
-      background: var(--primary);
-      color: white;
-      border-bottom-right-radius: 6px;
+    /* 412 */
+    .message.user { 
+      align-self: flex-end; 
+      background: var(--primary); 
+      color: white; 
+      border-bottom-right-radius: 6px; 
     }
-    
-    .message.ai {
-      align-self: flex-start;
-      background: var(--card);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-bottom-left-radius: 6px;
+    /* 418 */
+    .message.ai { 
+      align-self: flex-start; 
+      background: var(--card); 
+      color: var(--text); 
+      border: 1px solid var(--border); 
+      border-bottom-left-radius: 6px; 
     }
-    
-    .typing-indicator {
-      align-self: flex-start;
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 14px 20px;
-      border-radius: 20px;
-      border-bottom-left-radius: 6px;
-      font-style: italic;
-      color: #888;
+    /* 425 */
+    .typing-indicator { 
+      align-self: flex-start; 
+      background: var(--card); 
+      border: 1px solid var(--border); 
+      padding: 14px 20px; 
+      border-radius: 20px; 
+      border-bottom-left-radius: 6px; 
+      font-style: italic; 
+      color: #888; 
     }
-    
-    .input-area {
-      padding: 14px 18px;
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      flex-shrink: 0;
+    /* 435 */
+    .input-area { 
+      padding: 14px 18px; 
+      background: var(--card); 
+      border-top: 1px solid var(--border); 
+      display: flex; 
+      gap: 14px; 
+      align-items: center; 
+      flex-shrink: 0; 
     }
-    
-    .input-area input {
-      flex: 1;
-      padding: 16px 22px;
-      border: 2px solid var(--border);
-      background: var(--input-bg);
-      color: var(--text);
-      border-radius: 50px;
-      font-size: 16px;
+    /* 444 */
+    .input-area input { 
+      flex: 1; 
+      padding: 16px 22px; 
+      border: 2px solid var(--border); 
+      background: var(--input-bg); 
+      color: var(--text); 
+      border-radius: 50px; 
+      font-size: 16px; 
     }
-    
-    .input-area button {
-      width: 52px;
-      height: 52px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 22px;
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 6px 20px rgba(0,212,193,0.3);
+    /* 453 */
+    .input-area button { 
+      width: 52px; 
+      height: 52px; 
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      border-radius: 50%; 
+      font-size: 22px; 
+      cursor: pointer; 
+      transition: var(--transition); 
+      box-shadow: 0 6px 20px rgba(0,212,193,0.3); 
     }
-    
-    .input-area button:hover {
-      transform: scale(1.1);
+    /* 464 */
+    .input-area button:hover { 
+      transform: scale(1.1); 
     }
-    
+    /* 467 */
     /* Doctors section */
-    .doctors-section {
-      background: var(--card);
-      padding: 20px;
-      overflow-y: auto;
-      width: 380px;
-      border-left: 1px solid var(--border);
-      flex-shrink: 0;
-      transition: transform 0.4s ease;
+    .doctors-section { 
+      background: var(--card); 
+      padding: 20px; 
+      overflow-y: auto; 
+      width: 380px; 
+      border-left: 1px solid var(--border); 
+      flex-shrink: 0; 
+      transition: transform 0.4s ease; 
     }
-    
-    .doctors-toggle {
-      display: none;
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 26px;
-      box-shadow: 0 10px 30px rgba(0,212,193,0.5);
-      cursor: pointer;
-      z-index: 100;
-      transition: var(--transition);
+    /* 476 */
+    .doctors-toggle { 
+      display: none; 
+      position: fixed; 
+      bottom: 90px; 
+      right: 20px; 
+      width: 60px; 
+      height: 60px; 
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      border-radius: 50%; 
+      font-size: 26px; 
+      box-shadow: 0 10px 30px rgba(0,212,193,0.5); 
+      cursor: pointer; 
+      z-index: 100; 
+      transition: var(--transition); 
     }
-    
-    .doctors-toggle:hover {
-      transform: scale(1.15);
+    /* 494 */
+    .doctors-toggle:hover { 
+      transform: scale(1.15); 
     }
-    
-    .search-box {
-      margin-bottom: 20px;
-      position: relative;
+    /* 497 */
+    .search-box { 
+      margin-bottom: 20px; 
+      position: relative; 
     }
-    
-    .search-box input {
-      width: 100%;
-      padding: 16px 50px 16px 22px;
-      border: 2px solid var(--border);
-      background: var(--input-bg);
-      color: var(--text);
-      border-radius: 50px;
-      font-size: 16px;
+    /* 501 */
+    .search-box input { 
+      width: 100%; 
+      padding: 16px 50px 16px 22px; 
+      border: 2px solid var(--border); 
+      background: var(--input-bg); 
+      color: var(--text); 
+      border-radius: 50px; 
+      font-size: 16px; 
     }
-    
-    .search-box i {
-      position: absolute;
-      right: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #aaa;
-      font-size: 20px;
+    /* 510 */
+    .search-box i { 
+      position: absolute; 
+      right: 18px; 
+      top: 50%; 
+      transform: translateY(-50%); 
+      color: #aaa; 
+      font-size: 20px; 
     }
-    
-    .doctor-card {
-      background: var(--card);
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-      transition: var(--transition);
+    /* 518 */
+    .doctor-card { 
+      background: var(--card); 
+      border-radius: 20px; 
+      overflow: hidden; 
+      margin-bottom: 18px; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12); 
+      transition: var(--transition); 
     }
-    
-    .doctor-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    /* 526 */
+    .doctor-card:hover { 
+      transform: translateY(-8px); 
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
     }
-    
-    .doc-header {
-      display: flex;
-      padding: 18px;
-      gap: 16px;
-      align-items: center;
+    /* 530 */
+    .doc-header { 
+      display: flex; 
+      padding: 18px; 
+      gap: 16px; 
+      align-items: center; 
     }
-    
-    .doc-header img {
-      width: 75px;
-      height: 75px;
-      border-radius: 16px;
-      object-fit: cover;
-      border: 4px solid var(--primary);
-      transition: var(--transition);
+    /* 536 */
+    .doc-header img { 
+      width: 75px; 
+      height: 75px; 
+      border-radius: 16px; 
+      object-fit: cover; 
+      border: 4px solid var(--primary); 
+      transition: var(--transition); 
     }
-    
-    .doc-header img:hover {
-      transform: scale(1.05);
+    /* 544 */
+    .doc-header img:hover { 
+      transform: scale(1.05); 
     }
-    
-    .doc-info h3 {
-      font-size: 17px;
-      margin-bottom: 6px;
-      color: var(--text);
-      font-weight: 600;
+    /* 547 */
+    .doc-info h3 { 
+      font-size: 17px; 
+      margin-bottom: 6px; 
+      color: var(--text); 
+      font-weight: 600; 
     }
-    
-    .specialty {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 14px;
+    /* 553 */
+    .specialty { 
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+      color: white; 
+      padding: 8px 16px; 
+      border-radius: 30px; 
+      font-size: 14px; 
     }
-    
-    .rating {
-      color: #f1c40f;
-      font-size: 17px;
-      font-weight: bold;
-      margin: 8px 0;
+    /* 560 */
+    .rating { 
+      color: #f1c40f; 
+      font-size: 17px; 
+      font-weight: bold; 
+      margin: 8px 0; 
     }
-    
-    .doc-footer {
-      background: linear-gradient(135deg, #f0fffe, #e6fffa);
-      padding: 18px;
-      text-align: center;
+    /* 566 */
+    .doc-footer { 
+      background: linear-gradient(135deg, #f0fffe, #e6fffa); 
+      padding: 18px; 
+      text-align: center; 
     }
-    
-    .call-btn, .book-btn {
-      padding: 14px 32px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      text-decoration: none;
-      display: block;
-      margin-top: 10px;
-      transition: var(--transition);
+    /* 571 */
+    .call-btn, .book-btn { 
+      padding: 14px 32px; 
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      border-radius: 50px; 
+      font-size: 16px; 
+      font-weight: 700; 
+      cursor: pointer; 
+      width: 100%; 
+      text-decoration: none; 
+      display: block; 
+      margin-top: 10px; 
+      transition: var(--transition); 
     }
-    
-    .book-btn {
-      background: #667eea;
+    /* 586 */
+    .book-btn { 
+      background: #667eea; 
     }
-    
-    .call-btn:hover, .book-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    /* 589 */
+    .call-btn:hover, .book-btn:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
     }
-    
+    /* 593 */
     /* Admin panel */
-    .admin-panel {
-      padding: 35px;
-      flex: 1;
-      overflow-y: auto;
+    .admin-panel { 
+      padding: 35px; 
+      flex: 1; 
+      overflow-y: auto; 
     }
-    
-    table {
-      width: 100%;
-      background: var(--card);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
+    /* 599 */
+    table { 
+      width: 100%; 
+      background: var(--card); 
+      border-radius: 20px; 
+      overflow: hidden; 
+      box-shadow: var(--shadow); 
     }
-    
-    th {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      padding: 22px;
-      font-size: 17px;
+    /* 606 */
+    th { 
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
+      color: white; 
+      padding: 22px; 
+      font-size: 17px; 
     }
-    
-    td {
-      padding: 18px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text);
+    /* 612 */
+    td { 
+      padding: 18px; 
+      border-bottom: 1px solid var(--border); 
+      color: var(--text); 
     }
-    
-    tr:hover td {
-      background: #f0fffe;
-      transition: 0.3s;
+    /* 617 */
+    tr:hover td { 
+      background: #f0fffe; 
+      transition: 0.3s; 
     }
-    
-    #topSymptoms {
-      margin: 30px 0;
-      padding: 25px;
-      background: var(--card);
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    /* 621 */
+    #topSymptoms { 
+      margin: 30px 0; 
+      padding: 25px; 
+      background: var(--card); 
+      border-radius: 18px; 
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08); 
     }
-    
-    #topSymptoms ul {
-      list-style: none;
+    /* 628 */
+    #topSymptoms ul { 
+      list-style: none; 
     }
-    
-    #topSymptoms li {
-      padding: 14px;
-      background: rgba(0,212,193,0.12);
-      margin: 10px 0;
-      border-radius: 14px;
-      font-size: 16px;
+    /* 631 */
+    #topSymptoms li { 
+      padding: 14px; 
+      background: rgba(0,212,193,0.12); 
+      margin: 10px 0; 
+      border-radius: 14px; 
+      font-size: 16px; 
     }
-    
+    /* 638 */
     /* Media queries for responsiveness */
     @media (min-width: 992px) {
       .main { flex-direction: row; }
       .chat-section { flex: 2.5; }
       .doctors-toggle { display: none !important; }
     }
-    
+    /* 644 */
     @media (max-width: 991px) {
       .doctors-section {
         position: fixed;
@@ -734,185 +756,485 @@
       .doctors-section.open { transform: translateX(0); }
       .doctors-toggle { display: block; }
     }
-    
+    /* 658 */
     @media (max-width: 480px) {
       .auth-logo { font-size: 40px; }
       .auth-icon { font-size: 70px; }
-      .auth-box { padding: 35px 25px; }
-      .bg-options, .avatar-options { grid-template-columns: repeat(2, 1fr); }
+      .auth-box { padding: 40px 25px 80px 25px; }
       .modal-content { padding: 20px; }
     }
+    /* 664 */
   </style>
 </head>
 <body>
+  <!-- 666 -->
   <!-- Main container -->
   <div class="container">
+    <!-- 668 -->
     <!-- Auth screen -->
     <div id="authScreen">
+      <!-- 670 -->
       <div class="auth-content">
+        <!-- 671 -->
         <div class="auth-icon"><i class="fas fa-heartbeat"></i></div>
-        <div class="auth-logo">SmartDoctor</div>
-        <p class="auth-subtitle">Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно</p>
+        <!-- 672 -->
+        <div class="auth-logo" data-tr="SmartDoctor">SmartDoctor</div>
+        <!-- 673 -->
+        <p class="auth-subtitle" data-tr="Ваш умный помощник по здоровью <br>Всегда рядом, когда нужно">Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно</p>
+        <!-- 674 -->
         <div class="auth-box">
-          <h2 id="authTitle">Добро пожаловать</h2>
+          <!-- 675 -->
+          <h2 id="authTitle" data-tr="Добро пожаловать">Добро пожаловать</h2>
+          <!-- 676 -->
           <input type="email" id="email" placeholder="Email" required>
+          <!-- 677 -->
           <input type="text" id="firstName" placeholder="Имя" style="display:none;">
+          <!-- 678 -->
           <input type="text" id="lastName" placeholder="Фамилия" style="display:none;">
+          
+          <!-- 679 -->
           <input type="tel" id="phone" placeholder="Телефон (+992...)" style="display:none;">
+          <!-- 680 -->
           <input type="password" id="password" placeholder="Пароль" required>
-          <button id="authBtn">Войти</button>
-          <div class="toggle-link" id="toggleLink">Нет аккаунта? Зарегистрироваться</div>
+          <!-- 681 -->
+          <button id="authBtn" data-tr="Войти">Войти</button>
+          <!-- 682 -->
+          <div class="toggle-link" id="toggleLink" data-tr="Нет аккаунта? Зарегистрироваться">Нет аккаунта? Зарегистрироваться</div>
+          <!-- 683 -->
         </div>
+        <!-- 684 -->
       </div>
+      <!-- 685 -->
     </div>
 
     <!-- Patient app -->
     <div id="patientApp" style="display:none; flex-direction:column; height:100%;">
+      <!-- 687 -->
       <div class="header">
+        <!-- 688 -->
         <div class="header-left">
-          <div class="logo">SmartDoctor</div>
+          <!-- 689 -->
+          <div class="logo" data-tr="SmartDoctor">SmartDoctor</div>
+          <!-- 690 -->
         </div>
+        <!-- 691 -->
         <div class="header-right">
+          <!-- 692 -->
           <div class="user-info">
+            <!-- 693 -->
             <img class="user-avatar" id="userAvatar" src="https://randomuser.me/api/portraits/men/1.jpg">
+            <!-- 694 -->
             <span id="userName"></span>
+            <!-- 695 -->
           </div>
+          <!-- 696 -->
           <button class="settings-btn" id="settingsBtn"><i class="fas fa-cog"></i></button>
-          <button class="logout" id="logoutPatient">Выйти</button>
+          <!-- 697 -->
+          <button class="logout" id="logoutPatient" data-tr="Выйти">Выйти</button>
+          <!-- 698 -->
         </div>
+        <!-- 699 -->
       </div>
+      <!-- 700 -->
       <div class="main">
+        <!-- 701 -->
         <div class="chat-section">
+          <!-- 702 -->
           <div class="chat-controls">
-            <button class="chat-btn" id="clearChat">Очистить чат</button>
-            <button class="chat-btn" id="exportChat">Сохранить переписку</button>
+            <!-- 703 -->
+            <button class="chat-btn" id="clearChat" data-tr="Очистить чат">Очистить чат</button>
+            <!-- 704 -->
+            <button class="chat-btn" id="exportChat" data-tr="Сохранить переписку">Сохранить переписку</button>
+            <!-- 705 -->
           </div>
+          <!-- 706 -->
           <div class="chat-window" id="chat"></div>
+          <!-- 707 -->
           <div class="input-area">
+            <!-- 708 -->
             <input type="text" id="messageInput" placeholder="Напишите, что вас беспокоит..." list="suggestions">
+            <!-- 709 -->
             <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+            <!-- 710 -->
           </div>
+          <!-- 711 -->
         </div>
+        <!-- 712 -->
         <div class="doctors-section" id="doctorsSection">
+          <!-- 713 -->
           <div class="search-box">
+            <!-- 714 -->
             <input type="text" id="searchInput" placeholder="Поиск врача или симптома...">
+            <!-- 715 -->
             <i class="fas fa-search"></i>
+            <!-- 716 -->
           </div>
+          <!-- 717 -->
           <div id="doctorsContainer"></div>
+          <!-- 718 -->
         </div>
+        <!-- 719 -->
         <button class="doctors-toggle" id="doctorsToggle"><i class="fas fa-user-md"></i></button>
+        <!-- 720 -->
       </div>
+      <!-- 721 -->
     </div>
 
     <!-- Admin app -->
     <div id="adminApp" style="display:none; flex-direction:column; height:100%;">
+      <!-- 723 -->
       <div class="header">
+        <!-- 724 -->
         <div class="header-left">
-          <div class="logo">Админ-панель</div>
+          <!-- 725 -->
+          <div class="logo" data-tr="Админ-панель">Админ-панель</div>
+          <!-- 726 -->
         </div>
+        <!-- 727 -->
         <div class="header-right">
+          <!-- 728 -->
           <span class="user-info" id="adminName">Админ</span>
+          <!-- 729 -->
           <button class="settings-btn" id="adminSettingsBtn"><i class="fas fa-cog"></i></button>
-          <button class="logout" id="logoutAdmin">Выйти</button>
+          <!-- 730 -->
+          <button class="logout" id="logoutAdmin" data-tr="Выйти">Выйти</button>
+          <!-- 731 -->
         </div>
+        <!-- 732 -->
       </div>
+      <!-- 733 -->
       <div class="admin-panel">
-        <h2>Пользователи системы</h2>
+        <!-- 734 -->
+        <h2 data-tr="Пользователи системы">Пользователи системы</h2>
+        <!-- 735 -->
         <table id="usersTable">
-          <thead><tr><th>#</th><th>Email</th><th>Имя</th><th>Фамилия</th><th>Телефон</th><th>Устройство</th><th>Роль</th></tr></thead>
+          <!-- 736 -->
+          <thead><tr><th>#</th><th>Email</th><th data-tr="Имя">Имя</th><th data-tr="Фамилия">Фамилия</th><th data-tr="Телефон">Телефон</th><th data-tr="Устройство">Устройство</th><th data-tr="Роль">Роль</th></tr></thead>
+          <!-- 737 -->
           <tbody></tbody>
+          <!-- 738 -->
         </table>
-        <h2 style="margin-top:50px;">Топ-5 популярных симптомов</h2>
-        <div id="topSymptoms"><p>Загрузка статистики...</p></div>
-        <h2 style="margin-top:50px;">Врачи в системе (10)</h2>
+        <!-- 739 -->
+        <h2 style="margin-top:50px;" data-tr="Топ-5 популярных симптомов">Топ-5 популярных симптомов</h2>
+        <!-- 740 -->
+        <div id="topSymptoms"><p data-tr="Загрузка статистики...">Загрузка статистики...</p></div>
+        <!-- 741 -->
+        <h2 style="margin-top:50px;" data-tr="Врачи в системе (10)">Врачи в системе (10)</h2>
+        <!-- 742 -->
         <table id="doctorsTable">
-          <thead><tr><th>Фото</th><th>ФИО</th><th>Специальность</th><th>Рейтинг</th><th>Клиника</th><th>Телефон</th></tr></thead>
+          <!-- 743 -->
+          <thead><tr><th data-tr="Фото">Фото</th><th data-tr="ФИО">ФИО</th><th data-tr="Специальность">Специальность</th><th data-tr="Рейтинг">Рейтинг</th><th data-tr="Клиника">Клиника</th><th data-tr="Телефон">Телефон</th></tr></thead>
+          <!-- 744 -->
           <tbody></tbody>
+          <!-- 745 -->
         </table>
+        <!-- 746 -->
       </div>
+      <!-- 747 -->
     </div>
+    <!-- 748 -->
   </div>
 
   <!-- Settings modal -->
   <div class="modal" id="settingsModal">
+    <!-- 750 -->
     <div class="modal-content">
-      <h3>Настройки приложения</h3>
-      
+      <!-- 751 -->
+      <h3 data-tr="Настройки приложения">Настройки приложения</h3>
+      <!-- 752 -->
+
       <div class="settings-section">
-        <h4>Фон приложения</h4>
-        <div class="bg-options">
-          <div class="bg-option active" data-bg="linear-gradient(135deg, #1b38bb 0%, #1249c0 100%)"></div>
-          <div class="bg-option" data-bg="linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"></div>
-          <div class="bg-option" data-bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
-          <div class="bg-option" data-bg="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"></div>
-          <div class="bg-option" data-bg="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"></div>
-          <div class="bg-option" data-bg="url('https://images.unsplash.com/photo-1557682257-2f9c36a3a7e9?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat"></div>
+        <!-- 754 -->
+        <h4 data-tr="Язык">Язык</h4>
+        <!-- 755 -->
+        <div class="language-selector">
+          <!-- 756 -->
+          <span class="lang-flag active" data-lang="ru">🇷🇺</span>
+          <!-- 757 -->
+          <span class="lang-flag" data-lang="en">🇺🇸</span>
+          <!-- 758 -->
+          <span class="lang-flag" data-lang="tj">🇹🇯</span>
+          <!-- 759 -->
         </div>
+        <!-- 760 -->
       </div>
 
       <div class="settings-section">
-        <h4>Ваш аватар</h4>
-        <img class="current-avatar-preview" id="currentAvatarPreview" src="https://randomuser.me/api/portraits/men/1.jpg">
-        <div class="avatar-options">
-          <div class="avatar-option active" data-avatar="https://randomuser.me/api/portraits/men/1.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/1.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/2.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/2.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/3.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/3.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/4.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/4.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/5.jpg"></div>
-          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/5.jpg"></div>
+        <!-- 762 -->
+        <h4 data-tr="Фон приложения">Фон приложения</h4>
+        <!-- 763 -->
+        <div class="bg-options">
+          <!-- 764 -->
+          <div class="bg-option active" data-bg="linear-gradient(135deg, #1b38bb 0%, #1249c0 100%)"></div>
+          <!-- 765 -->
+          <div class="bg-option" data-bg="linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"></div>
+          <!-- 766 -->
+          <div class="bg-option" data-bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
+          <!-- 767 -->
+          <div class="bg-option" data-bg="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"></div>
+          <!-- 768 -->
+          <div class="bg-option" data-bg="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"></div>
+          <!-- 769 -->
+          <div class="bg-option" data-bg="url('https://images.unsplash.com/photo-1557682257-2f9c36a3a7e9?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat"></div>
+          <!-- 770 -->
         </div>
+        <!-- 771 -->
+      </div>
+
+      <div class="settings-section">
+        <!-- 773 -->
+        <h4 data-tr="Ваш аватар">Ваш аватар</h4>
+        <!-- 774 -->
+        <img class="current-avatar-preview" id="currentAvatarPreview" src="https://randomuser.me/api/portraits/men/1.jpg">
+        <!-- 775 -->
+        <div class="avatar-options">
+          <!-- 776 -->
+          <div class="avatar-option active" data-avatar="https://randomuser.me/api/portraits/men/1.jpg"></div>
+          <!-- 777 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/1.jpg"></div>
+          <!-- 778 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/2.jpg"></div>
+          <!-- 779 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/2.jpg"></div>
+          <!-- 780 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/3.jpg"></div>
+          <!-- 781 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/3.jpg"></div>
+          <!-- 782 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/4.jpg"></div>
+          <!-- 783 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/4.jpg"></div>
+          <!-- 784 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/5.jpg"></div>
+          <!-- 785 -->
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/5.jpg"></div>
+          <!-- 786 -->
+        </div>
+        <!-- 787 -->
       </div>
 
       <div class="modal-buttons">
-        <button class="modal-btn secondary" onclick="document.getElementById('settingsModal').classList.remove('open')">Закрыть</button>
+        <!-- 789 -->
+        <button class="modal-btn" onclick="document.getElementById('settingsModal').classList.remove('open')" data-tr="Закрыть">Закрыть</button>
+        <!-- 790 -->
       </div>
+      <!-- 791 -->
     </div>
+    <!-- 792 -->
   </div>
 
   <!-- Book appointment modal -->
   <div class="modal" id="bookModal">
+    <!-- 794 -->
     <div class="modal-content">
-      <h3>Запись на приём</h3>
+      <!-- 795 -->
+      <h3 data-tr="Запись на приём">Запись на приём</h3>
+      <!-- 796 -->
       <p id="bookDoctorName" style="margin-bottom:20px;font-weight:bold;font-size:18px;"></p>
+      <!-- 797 -->
       <div class="book-form">
-        <label>Дата:</label>
+        <!-- 798 -->
+        <label data-tr="Дата:">Дата:</label>
+        <!-- 799 -->
         <input type="date" id="bookDate" required>
-        <label>Время:</label>
+        <!-- 800 -->
+        <label data-tr="Время:">Время:</label>
+        <!-- 801 -->
         <input type="time" id="bookTime" required>
-        <label>Комментарий (по желанию):</label>
+        <!-- 802 -->
+        <label data-tr="Комментарий (по желанию):">Комментарий (по желанию):</label>
+        <!-- 803 -->
         <textarea id="bookComment" placeholder="Опишите симптомы подробнее..." rows="4"></textarea>
+        <!-- 804 -->
       </div>
+      <!-- 805 -->
       <div class="modal-buttons">
-        <button class="modal-btn secondary" onclick="document.getElementById('bookModal').classList.remove('open')">Отмена</button>
-        <button class="modal-btn" id="submitBook">Отправить заявку</button>
+        <!-- 806 -->
+        <button class="modal-btn secondary" onclick="document.getElementById('bookModal').classList.remove('open')" data-tr="Отмена">Отмена</button>
+        <!-- 807 -->
+        <button class="modal-btn" id="submitBook" data-tr="Отправить заявку">Отправить заявку</button>
+        <!-- 808 -->
       </div>
+      <!-- 809 -->
     </div>
+    <!-- 810 -->
   </div>
 
-  <!-- Suggestions for input -->
+  <!-- Suggestions -->
   <datalist id="suggestions">
+    <!-- 812 -->
     <option value="Болит сердце">
+    <!-- 813 -->
     <option value="Головная боль, мигрень">
+    <!-- 814 -->
     <option value="Болит живот, тошнота">
+    <!-- 815 -->
     <option value="Кашель, температура">
+    <!-- 816 -->
     <option value="Болит ухо или горло">
+    <!-- 817 -->
     <option value="Проблемы с кожей">
+    <!-- 818 -->
     <option value="Болит зуб">
+    <!-- 819 -->
     <option value="Беременность, женское здоровье">
+    <!-- 820 -->
     <option value="Проблемы со зрением">
+    <!-- 821 -->
     <option value="Ребёнок болеет">
+    <!-- 822 -->
   </datalist>
 
-  <!-- Notification sound -->
+  <!-- Sound -->
   <audio id="notificationSound" src="https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3" preload="auto"></audio>
+  <!-- 824 -->
 
   <!-- JavaScript -->
   <script>
-    // Doctors data
+    // 826 -->
+    // Translations
+    const translations = {
+      ru: {
+        "SmartDoctor": "SmartDoctor",
+        "Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно": "Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно",
+        "Добро пожаловать": "Добро пожаловать",
+        "Войти": "Войти",
+        "Нет аккаунта? Зарегистрироваться": "Нет аккаунта? Зарегистрироваться",
+        "Создать аккаунт": "Создать аккаунт",
+        "Зарегистрироваться": "Зарегистрироваться",
+        "Уже есть аккаунт? Войти": "Уже есть аккаунт? Войти",
+        "Выйти": "Выйти",
+        "Очистить чат": "Очистить чат",
+        "Сохранить переписку": "Сохранить переписку",
+        "Админ-панель": "Админ-панель",
+        "Пользователи системы": "Пользователи системы",
+        "Имя": "Имя",
+        "Фамилия": "Фамилия",
+        "Телефон": "Телефон",
+        "Устройство": "Устройство",
+        "Роль": "Роль",
+        "Топ-5 популярных симптомов": "Топ-5 популярных симптомов",
+        "Загрузка статистики...": "Загрузка статистики...",
+        "Врачи в системе (10)": "Врачи в системе (10)",
+        "Фото": "Фото",
+        "ФИО": "ФИО",
+        "Специальность": "Специальность",
+        "Рейтинг": "Рейтинг",
+        "Клиника": "Клиника",
+        "Настройки приложения": "Настройки приложения",
+        "Язык": "Язык",
+        "Фон приложения": "Фон приложения",
+        "Ваш аватар": "Ваш аватар",
+        "Закрыть": "Закрыть",
+        "Запись на приём": "Запись на приём",
+        "Дата:": "Дата:",
+        "Время:": "Время:",
+        "Комментарий (по желанию):": "Комментарий (по желанию):",
+        "Отмена": "Отмена",
+        "Отправить заявку": "Отправить заявку"
+      },
+      en: {
+        "SmartDoctor": "SmartDoctor",
+        "Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно": "Your smart health assistant<br>Always here when you need",
+        "Добро пожаловать": "Welcome",
+        "Войти": "Log in",
+        "Нет аккаунта? Зарегистрироваться": "No account? Register",
+        "Создать аккаунт": "Create account",
+        "Зарегистрироваться": "Register",
+        "Уже есть аккаунт? Войти": "Already have an account? Log in",
+        "Выйти": "Log out",
+        "Очистить чат": "Clear chat",
+        "Сохранить переписку": "Save conversation",
+        "Админ-панель": "Admin Panel",
+        "Пользователи системы": "System Users",
+        "Имя": "First Name",
+        "Фамилия": "Last Name",
+        "Телефон": "Phone",
+        "Устройство": "Device",
+        "Роль": "Role",
+        "Топ-5 популярных симптомов": "Top 5 Popular Symptoms",
+        "Загрузка статистики...": "Loading statistics...",
+        "Врачи в системе (10)": "Doctors in system (10)",
+        "Фото": "Photo",
+        "ФИО": "Full Name",
+        "Специальность": "Specialty",
+        "Рейтинг": "Rating",
+        "Клиника": "Clinic",
+        "Настройки приложения": "App Settings",
+        "Язык": "Language",
+        "Фон приложения": "App Background",
+        "Ваш аватар": "Your Avatar",
+        "Закрыть": "Close",
+        "Запись на приём": "Book Appointment",
+        "Дата:": "Date:",
+        "Время:": "Time:",
+        "Комментарий (по желанию):": "Comment (optional):",
+        "Отмена": "Cancel",
+        "Отправить заявку": "Submit request"
+      },
+      tj: {
+        "SmartDoctor": "SmartDoctor",
+        "Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно": "Ёрдамчии ҳушманди шумо дар соҳаи саломатӣ<br>Ҳамеша дар паҳлӯятон",
+        "Добро пожаловать": "Хуш омадед",
+        "Войти": "Даромадан",
+        "Нет аккаунта? Зарегистрироваться": "Ҳисоб надоред? Бақайдгирӣ",
+        "Создать аккаунт": "Ҳисоб эҷод кунед",
+        "Зарегистрироваться": "Бақайдгирӣ",
+        "Уже есть аккаунт? Войти": "Аллакай ҳисоб доред? Даромадан",
+        "Выйти": "Баромадан",
+        "Очистить чат": "Чатро тоза кардан",
+        "Сохранить переписку": "Суҳбатро нигоҳ доштан",
+        "Админ-панель": "Панели администратор",
+        "Пользователи системы": "Истифодабарандагони система",
+        "Имя": "Ном",
+        "Фамилия": "Насаб",
+        "Телефон": "Телефон",
+        "Устройство": "Дастгоҳ",
+        "Роль": "Нақш",
+        "Топ-5 популярных симптомов": "Топ-5 аломатҳои маъмул",
+        "Загрузка статистики...": "Боргирии омӯр...",
+        "Врачи в системе (10)": "Табибон дар система (10)",
+        "Фото": "Акс",
+        "ФИО": "Ному насаб",
+        "Специальность": "Ихтисос",
+        "Рейтинг": "Рейтинг",
+        "Клиника": "Клиника",
+        "Настройки приложения": "Танзимотҳои барнома",
+        "Язык": "Забон",
+        "Фон приложения": "Фони барнома",
+        "Ваш аватар": "Аватаратон",
+        "Закрыть": "Пӯшидан",
+        "Запись на приём": "Сабти қабул",
+        "Дата:": "Сана:",
+        "Время:": "Вақт:",
+        "Комментарий (по желанию):": "Шарҳ (ихтиёрӣ):",
+        "Отмена": "Бекор кардан",
+        "Отправить заявку": "Фиристодани дархост"
+      }
+    };
+
+    let currentLang = localStorage.getItem('sd_lang') || 'ru';
+
+    function translate() {
+      document.querySelectorAll('[data-tr]').forEach(el => {
+        const key = el.getAttribute('data-tr');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
+      document.documentElement.lang = currentLang;
+    }
+
+    document.querySelectorAll('.lang-flag').forEach(flag => {
+      flag.onclick = () => {
+        currentLang = flag.dataset.lang;
+        localStorage.setItem('sd_lang', currentLang);
+        document.querySelectorAll('.lang-flag').forEach(f => f.classList.toggle('active', f.dataset.lang === currentLang));
+        translate();
+      };
+      if (flag.dataset.lang === currentLang) flag.classList.add('active');
+    });
+
     const doctors = [
       {name:"Др. Алишер Каримов", spec:"Терапевт", rating:4.9, clinic:"Центральная клиника", address:"ул. Рудаки 12", phone:"+992 90 123 45 67", photo:"https://randomuser.me/api/portraits/men/32.jpg"},
       {name:"Др. Мадина Юсуфова", spec:"ЛОР-врач", rating:5.0, clinic:"МЦ Сомон", address:"пр. Сомони 23", phone:"+992 90 987 65 43", photo:"https://randomuser.me/api/portraits/women/44.jpg"},
@@ -926,7 +1248,6 @@
       {name:"Др. Парвина Шарипова", spec:"Педиатр", rating:5.0, clinic:"Детский центр", address:"ул. Расулов 10", phone:"+992 90 700 11 22", photo:"https://randomuser.me/api/portraits/women/33.jpg"}
     ];
 
-    // Users and stats
     let users = JSON.parse(localStorage.getItem("sd_users")) || [
       {email:"admin@smartdoctor.tj", password:"admin123", firstName:"Админ", lastName:"Системы", phone:"", role:"admin", device:"PC", avatar:"https://randomuser.me/api/portraits/men/1.jpg"}
     ];
@@ -938,7 +1259,6 @@
     const isMobile = /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent) || window.innerWidth < 992;
     const notificationSound = document.getElementById('notificationSound');
 
-    // Notification permission
     if ('Notification' in window && Notification.permission === "default") {
       Notification.requestPermission();
     }
@@ -954,7 +1274,6 @@
       }
     }
 
-    // Background and avatar functions
     function applyBackground(bg) {
       document.body.style.setProperty('--bg', bg);
       localStorage.setItem('sd_background', bg);
@@ -972,7 +1291,6 @@
       }
     }
 
-    // Modals
     const settingsModal = document.getElementById('settingsModal');
     const bookModal = document.getElementById('bookModal');
 
@@ -993,7 +1311,6 @@
       document.querySelectorAll('.avatar-option').forEach(x => x.classList.toggle('active', x === o));
     });
 
-    // Appointment
     let currentDoctor = null;
     function openBookModal(doc) {
       currentDoctor = doc;
@@ -1017,7 +1334,6 @@
       document.getElementById('bookComment').value = '';
     };
 
-    // Main app logic
     const authScreen = document.getElementById('authScreen');
     const patientApp = document.getElementById('patientApp');
     const adminApp = document.getElementById('adminApp');
@@ -1036,9 +1352,9 @@
     document.getElementById('toggleLink').onclick = () => {
       isLoginMode = !isLoginMode;
       ['firstName','lastName','phone'].forEach(id => document.getElementById(id).style.display = isLoginMode ? 'none' : 'block');
-      document.getElementById('authTitle').textContent = isLoginMode ? "Добро пожаловать назад!" : "Создать аккаунт";
-      document.getElementById('authBtn').textContent = isLoginMode ? "Войти" : "Зарегистрироваться";
-      document.getElementById('toggleLink').textContent = isLoginMode ? "Нет аккаунта? Зарегистрироваться" : "Уже есть аккаунт? Войти";
+      document.getElementById('authTitle').textContent = isLoginMode ? translations[currentLang]["Добро пожаловать"] : translations[currentLang]["Создать аккаунт"];
+      document.getElementById('authBtn').textContent = isLoginMode ? translations[currentLang]["Войти"] : translations[currentLang]["Зарегистрироваться"];
+      document.getElementById('toggleLink').textContent = isLoginMode ? translations[currentLang]["Нет аккаунта? Зарегистрироваться"] : translations[currentLang]["Уже есть аккаунт? Войти"];
     };
 
     document.getElementById('authBtn').onclick = () => {
@@ -1266,6 +1582,7 @@
     }
 
     window.onload = () => {
+      translate();
       const savedBg = localStorage.getItem('sd_background') || 'linear-gradient(135deg, #1b38bb 0%, #1249c0 100%)';
       applyBackground(savedBg);
 
@@ -1276,6 +1593,7 @@
         showMainApp();
       }
     };
+    
   </script>
 </body>
 </html>
