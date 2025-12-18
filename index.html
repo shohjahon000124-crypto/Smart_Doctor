@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- Meta tags for proper rendering and responsiveness -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>SmartDoctor • Умный помощник здоровья</title> 
+  <title>SmartDoctor • Умный помощник здоровья</title>
+  
+  <!-- Fonts and icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <!-- Main styles -->
   <style>
+    /* Root variables for easy theming */
     :root {
       --primary: #00d4c1;
       --primary-dark: #00a89a;
       --accent: #1a3198;
-      --bg: linear-gradient(135deg, #1b38bb 0%, #1249c0 100%);
       --card: rgba(255, 255, 255, 0.97);
       --text: #2c4248;
       --light: #f8f9fa;
+      --bg-light: linear-gradient(135deg, #1b38bb 0%, #1249c0 100%);
+      --input-bg: white;
+      --border: #eee;
+      --shadow: 0 20px 60px rgba(0,0,0,0.3);
+      --transition: all 0.4s ease;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
+    
+    /* Reset and base styles */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
     body, html {
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
+      background: var(--bg, var(--bg-light));
       height: 100%;
       color: var(--text);
       overflow: hidden;
+      transition: background 0.8s ease;
     }
-    .container {    
+    
+    /* Main container */
+    .container {
       width: 100%;
       max-width: 1400px;
       margin: 10px auto;
       background: var(--card);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      box-shadow: var(--shadow);
       height: calc(100vh - 20px);
       display: flex;
       flex-direction: column;
     }
-
-    /* КРАСИВЫЙ ЭКРАН АВТОРИЗАЦИИ */
+    
+    /* Auth screen styles */
     #authScreen {
       flex: 1;
       display: flex;
@@ -46,8 +66,9 @@
       align-items: center;
       padding: 30px;
       position: relative;
-      overflow: hidden;
+      overflows: hidden;
     }
+    
     #authScreen::before {
       content: '';
       position: absolute;
@@ -60,10 +81,11 @@
       animation: rotate 20s linear infinite;
       pointer-events: none;
     }
+    
     @keyframes rotate {
       100% { transform: rotate(360deg); }
     }
-
+    
     .auth-content {
       position: relative;
       z-index: 2;
@@ -71,16 +93,19 @@
       max-width: 420px;
       width: 100%;
     }
+    
     .auth-icon {
       font-size: 80px;
       color: var(--primary);
       margin-bottom: 20px;
       animation: float 4s ease-in-out infinite;
     }
+    
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
+    
     .auth-logo {
       font-size: 48px;
       font-weight: 800;
@@ -88,32 +113,25 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 16px;
-      animation: fadeInDown 1s ease-out;
     }
+    
     .auth-subtitle {
       font-size: 18px;
       color: #555;
       margin-bottom: 40px;
       opacity: 0.9;
-      animation: fadeInDown 1s ease-out 0.3s both;
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: none; }
-    }
-
+    
     .auth-box {
-      background: white;
+      background: var(--card);
       padding: 40px 35px;
       border-radius: 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
-      animation: fadeInUp 1s ease-out 0.6s both;
+      max-height: 85vh;
+      overflow-y: auto;
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: none; }
-    }
+    
     .auth-box h2 {
       font-size: 28px;
       margin-bottom: 30px;
@@ -122,21 +140,26 @@
       -webkit-text-fill-color: transparent;
       text-align: center;
     }
+    
     .auth-box input {
       width: 100%;
       padding: 16px 20px;
       margin: 12px 0;
-      border: 2px solid #eee;
+      border: 2px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
       border-radius: 16px;
       font-size: 16px;
-      transition: all 0.3s;
+      transition: var(--transition);
     }
+    
     .auth-box input:focus {
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 5px rgba(0,212,193,0.2);
       transform: scale(1.02);
     }
+    
     .auth-box button {
       width: 100%;
       padding: 18px;
@@ -148,13 +171,15 @@
       font-weight: 700;
       cursor: pointer;
       margin-top: 20px;
-      transition: 0.4s;
+      transition: var(--transition);
       box-shadow: 0 8px 25px rgba(0,212,193,0.3);
     }
+    
     .auth-box button:hover {
       transform: translateY(-4px);
       box-shadow: 0 15px 35px rgba(0,212,193,0.4);
     }
+    
     .toggle-link {
       margin-top: 24px;
       color: var(--primary);
@@ -163,57 +188,244 @@
       font-size: 16px;
       transition: 0.3s;
     }
+    
     .toggle-link:hover {
       text-decoration: underline;
     }
-
-    /* HEADER */
+    
+    /* Header styles */
     .header {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
       padding: 16px 20px;
-      font-size: 24px;
-      font-weight: 800;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
       flex-shrink: 0;
     }
-    .logo { font-size: 28px; }
-    .user-info {
-      background: rgba(255,255,255,0.25);
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 14px;
-      backdrop-filter: blur(10px);
+    
+    .header-left { 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
     }
-    .logout {
-      background: #ff4757;
-      border: none;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 50px;
+    
+    .logo { 
+      font-size: 28px; 
+      color: white; 
+    }
+    
+    .header-right { 
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+      flex-wrap: wrap; 
+      justify-content: flex-end; 
+    }
+    
+    .user-info { 
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+      background: rgba(255,255,255,0.25); 
+      padding: 8px 16px; 
+      border-radius: 50px; 
+      font-weight: 600; 
+      font-size: 14px; 
+      backdrop-filter: blur(10px); 
+    }
+    
+    .user-avatar { 
+      width: 36px; 
+      height: 36px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      border: 2px solid white; 
+      transition: var(--transition); 
+    }
+    
+    .user-avatar:hover { 
+      transform: scale(1.1); 
+    }
+    
+    .logout, .settings-btn { 
+      background: rgba(255,255,255,0.2); 
+      border: none; 
+      color: white; 
+      padding: 8px 16px; 
+      border-radius: 50px; 
+      cursor: pointer; 
+      font-weight: 600; 
+      font-size: 14px; 
+      transition: var(--transition); 
+    }
+    
+    .logout:hover, .settings-btn:hover { 
+      background: rgba(255,255,255,0.3); 
+      transform: translateY(-2px); 
+    }
+    
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal.open { 
+      display: flex; 
+    }
+    
+    .modal-content {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 24px;
+      width: 90%;
+      max-width: 550px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      color: var(--text);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .modal h3 { 
+      margin-bottom: 25px; 
+      font-size: 26px; 
+      font-weight: 700; 
+      color: var(--primary); 
+    }
+    
+    .settings-section {
+      margin-bottom: 35px;
+      text-align: left;
+      padding: 20px;
+      background: rgba(0,212,193,0.05);
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    
+    .settings-section h4 {
+      font-size: 20px;
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .current-avatar-preview {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      margin: 20px auto;
+      box-shadow: 0 8px 25px rgba(0,212,193,0.3);
+    }
+    
+    .bg-options, .avatar-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    
+    .bg-option, .avatar-option {
+      height: 110px;
+      border-radius: 16px;
       cursor: pointer;
-      font-weight: 600;
-      margin-left: 10px;
-      font-size: 14px;
+      border: 4px solid transparent;
+      transition: var(--transition);
+      background-size: cover;
+      background-position: center;
     }
-
-    /* ПРИЛОЖЕНИЕ */
+    
+    .bg-option.active, .avatar-option.active {
+      border-color: var(--primary);
+      transform: scale(1.08);
+      box-shadow: 0 10px 30px rgba(0,212,193,0.4);
+    }
+    
+    .avatar-option {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: #f0f8ff;
+    }
+    
+    .modal-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    .modal-btn {
+      flex: 1;
+      padding: 14px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 16px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .modal-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+    
+    .modal-btn.secondary {
+      background: #95a5a6;
+    }
+    
+    /* Main layout */
     .main {
       display: flex;
       flex: 1;
       overflow: hidden;
       position: relative;
     }
+    
     .chat-section {
       flex: 1;
       background: var(--light);
       display: flex;
       flex-direction: column;
-      width: 100%;
     }
+    
+    .chat-controls {
+      display: flex;
+      gap: 10px;
+      padding: 12px 20px;
+      justify-content: flex-end;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    
+    .chat-btn {
+      padding: 10px 18px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0,212,193,0.2);
+    }
+    
+    .chat-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
     .chat-window {
       flex: 1;
       padding: 20px;
@@ -223,183 +435,290 @@
       gap: 16px;
       justify-content: flex-end;
     }
+    
     .message {
       max-width: 75%;
-      padding: 12px 18px;
-      border-radius: 18px;
-      line-height: 1.5;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      padding: 14px 20px;
+      border-radius: 20px;
+      line-height: 1.6;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       word-wrap: break-word;
       font-size: 15.5px;
-      animation: msgIn 0.4s ease-out;
+      animation: msgIn 0.5s ease-out;
     }
+    
     @keyframes msgIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(30px) scale(0.9); }
       to { opacity: 1; transform: none; }
     }
+    
     .message.user {
       align-self: flex-end;
       background: var(--primary);
       color: white;
       border-bottom-right-radius: 6px;
     }
+    
     .message.ai {
       align-self: flex-start;
-      background: white;
-      border: 1px solid #eee;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
       border-bottom-left-radius: 6px;
     }
+    
+    .typing-indicator {
+      align-self: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 14px 20px;
+      border-radius: 20px;
+      border-bottom-left-radius: 6px;
+      font-style: italic;
+      color: #888;
+    }
+    
     .input-area {
-      padding: 12px 16px;
-      background: white;
-      border-top: 1px solid #eee;
+      padding: 14px 18px;
+      background: var(--card);
+      border-top: 1px solid var(--border);
       display: flex;
-      gap: 12px;
+      gap: 14px;
       align-items: center;
       flex-shrink: 0;
     }
+    
     .input-area input {
       flex: 1;
-      padding: 14px 20px;
-      border: 2px solid #eee;
+      padding: 16px 22px;
+      border: 2px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
       border-radius: 50px;
       font-size: 16px;
     }
+    
     .input-area button {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       background: var(--primary);
       color: white;
       border: none;
       border-radius: 50%;
-      font-size: 20px;
+      font-size: 22px;
       cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(0,212,193,0.3);
     }
-
-    /* СПИСОК ВРАЧЕЙ */
+    
+    .input-area button:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Doctors section */
     .doctors-section {
-      background: white;
+      background: var(--card);
       padding: 20px;
       overflow-y: auto;
       width: 380px;
-      border-left: 1px solid #eee;
+      border-left: 1px solid var(--border);
       flex-shrink: 0;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease;
     }
+    
     .doctors-toggle {
       display: none;
       position: fixed;
-      bottom: 80px;
-      right: 16px;
-      width: 56px;
-      height: 56px;
+      bottom: 90px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
       background: var(--primary);
       color: white;
       border: none;
       border-radius: 50%;
-      font-size: 24px;
-      box-shadow: 0 8px 25px rgba(0,212,193,0.4);
+      font-size: 26px;
+      box-shadow: 0 10px 30px rgba(0,212,193,0.5);
       cursor: pointer;
       z-index: 100;
+      transition: var(--transition);
     }
+    
+    .doctors-toggle:hover {
+      transform: scale(1.15);
+    }
+    
     .search-box {
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       position: relative;
     }
+    
     .search-box input {
       width: 100%;
-      padding: 14px 44px 14px 20px;
-      border: 2px solid #eee;
+      padding: 16px 50px 16px 22px;
+      border: 2px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
       border-radius: 50px;
-      font-size: 15px;
+      font-size: 16px;
     }
+    
     .search-box i {
       position: absolute;
-      right: 16px;
+      right: 18px;
       top: 50%;
       transform: translateY(-50%);
       color: #aaa;
-      font-size: 18px;
+      font-size: 20px;
     }
+    
     .doctor-card {
-      background: white;
-      border-radius: 18px;
+      background: var(--card);
+      border-radius: 20px;
       overflow: hidden;
-      margin-bottom: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      transition: 0.3s;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      transition: var(--transition);
     }
-    .doctor-card:hover { transform: translateY(-4px); }
+    
+    .doctor-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+    
     .doc-header {
       display: flex;
-      padding: 16px;
-      gap: 14px;
+      padding: 18px;
+      gap: 16px;
       align-items: center;
     }
+    
     .doc-header img {
-      width: 70px;
-      height: 70px;
-      border-radius: 14px;
+      width: 75px;
+      height: 75px;
+      border-radius: 16px;
       object-fit: cover;
-      border: 3px solid var(--primary);
+      border: 4px solid var(--primary);
+      transition: var(--transition);
     }
-    .doc-info h3 { font-size: 16px; margin-bottom: 4px; }
+    
+    .doc-header img:hover {
+      transform: scale(1.05);
+    }
+    
+    .doc-info h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-weight: 600;
+    }
+    
     .specialty {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 30px;
-      font-size: 13px;
+      font-size: 14px;
     }
-    .rating { color: #f1c40f; font-size: 16px; font-weight: bold; margin: 6px 0; }
+    
+    .rating {
+      color: #f1c40f;
+      font-size: 17px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+    
     .doc-footer {
       background: linear-gradient(135deg, #f0fffe, #e6fffa);
-      padding: 16px;
+      padding: 18px;
       text-align: center;
     }
-    .call-btn {
-      padding: 12px 30px;
+    
+    .call-btn, .book-btn {
+      padding: 14px 32px;
       background: var(--primary);
       color: white;
       border: none;
       border-radius: 50px;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       cursor: pointer;
       width: 100%;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+      transition: var(--transition);
     }
-
-    /* АДМИНКА */
+    
+    .book-btn {
+      background: #667eea;
+    }
+    
+    .call-btn:hover, .book-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    
+    /* Admin panel */
     .admin-panel {
-      padding: 30px;
+      padding: 35px;
       flex: 1;
       overflow-y: auto;
     }
+    
     table {
       width: 100%;
-      background: white;
+      background: var(--card);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+      box-shadow: var(--shadow);
     }
+    
     th {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 20px;
+      padding: 22px;
+      font-size: 17px;
+    }
+    
+    td {
+      padding: 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    
+    tr:hover td {
+      background: #f0fffe;
+      transition: 0.3s;
+    }
+    
+    #topSymptoms {
+      margin: 30px 0;
+      padding: 25px;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    
+    #topSymptoms ul {
+      list-style: none;
+    }
+    
+    #topSymptoms li {
+      padding: 14px;
+      background: rgba(0,212,193,0.12);
+      margin: 10px 0;
+      border-radius: 14px;
       font-size: 16px;
     }
-    td {
-      padding: 15px;
-      border-bottom: 1px solid #eee;
-    }
-    tr:hover td { background: #f0fffe; }
-
-    /* АДАПТИВНОСТЬ */
+    
+    /* Media queries for responsiveness */
     @media (min-width: 992px) {
       .main { flex-direction: row; }
       .chat-section { flex: 2.5; }
       .doctors-toggle { display: none !important; }
     }
+    
     @media (max-width: 991px) {
       .doctors-section {
         position: fixed;
@@ -410,321 +729,553 @@
         max-width: 380px;
         z-index: 99;
         transform: translateX(100%);
+        background: var(--card);
       }
       .doctors-section.open { transform: translateX(0); }
       .doctors-toggle { display: block; }
     }
+    
     @media (max-width: 480px) {
       .auth-logo { font-size: 40px; }
       .auth-icon { font-size: 70px; }
       .auth-box { padding: 35px 25px; }
-      .header { font-size: 20px; padding: 12px 16px; }
-      .logo { font-size: 24px; }
-      .message { max-width: 88%; font-size: 15px; }
+      .bg-options, .avatar-options { grid-template-columns: repeat(2, 1fr); }
+      .modal-content { padding: 20px; }
     }
   </style>
 </head>
 <body>
-
-<div class="container">
-
-  <!-- КРАСИВЫЙ ЭКРАН АВТОРИЗАЦИИ -->
-  <div id="authScreen">
-    <div class="auth-content">
-      <div class="auth-icon"><i class="fas fa-heartbeat"></i></div>
-      <div class="auth-logo">SmartDoctor</div>
-      <p class="auth-subtitle">Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно</p>
-
-      <div class="auth-box">
-        <h2 id="authTitle">Добро пожаловать</h2>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="text" id="firstName" placeholder="Имя" style="display:none;">
-        <input type="text" id="lastName" placeholder="Фамилия" style="display:none;">
-        <input type="tel" id="phone" placeholder="Телефон (+992...)" style="display:none;">
-        <input type="password" id="password" placeholder="Пароль" required>
-        <button id="authBtn">Войти</button>
-        <div class="toggle-link" id="toggleLink">Нет аккаунта? Зарегистрироваться</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ПАЦИЕНТ -->
-  <div id="patientApp" style="display:none; flex-direction:column; height:100%;">
-    <div class="header">
-      <div class="logo">SmartDoctor</div>
-      <div>
-        <span class="user-info" id="userName"></span>
-        <button class="logout" id="logoutPatient">Выйти</button>
-      </div>
-    </div>
-    <div class="main">
-      <div class="chat-section">
-        <div class="chat-window" id="chat"></div>
-        <div class="input-area">
-          <input type="text" id="messageInput" placeholder="Напишите, что вас беспокоит..." list="suggestions">
-          <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+  <!-- Main container -->
+  <div class="container">
+    <!-- Auth screen -->
+    <div id="authScreen">
+      <div class="auth-content">
+        <div class="auth-icon"><i class="fas fa-heartbeat"></i></div>
+        <div class="auth-logo">SmartDoctor</div>
+        <p class="auth-subtitle">Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно</p>
+        <div class="auth-box">
+          <h2 id="authTitle">Добро пожаловать</h2>
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="text" id="firstName" placeholder="Имя" style="display:none;">
+          <input type="text" id="lastName" placeholder="Фамилия" style="display:none;">
+          <input type="tel" id="phone" placeholder="Телефон (+992...)" style="display:none;">
+          <input type="password" id="password" placeholder="Пароль" required>
+          <button id="authBtn">Войти</button>
+          <div class="toggle-link" id="toggleLink">Нет аккаунта? Зарегистрироваться</div>
         </div>
       </div>
-      <div class="doctors-section" id="doctorsSection">
-        <div class="search-box">
-          <input type="text" id="searchInput" placeholder="Поиск врача...">
-          <i class="fas fa-search"></i>
+    </div>
+
+    <!-- Patient app -->
+    <div id="patientApp" style="display:none; flex-direction:column; height:100%;">
+      <div class="header">
+        <div class="header-left">
+          <div class="logo">SmartDoctor</div>
         </div>
-        <div id="doctorsContainer"></div>
+        <div class="header-right">
+          <div class="user-info">
+            <img class="user-avatar" id="userAvatar" src="https://randomuser.me/api/portraits/men/1.jpg">
+            <span id="userName"></span>
+          </div>
+          <button class="settings-btn" id="settingsBtn"><i class="fas fa-cog"></i></button>
+          <button class="logout" id="logoutPatient">Выйти</button>
+        </div>
       </div>
-      <button class="doctors-toggle" id="doctorsToggle"><i class="fas fa-user-md"></i></button>
+      <div class="main">
+        <div class="chat-section">
+          <div class="chat-controls">
+            <button class="chat-btn" id="clearChat">Очистить чат</button>
+            <button class="chat-btn" id="exportChat">Сохранить переписку</button>
+          </div>
+          <div class="chat-window" id="chat"></div>
+          <div class="input-area">
+            <input type="text" id="messageInput" placeholder="Напишите, что вас беспокоит..." list="suggestions">
+            <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+        <div class="doctors-section" id="doctorsSection">
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Поиск врача или симптома...">
+            <i class="fas fa-search"></i>
+          </div>
+          <div id="doctorsContainer"></div>
+        </div>
+        <button class="doctors-toggle" id="doctorsToggle"><i class="fas fa-user-md"></i></button>
+      </div>
+    </div>
+
+    <!-- Admin app -->
+    <div id="adminApp" style="display:none; flex-direction:column; height:100%;">
+      <div class="header">
+        <div class="header-left">
+          <div class="logo">Админ-панель</div>
+        </div>
+        <div class="header-right">
+          <span class="user-info" id="adminName">Админ</span>
+          <button class="settings-btn" id="adminSettingsBtn"><i class="fas fa-cog"></i></button>
+          <button class="logout" id="logoutAdmin">Выйти</button>
+        </div>
+      </div>
+      <div class="admin-panel">
+        <h2>Пользователи системы</h2>
+        <table id="usersTable">
+          <thead><tr><th>#</th><th>Email</th><th>Имя</th><th>Фамилия</th><th>Телефон</th><th>Устройство</th><th>Роль</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <h2 style="margin-top:50px;">Топ-5 популярных симптомов</h2>
+        <div id="topSymptoms"><p>Загрузка статистики...</p></div>
+        <h2 style="margin-top:50px;">Врачи в системе (10)</h2>
+        <table id="doctorsTable">
+          <thead><tr><th>Фото</th><th>ФИО</th><th>Специальность</th><th>Рейтинг</th><th>Клиника</th><th>Телефон</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
-  <!-- АДМИНКА -->
-  <div id="adminApp" style="display:none; flex-direction:column; height:100%;">
-    <div class="header">
-      <div class="logo">Админ-панель</div>
-      <div>
-        <span class="user-info" id="adminName">Админ</span>
-        <button class="logout" id="logoutAdmin">Выйти</button>
-      </div>
-    </div>
-    <div class="admin-panel">
-      <h2>Пользователи системы</h2>
-      <table id="usersTable">
-        <thead><tr><th>#</th><th>Email</th><th>Имя</th><th>Фамилия</th><th>Телефон</th><th>Роль</th></tr></thead>
-        <tbody></tbody>
-      </table>
-
-      <h2 style="margin-top:40px;">Врачи (10)</h2>
-      <table id="doctorsTable">
-        <thead><tr><th>Фото</th><th>ФИО</th><th>Специальность</th><th>Рейтинг</th><th>Клиника</th><th>Телефон</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<datalist id="suggestions">
-  <option value="Болит сердце">
-  <option value="Головная боль, мигрень">
-  <option value="Болит живот, тошнота">
-  <option value="Кашель, температура">
-  <option value="Болит ухо или горло">
-  <option value="Проблемы с кожей">
-  <option value="Болит зуб">
-  <option value="Беременность, женское здоровье">
-  <option value="Проблемы со зрением">
-  <option value="Ребёнок болеет">
-</datalist>
-
-<script>
-  const doctors = [
-    {name:"Др. Алишер Каримов", spec:"Терапевт", rating:4.9, clinic:"Центральная клиника", address:"ул. Рудаки 12", phone:"+992 90 123 45 67", photo:"https://randomuser.me/api/portraits/men/32.jpg"},
-    {name:"Др. Мадина Юсуфова", spec:"ЛОР-врач", rating:5.0, clinic:"МЦ Сомон", address:"пр. Сомони 23", phone:"+992 90 987 65 43", photo:"https://randomuser.me/api/portraits/women/44.jpg"},
-    {name:"Др. Сохиб Тошев", spec:"Невролог", rating:4.8, clinic:"Клиника Шифо", address:"ул. Айни 45", phone:"+992 90 456 78 90", photo:"https://randomuser.me/api/portraits/men/65.jpg"},
-    {name:"Др. Лола Гадоева", spec:"Гастроэнтеролог", rating:4.9, clinic:"Центр здоровья", address:"ул. Фирдоуси 7", phone:"+992 90 765 43 21", photo:"https://randomuser.me/api/portraits/women/22.jpg"},
-    {name:"Др. Фарид Назаров", spec:"Кардиолог", rating:5.0, clinic:"МЦ Сомон", address:"пр. Сомони 23", phone:"+992 00 666 82 19", photo:"https://randomuser.me/api/portraits/men/33.jpg"},
-    {name:"Др. Зарина Абдуллоева", spec:"Дерматолог", rating:4.9, clinic:"Клиника Красоты", address:"ул. Дехоти 89", phone:"+992 98 765 43 21", photo:"https://randomuser.me/api/portraits/women/68.jpg"},
-    {name:"Др. Рустам Ходжиев", spec:"Стоматолог", rating:4.8, clinic:"Dental Lux", address:"ул. Бохтар 15", phone:"+992 88 123 45 67", photo:"https://randomuser.me/api/portraits/men/76.jpg"},
-    {name:"Др. Нодира Саидова", spec:"Гинеколог", rating:5.0, clinic:"Женское здоровье", address:"ул. Махсум 55", phone:"+992 92 777 76 54", photo:"https://randomuser.me/api/portraits/women/55.jpg"},
-    {name:"Др. Дилшод Мирзоев", spec:"Офтальмолог", rating:4.9, clinic:"Глазная клиника", address:"ул. Шевченко 21", phone:"+992 91 777 22 33", photo:"https://randomuser.me/api/portraits/men/41.jpg"},
-    {name:"Др. Парвина Шарипова", spec:"Педиатр", rating:5.0, clinic:"Детский центр", address:"ул. Расулов 10", phone:"+992 90 700 11 22", photo:"https://randomuser.me/api/portraits/women/33.jpg"}
-  ];
-
-  let users = JSON.parse(localStorage.getItem("sd_users")) || [
-    {email:"admin@smartdoctor.tj", password:"admin123", firstName:"Админ", lastName:"Системы", phone:"", role:"admin"}
-  ];
-  let currentUser = null;
-
-  const authScreen = document.getElementById('authScreen');
-  const patientApp = document.getElementById('patientApp');
-  const adminApp = document.getElementById('adminApp');
-  const chat = document.getElementById('chat');
-  const doctorsSection = document.getElementById('doctorsSection');
-  const doctorsToggle = document.getElementById('doctorsToggle');
-
-  doctorsToggle.onclick = () => {
-    doctorsSection.classList.toggle('open');
-  };
-
-  document.addEventListener('click', (e) => {
-    if (!doctorsSection.contains(e.target) && !doctorsToggle.contains(e.target) && doctorsSection.classList.contains('open')) {
-      doctorsSection.classList.remove('open');
-    }
-  });
-
-  let isLoginMode = true;
-  document.getElementById('toggleLink').onclick = () => {
-    isLoginMode = !isLoginMode;
-    const fields = ['firstName','lastName','phone'];
-    fields.forEach(id => document.getElementById(id).style.display = isLoginMode ? 'none' : 'block');
-    document.getElementById('authTitle').textContent = isLoginMode ? "Добро пожаловать назад!" : "Создать аккаунт";
-    document.getElementById('authBtn').textContent = isLoginMode ? "Войти" : "Зарегистрироваться";
-    document.getElementById('toggleLink').textContent = isLoginMode ? "Нет аккаунта? Зарегистрироваться" : "Уже есть аккаунт? Войти";
-  };
-
-  document.getElementById('authBtn').onclick = () => {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
-    if (!email || !password) return alert("Заполните email и пароль");
-
-    if (isLoginMode) {
-      const user = users.find(u => u.email === email && u.password === password);
-      if (user) {
-        currentUser = user;
-        localStorage.setItem("sd_current", JSON.stringify(user));
-        showMainApp();
-      } else alert("Неверный email или пароль");
-    } else {
-      const f = document.getElementById('firstName').value.trim();
-      const l = document.getElementById('lastName').value.trim();
-      const p = document.getElementById('phone').value.trim();
-      if (!f || !l || !p) return alert("Заполните все поля");
-      if (users.some(u => u.email === email)) return alert("Этот email уже зарегистрирован");
+  <!-- Settings modal -->
+  <div class="modal" id="settingsModal">
+    <div class="modal-content">
+      <h3>Настройки приложения</h3>
       
-      const newUser = {email, password, firstName: f, lastName: l, phone: p, role: "patient"};
-      users.push(newUser);
-      localStorage.setItem("sd_users", JSON.stringify(users));
-      alert("Регистрация успешна! Теперь войдите");
-      document.getElementById('toggleLink').click();
+      <div class="settings-section">
+        <h4>Фон приложения</h4>
+        <div class="bg-options">
+          <div class="bg-option active" data-bg="linear-gradient(135deg, #1b38bb 0%, #1249c0 100%)"></div>
+          <div class="bg-option" data-bg="linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"></div>
+          <div class="bg-option" data-bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
+          <div class="bg-option" data-bg="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"></div>
+          <div class="bg-option" data-bg="linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"></div>
+          <div class="bg-option" data-bg="url('https://images.unsplash.com/photo-1557682257-2f9c36a3a7e9?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat"></div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h4>Ваш аватар</h4>
+        <img class="current-avatar-preview" id="currentAvatarPreview" src="https://randomuser.me/api/portraits/men/1.jpg">
+        <div class="avatar-options">
+          <div class="avatar-option active" data-avatar="https://randomuser.me/api/portraits/men/1.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/1.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/2.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/2.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/3.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/3.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/4.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/4.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/men/5.jpg"></div>
+          <div class="avatar-option" data-avatar="https://randomuser.me/api/portraits/women/5.jpg"></div>
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button class="modal-btn secondary" onclick="document.getElementById('settingsModal').classList.remove('open')">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book appointment modal -->
+  <div class="modal" id="bookModal">
+    <div class="modal-content">
+      <h3>Запись на приём</h3>
+      <p id="bookDoctorName" style="margin-bottom:20px;font-weight:bold;font-size:18px;"></p>
+      <div class="book-form">
+        <label>Дата:</label>
+        <input type="date" id="bookDate" required>
+        <label>Время:</label>
+        <input type="time" id="bookTime" required>
+        <label>Комментарий (по желанию):</label>
+        <textarea id="bookComment" placeholder="Опишите симптомы подробнее..." rows="4"></textarea>
+      </div>
+      <div class="modal-buttons">
+        <button class="modal-btn secondary" onclick="document.getElementById('bookModal').classList.remove('open')">Отмена</button>
+        <button class="modal-btn" id="submitBook">Отправить заявку</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggestions for input -->
+  <datalist id="suggestions">
+    <option value="Болит сердце">
+    <option value="Головная боль, мигрень">
+    <option value="Болит живот, тошнота">
+    <option value="Кашель, температура">
+    <option value="Болит ухо или горло">
+    <option value="Проблемы с кожей">
+    <option value="Болит зуб">
+    <option value="Беременность, женское здоровье">
+    <option value="Проблемы со зрением">
+    <option value="Ребёнок болеет">
+  </datalist>
+
+  <!-- Notification sound -->
+  <audio id="notificationSound" src="https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3" preload="auto"></audio>
+
+  <!-- JavaScript -->
+  <script>
+    // Doctors data
+    const doctors = [
+      {name:"Др. Алишер Каримов", spec:"Терапевт", rating:4.9, clinic:"Центральная клиника", address:"ул. Рудаки 12", phone:"+992 90 123 45 67", photo:"https://randomuser.me/api/portraits/men/32.jpg"},
+      {name:"Др. Мадина Юсуфова", spec:"ЛОР-врач", rating:5.0, clinic:"МЦ Сомон", address:"пр. Сомони 23", phone:"+992 90 987 65 43", photo:"https://randomuser.me/api/portraits/women/44.jpg"},
+      {name:"Др. Сохиб Тошев", spec:"Невролог", rating:4.8, clinic:"Клиника Шифо", address:"ул. Айни 45", phone:"+992 90 456 78 90", photo:"https://randomuser.me/api/portraits/men/65.jpg"},
+      {name:"Др. Лола Гадоева", spec:"Гастроэнтеролог", rating:4.9, clinic:"Центр здоровья", address:"ул. Фирдоуси 7", phone:"+992 90 765 43 21", photo:"https://randomuser.me/api/portraits/women/22.jpg"},
+      {name:"Др. Фарид Назаров", spec:"Кардиолог", rating:5.0, clinic:"МЦ Сомон", address:"пр. Сомони 23", phone:"+992 00 666 82 19", photo:"https://randomuser.me/api/portraits/men/33.jpg"},
+      {name:"Др. Зарина Абдуллоева", spec:"Дерматолог", rating:4.9, clinic:"Клиника Красоты", address:"ул. Дехоти 89", phone:"+992 98 765 43 21", photo:"https://randomuser.me/api/portraits/women/68.jpg"},
+      {name:"Др. Рустам Ходжиев", spec:"Стоматолог", rating:4.8, clinic:"Dental Lux", address:"ул. Бохтар 15", phone:"+992 88 123 45 67", photo:"https://randomuser.me/api/portraits/men/76.jpg"},
+      {name:"Др. Нодира Саидова", spec:"Гинеколог", rating:5.0, clinic:"Женское здоровье", address:"ул. Махсум 55", phone:"+992 92 777 76 54", photo:"https://randomuser.me/api/portraits/women/55.jpg"},
+      {name:"Др. Дилшод Мирзоев", spec:"Офтальмолог", rating:4.9, clinic:"Глазная клиника", address:"ул. Шевченко 21", phone:"+992 91 777 22 33", photo:"https://randomuser.me/api/portraits/men/41.jpg"},
+      {name:"Др. Парвина Шарипова", spec:"Педиатр", rating:5.0, clinic:"Детский центр", address:"ул. Расулов 10", phone:"+992 90 700 11 22", photo:"https://randomuser.me/api/portraits/women/33.jpg"}
+    ];
+
+    // Users and stats
+    let users = JSON.parse(localStorage.getItem("sd_users")) || [
+      {email:"admin@smartdoctor.tj", password:"admin123", firstName:"Админ", lastName:"Системы", phone:"", role:"admin", device:"PC", avatar:"https://randomuser.me/api/portraits/men/1.jpg"}
+    ];
+    let currentUser = null;
+    let chatHistory = [];
+    let symptomStats = JSON.parse(localStorage.getItem("sd_symptoms") || "{}");
+    let appointments = JSON.parse(localStorage.getItem("sd_appointments") || "[]");
+
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent) || window.innerWidth < 992;
+    const notificationSound = document.getElementById('notificationSound');
+
+    // Notification permission
+    if ('Notification' in window && Notification.permission === "default") {
+      Notification.requestPermission();
     }
-  };
 
-  function showMainApp() {
-    authScreen.style.display = 'none';
-    if (currentUser.role === "admin") {
-      adminApp.style.display = 'flex';
-      document.getElementById('adminName').textContent = currentUser.firstName;
-      renderAdminPanel();
-    } else {
-      patientApp.style.display = 'flex';
-      document.getElementById('userName').textContent = currentUser.firstName + " " + currentUser.lastName;
-      addMessage(`Здравствуйте, ${currentUser.firstName}!<br>Я ваш умный медицинский помощник.<br><br>Напишите, что вас беспокоит — подберу лучшего врача за 10 секунд!`, "ai");
-      renderDoctors(doctors);
+    function playSound() {
+      notificationSound.currentTime = 0;
+      notificationSound.play().catch(() => {});
     }
-  }
 
-  document.querySelectorAll('.logout').forEach(btn => {
-    btn.onclick = () => {
-      localStorage.removeItem("sd_current");
-      location.reload();
-    }
-  });
-
-  function addMessage(text, sender) {
-    const div = document.createElement('div');
-    div.className = `message ${sender}`;
-    div.innerHTML = text;
-    chat.appendChild(div);
-    chat.scrollTo({ top: chat.scrollHeight, behavior: 'smooth' });
-  }
-
-  function getDoctorResponse(query) {
-    const q = query.toLowerCase();
-    const map = {
-      "сердце давление пульс грудь кардио": "Кардиолог",
-      "живот желудок тошнота рвота понос": "Гастроэнтеролог",
-      "голова головная боль мигрень головокружение": "Невролог",
-      "ухо горло нос кашель насморк лор": "ЛОР-врач",
-      "температура кашель слабость простуда грипп": "Терапевт",
-      "кожа сыпь зуд аллергия": "Дерматолог",
-      "зуб зубы": "Стоматолог",
-      "беременность женское гинеколог": "Гинеколог",
-      "глаза зрение": "Офтальмолог",
-      "ребёнок малыш дети педиатр": "Педиатр"
-    };
-
-    for (let keys in map) {
-      if (keys.split(' ').some(k => q.includes(k))) {
-        const found = doctors.filter(d => d.spec === map[keys]);
-        if (found.length) {
-          const doc = found[Math.floor(Math.random() * found.length)];
-          return `<b>${doc.name}</b><br>${doc.spec} ★ ${doc.rating}<br>${doc.clinic}<br><b>Тел: ${doc.phone}</b><br>${doc.address}<br><br><i>Могу записать на приём или позвонить прямо сейчас!</i>`;
-        }
+    function showNotification(title, body) {
+      if (Notification.permission === "granted") {
+        new Notification(title, { body });
       }
     }
-    return "Расскажите подробнее о симптомах — подберу идеального врача!";
-  }
 
-  document.getElementById('sendBtn').onclick = () => {
-    const input = document.getElementById('messageInput');
-    const text = input.value.trim();
-    if (!text) return;
-    addMessage(text, 'user');
-    input.value = '';
-    setTimeout(() => {
-      addMessage(getDoctorResponse(text), 'ai');
-    }, 800);
-  };
-
-  document.getElementById('messageInput').addEventListener('keypress', e => {
-    if (e.key === 'Enter') document.getElementById('sendBtn').click();
-  });
-
-  function renderDoctors(list) {
-    const container = document.getElementById('doctorsContainer');
-    container.innerHTML = '';
-    list.forEach(doc => {
-      container.innerHTML += `
-        <div class="doctor-card">
-          <div class="doc-header">
-            <img src="${doc.photo}" alt="${doc.name}">
-            <div class="doc-info">
-              <h3>${doc.name}</h3>
-              <div class="specialty">${doc.spec}</div>
-              <div class="rating">★ ${doc.rating}</div>
-              <div><b>${doc.clinic}</b><br><small>${doc.address}</small></div>
-            </div>
-          </div>
-          <div class="doc-footer">
-            <div style="font-size:18px; margin-bottom:10px;">${doc.phone}</div>
-            <button class="call-btn" onclick="addMessage('Звоню ${doc.name}... ${doc.phone}', 'ai')">
-              Позвонить сейчас
-            </button>
-          </div>
-        </div>`;
-    });
-  }
-
-  document.getElementById('searchInput').oninput = e => {
-    const q = e.target.value.toLowerCase();
-    const filtered = doctors.filter(d => 
-      d.name.toLowerCase().includes(q) || 
-      d.spec.toLowerCase().includes(q) || 
-      d.clinic.toLowerCase().includes(q)
-    );
-    renderDoctors(q ? filtered : doctors);
-  };
-
-  function renderAdminPanel() {
-    const ut = document.querySelector('#usersTable tbody');
-    ut.innerHTML = users.map((u,i) => `
-      <tr>
-        <td>${i+1}</td>
-        <td>${u.email}</td>
-        <td>${u.firstName}</td>
-        <td>${u.lastName}</td>
-        <td>${u.phone}</td>
-        <td><span style="padding:6px 12px; background:${u.role==='admin'?'#ff4757':'#00d4c1'}; color:white; border-radius:8px;">${u.role === 'admin' ? 'Админ' : 'Пациент'}</span></td>
-      </tr>
-    `).join('');
-
-    document.querySelector('#doctorsTable tbody').innerHTML = doctors.map(d => `
-      <tr>
-        <td><img src="${d.photo}" width="60" style="border-radius:12px;"></td>
-        <td><b>${d.name}</b></td>
-        <td>${d.spec}</td>
-        <td>★ ${d.rating}</td>
-        <td>${d.clinic}</td>
-        <td>${d.phone}</td>
-      </tr>`).join('');
-  }
-
-  window.onload = () => {
-    const saved = localStorage.getItem('sd_current');
-    if (saved) {
-      currentUser = JSON.parse(saved);
-      showMainApp();
+    // Background and avatar functions
+    function applyBackground(bg) {
+      document.body.style.setProperty('--bg', bg);
+      localStorage.setItem('sd_background', bg);
     }
-  };
-</script>
+
+    function applyAvatar(url) {
+      document.getElementById('userAvatar').src = url;
+      document.getElementById('currentAvatarPreview').src = url;
+      if (currentUser) {
+        currentUser.avatar = url;
+        localStorage.setItem("sd_current", JSON.stringify(currentUser));
+        const idx = users.findIndex(u => u.email === currentUser.email);
+        if (idx !== -1) users[idx].avatar = url;
+        localStorage.setItem("sd_users", JSON.stringify(users));
+      }
+    }
+
+    // Modals
+    const settingsModal = document.getElementById('settingsModal');
+    const bookModal = document.getElementById('bookModal');
+
+    document.getElementById('settingsBtn')?.addEventListener('click', () => {
+      document.getElementById('currentAvatarPreview').src = document.getElementById('userAvatar').src;
+      settingsModal.classList.add('open');
+    });
+    document.getElementById('adminSettingsBtn')?.addEventListener('click', () => settingsModal.classList.add('open'));
+    document.querySelectorAll('.modal').forEach(m => m.onclick = e => { if (e.target === m) m.classList.remove('open'); });
+
+    document.querySelectorAll('.bg-option').forEach(o => o.onclick = () => {
+      applyBackground(o.dataset.bg);
+      document.querySelectorAll('.bg-option').forEach(x => x.classList.toggle('active', x === o));
+    });
+
+    document.querySelectorAll('.avatar-option').forEach(o => o.onclick = () => {
+      applyAvatar(o.dataset.avatar);
+      document.querySelectorAll('.avatar-option').forEach(x => x.classList.toggle('active', x === o));
+    });
+
+    // Appointment
+    let currentDoctor = null;
+    function openBookModal(doc) {
+      currentDoctor = doc;
+      document.getElementById('bookDoctorName').textContent = `Запись к: ${doc.name} (${doc.spec})`;
+      bookModal.classList.add('open');
+    }
+    document.getElementById('submitBook').onclick = () => {
+      const date = document.getElementById('bookDate').value;
+      const time = document.getElementById('bookTime').value;
+      const comment = document.getElementById('bookComment').value.trim();
+      if (!date || !time) return alert("Выберите дату и время");
+      const appointment = {doctor: currentDoctor.name, date, time, comment, user: currentUser.email};
+      appointments.push(appointment);
+      localStorage.setItem("sd_appointments", JSON.stringify(appointments));
+      addMessage(`Заявка отправлена!<br>Врач: ${currentDoctor.name}<br>Дата: ${date}<br>Время: ${time}<br>${comment ? 'Комментарий: ' + comment : ''}<br><br>Мы свяжемся с вами в ближайшее время!`, "ai");
+      playSound();
+      showNotification("SmartDoctor", "Заявка на приём отправлена!");
+      bookModal.classList.remove('open');
+      document.getElementById('bookDate').value = '';
+      document.getElementById('bookTime').value = '';
+      document.getElementById('bookComment').value = '';
+    };
+
+    // Main app logic
+    const authScreen = document.getElementById('authScreen');
+    const patientApp = document.getElementById('patientApp');
+    const adminApp = document.getElementById('adminApp');
+    const chat = document.getElementById('chat');
+    const doctorsSection = document.getElementById('doctorsSection');
+    const doctorsToggle = document.getElementById('doctorsToggle');
+
+    doctorsToggle.onclick = () => doctorsSection.classList.toggle('open');
+    document.addEventListener('click', (e) => {
+      if (!doctorsSection.contains(e.target) && !doctorsToggle.contains(e.target) && doctorsSection.classList.contains('open')) {
+        doctorsSection.classList.remove('open');
+      }
+    });
+
+    let isLoginMode = true;
+    document.getElementById('toggleLink').onclick = () => {
+      isLoginMode = !isLoginMode;
+      ['firstName','lastName','phone'].forEach(id => document.getElementById(id).style.display = isLoginMode ? 'none' : 'block');
+      document.getElementById('authTitle').textContent = isLoginMode ? "Добро пожаловать назад!" : "Создать аккаунт";
+      document.getElementById('authBtn').textContent = isLoginMode ? "Войти" : "Зарегистрироваться";
+      document.getElementById('toggleLink').textContent = isLoginMode ? "Нет аккаунта? Зарегистрироваться" : "Уже есть аккаунт? Войти";
+    };
+
+    document.getElementById('authBtn').onclick = () => {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      if (!email || !password) return alert("Заполните email и пароль");
+      if (isLoginMode) {
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+          currentUser = user;
+          localStorage.setItem("sd_current", JSON.stringify(user));
+          showMainApp();
+        } else alert("Неверный email или пароль");
+      } else {
+        const f = document.getElementById('firstName').value.trim();
+        const l = document.getElementById('lastName').value.trim();
+        const p = document.getElementById('phone').value.trim();
+        if (!f || !l || !p) return alert("Заполните все поля");
+        if (users.some(u => u.email === email)) return alert("Этот email уже зарегистрирован");
+        const device = isMobile ? "Mobile" : "PC";
+        const newUser = {email, password, firstName: f, lastName: l, phone: p, role: "patient", device, avatar:"https://randomuser.me/api/portraits/men/1.jpg"};
+        users.push(newUser);
+        localStorage.setItem("sd_users", JSON.stringify(users));
+        alert("Регистрация успешна! Теперь войдите");
+        document.getElementById('toggleLink').click();
+      }
+    };
+
+    function showMainApp() {
+      authScreen.style.display = 'none';
+      chatHistory = JSON.parse(localStorage.getItem(`sd_chat_${currentUser.email}`) || "[]");
+      chat.innerHTML = '';
+      chatHistory.forEach(m => addMessage(m.text, m.sender, false));
+      document.getElementById('userAvatar').src = currentUser.avatar || "https://randomuser.me/api/portraits/men/1.jpg";
+      if (currentUser.role === "admin") {
+        adminApp.style.display = 'flex';
+        document.getElementById('adminName').textContent = currentUser.firstName;
+        renderAdminPanel();
+      } else {
+        patientApp.style.display = 'flex';
+        document.getElementById('userName').textContent = currentUser.firstName + " " + currentUser.lastName;
+        if (chatHistory.length === 0) {
+          addMessage(`Здравствуйте, ${currentUser.firstName}!<br>Я ваш умный медицинский помощник.<br><br>Напишите, что вас беспокоит — подберу лучшего врача за 10 секунд!`, "ai");
+        }
+        renderDoctors(doctors);
+      }
+    }
+
+    document.querySelectorAll('.logout').forEach(btn => btn.onclick = () => { localStorage.removeItem("sd_current"); location.reload(); });
+
+    function addMessage(text, sender, save = true) {
+      const div = document.createElement('div');
+      div.className = `message ${sender}`;
+      div.innerHTML = text;
+      chat.appendChild(div);
+      chat.scrollTo({ top: chat.scrollHeight, behavior: 'smooth' });
+      if (sender === 'ai') {
+        playSound();
+        showNotification("SmartDoctor", "Новое сообщение от помощника");
+      }
+      if (save && currentUser) {
+        chatHistory.push({text, sender});
+        localStorage.setItem(`sd_chat_${currentUser.email}`, JSON.stringify(chatHistory));
+      }
+    }
+
+    function showTyping() {
+      const typing = document.createElement('div');
+      typing.className = 'typing-indicator';
+      typing.innerHTML = 'Печатает<span class="dots">...</span>';
+      typing.id = 'typingIndicator';
+      chat.appendChild(typing);
+      chat.scrollTo({ top: chat.scrollHeight, behavior: 'smooth' });
+    }
+
+    function hideTyping() {
+      const indicator = document.getElementById('typingIndicator');
+      if (indicator) indicator.remove();
+    }
+
+    document.getElementById('sendBtn').onclick = () => {
+      const input = document.getElementById('messageInput');
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      updateSymptomStats(text);
+      input.value = '';
+      showTyping();
+      setTimeout(() => {
+        hideTyping();
+        addMessage(getDoctorResponse(text), 'ai');
+      }, 1000 + Math.random() * 1000);
+    };
+
+    document.getElementById('messageInput').addEventListener('keypress', e => {
+      if (e.key === 'Enter') document.getElementById('sendBtn').click();
+    });
+
+    document.getElementById('clearChat')?.addEventListener('click', () => {
+      if (confirm("Очистить всю переписку?")) {
+        chatHistory = [];
+        localStorage.removeItem(`sd_chat_${currentUser.email}`);
+        chat.innerHTML = '';
+        addMessage("Чат очищен. Чем могу помочь?", "ai", false);
+      }
+    });
+
+    document.getElementById('exportChat')?.addEventListener('click', () => {
+      const text = chatHistory.map(m => (m.sender === 'user' ? 'Вы' : 'SmartDoctor') + ': ' + m.text.replace(/<br>/g, '\n')).join('\n\n');
+      const blob = new Blob([text], {type: 'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `SmartDoctor_чат_${new Date().toLocaleDateString()}.txt`;
+      a.click();
+    });
+
+    function updateSymptomStats(query) {
+      const q = query.toLowerCase();
+      symptomStats[q] = (symptomStats[q] || 0) + 1;
+      localStorage.setItem("sd_symptoms", JSON.stringify(symptomStats));
+    }
+
+    function getDoctorResponse(query) {
+      const q = query.toLowerCase();
+      const map = {
+        "сердце давление пульс грудь кардио": "Кардиолог",
+        "живот желудок тошнота рвота понос": "Гастроэнтеролог",
+        "голова головная боль мигрень головокружение": "Невролог",
+        "ухо горло нос кашель насморк лор": "ЛОР-врач",
+        "температура кашель слабость простуда грипп": "Терапевт",
+        "кожа сыпь зуд аллергия": "Дерматолог",
+        "зуб зубы": "Стоматолог",
+        "беременность женское гинеколог": "Гинеколог",
+        "глаза зрение": "Офтальмолог",
+        "ребёнок малыш дети педиатр": "Педиатр"
+      };
+      for (let keys in map) {
+        if (keys.split(' ').some(k => q.includes(k))) {
+          const found = doctors.filter(d => d.spec === map[keys]);
+          if (found.length) {
+            const doc = found[Math.floor(Math.random() * found.length)];
+            return `<b>${doc.name}</b><br>${doc.spec} ★ ${doc.rating}<br>${doc.clinic}<br><b>Тел: ${doc.phone}</b><br>${doc.address}<br><br><button class="book-btn" onclick="openBookModal(${JSON.stringify(doc).replace(/"/g, '&quot;')})">Записаться на приём</button>`;
+          }
+        }
+      }
+      return "Расскажите подробнее о симптомах — подберу идеального врача!";
+    }
+
+    function renderDoctors(list) {
+      const container = document.getElementById('doctorsContainer');
+      container.innerHTML = '';
+      list.forEach(doc => {
+        container.innerHTML += `
+          <div class="doctor-card">
+            <div class="doc-header">
+              <img src="${doc.photo}" alt="${doc.name}">
+              <div class="doc-info">
+                <h3>${doc.name}</h3>
+                <div class="specialty">${doc.spec}</div>
+                <div class="rating">★ ${doc.rating}</div>
+                <div><b>${doc.clinic}</b><br><small>${doc.address}</small></div>
+              </div>
+            </div>
+            <div class="doc-footer">
+              <div style="font-size:18px; margin-bottom:10px;">${doc.phone}</div>
+              <a href="tel:${doc.phone}" class="call-btn">Позвонить сейчас</a>
+              <button class="book-btn" onclick="openBookModal(${JSON.stringify(doc).replace(/"/g, '&quot;')})">Записаться</button>
+            </div>
+          </div>`;
+      });
+    }
+
+    document.getElementById('searchInput').oninput = e => {
+      const q = e.target.value.toLowerCase();
+      let filtered = doctors.filter(d =>
+        d.name.toLowerCase().includes(q) ||
+        d.spec.toLowerCase().includes(q) ||
+        d.clinic.toLowerCase().includes(q)
+      );
+      const symptomMap = {
+        "сердце": "Кардиолог", "голова": "Невролог", "живот": "Гастроэнтеролог",
+        "ухо": "ЛОР-врач", "горло": "ЛОР-врач", "нос": "ЛОР-врач",
+        "температура": "Терапевт", "кашель": "Терапевт",
+        "кожа": "Дерматолог", "зуб": "Стоматолог", "беременность": "Гинеколог",
+        "глаза": "Офтальмолог", "ребёнок": "Педиатр"
+      };
+      for (let key in symptomMap) {
+        if (q.includes(key)) {
+          const priority = doctors.filter(d => d.spec === symptomMap[key]);
+          filtered = priority.concat(filtered.filter(d => d.spec !== symptomMap[key]));
+          break;
+        }
+      }
+      renderDoctors(filtered.length ? filtered : doctors);
+    };
+
+    function renderAdminPanel() {
+      const ut = document.querySelector('#usersTable tbody');
+      ut.innerHTML = users.map((u,i) => `
+        <tr>
+          <td>${i+1}</td>
+          <td>${u.email}</td>
+          <td>${u.firstName}</td>
+          <td>${u.lastName}</td>
+          <td>${u.phone}</td>
+          <td>${u.device === 'Mobile' ? 'Мобильный' : 'ПК'}</td>
+          <td><span style="padding:6px 12px; background:${u.role==='admin'?'#ff4757':'#00d4c1'}; color:white; border-radius:8px;">${u.role === 'admin' ? 'Админ' : 'Пациент'}</span></td>
+        </tr>
+      `).join('');
+
+      const sorted = Object.entries(symptomStats).sort((a,b) => b[1] - a[1]).slice(0,5);
+      const topEl = document.getElementById('topSymptoms');
+      topEl.innerHTML = sorted.length ? '<ul>' + sorted.map(([s,c]) => `<li><b>${s}</b> — ${c} раз</li>`).join('') + '</ul>' : '<p>Пока нет данных</p>';
+
+      document.querySelector('#doctorsTable tbody').innerHTML = doctors.map(d => `
+        <tr>
+          <td><img src="${d.photo}" width="60" style="border-radius:12px;"></td>
+          <td><b>${d.name}</b></td>
+          <td>${d.spec}</td>
+          <td>★ ${d.rating}</td>
+          <td>${d.clinic}</td>
+          <td>${d.phone}</td>
+        </tr>`).join('');
+    }
+
+    window.onload = () => {
+      const savedBg = localStorage.getItem('sd_background') || 'linear-gradient(135deg, #1b38bb 0%, #1249c0 100%)';
+      applyBackground(savedBg);
+
+      const saved = localStorage.getItem('sd_current');
+      if (saved) {
+        currentUser = JSON.parse(saved);
+        document.getElementById('userAvatar').src = currentUser.avatar || "https://randomuser.me/api/portraits/men/1.jpg";
+        showMainApp();
+      }
+    };
+  </script>
 </body>
 </html>
-
