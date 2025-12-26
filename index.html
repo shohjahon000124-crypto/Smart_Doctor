@@ -35,11 +35,11 @@
     }
     /* 30 */
     /* Reset and base styles */
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-      touch-action: manipulation; 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      touch-action: manipulation;
     }
     /* 37 */
     body, html {
@@ -128,7 +128,7 @@
       color: #555;
       margin-bottom: 40px;
       opacity: 0.9;
-    } 
+    }
     /* 113 */
     .auth-box {
       background: white;
@@ -142,7 +142,7 @@
     /* 122 */
     .auth-box h2 {
       font-size: 28px;
-      margin-bottom: 30px;                
+      margin-bottom: 30px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -211,65 +211,65 @@
       flex-shrink: 0;
     }
     /* 183 */
-    .header-left { 
-      display: flex; 
-      align-items: center; 
-      gap: 12px; 
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     /* 188 */
-    .logo { 
-      font-size: 28px; 
-      color: white; 
+    .logo {
+      font-size: 28px;
+      color: white;
     }
     /* 192 */
-    .header-right { 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-      flex-wrap: wrap; 
-      justify-content: flex-end; 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
     /* 199 */
-    .user-info { 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-      background: rgba(255,255,255,0.25); 
-      padding: 8px 16px; 
-      border-radius: 50px; 
-      font-weight: 600; 
-      font-size: 14px; 
-      backdrop-filter: blur(10px); 
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.25);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 14px;
+      backdrop-filter: blur(10px);
     }
     /* 210 */
-    .user-avatar { 
-      width: 36px; 
-      height: 36px; 
-      border-radius: 50%; 
-      object-fit: cover; 
-      border: 2px solid white; 
-      transition: var(--transition); 
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      transition: var(--transition);
     }
     /* 218 */
-    .user-avatar:hover { 
-      transform: scale(1.1); 
+    .user-avatar:hover {
+      transform: scale(1.1);
     }
     /* 221 */
-    .logout, .settings-btn { 
-      background: rgba(255,255,255,0.2); 
-      border: none; 
-      color: white; 
-      padding: 8px 16px; 
-      border-radius: 50px; 
-      cursor: pointer; 
-      font-weight: 600; 
-      font-size: 14px; 
-      transition: var(--transition); 
+    .logout, .settings-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      transition: var(--transition);
     }
     /* 232 */
-    .logout:hover, .settings-btn:hover { 
-      background: rgba(255,255,255,0.3); 
-      transform: translateY(-2px); 
+    .logout:hover, .settings-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
     }
     /* 236 */
     /* Modal styles */
@@ -283,8 +283,8 @@
       justify-content: center;
     }
     /* 246 */
-    .modal.open { 
-      display: flex; 
+    .modal.open {
+      display: flex;
     }
     /* 249 */
     .modal-content {
@@ -299,439 +299,439 @@
       overflow-y: auto;
     }
     /* 260 */
-    .modal h3 { 
-      margin-bottom: 25px; 
-      font-size: 26px; 
-      font-weight: 700; 
-      color: var(--primary); 
+    .modal h3 {
+      margin-bottom: 25px;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary);
     }
     /* 266 */
-    .settings-section { 
-      margin-bottom: 35px; 
-      padding: 20px; 
-      background: rgba(0,212,193,0.05); 
-      border-radius: 16px; 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    .settings-section {
+      margin-bottom: 35px;
+      padding: 20px;
+      background: rgba(0,212,193,0.05);
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
     /* 273 */
-    .settings-section h4 { 
-      font-size: 20px; 
-      margin-bottom: 18px; 
-      color: var(--primary); 
-      font-weight: 600; 
-      text-align: center; 
+    .settings-section h4 {
+      font-size: 20px;
+      margin-bottom: 18px;
+      color: var(--primary);
+      font-weight: 600;
+      text-align: center;
     }
     /* 280 */
-    .current-avatar-preview { 
-      width: 120px; 
-      height: 120px; 
-      border-radius: 50%; 
-      object-fit: cover; 
-      border: 4px solid var(--primary); 
-      margin: 20px auto; 
-      box-shadow: 0 8px 25px rgba(0,212,193,0.3); 
+    .current-avatar-preview {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      margin: 20px auto;
+      box-shadow: 0 8px 25px rgba(0,212,193,0.3);
     }
     /* 289 */
-    .language-selector { 
-      display: flex; 
-      justify-content: center; 
-      gap: 15px; 
-      margin-bottom: 20px; 
+    .language-selector {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
     }
     /* 295 */
-    .lang-flag { 
-      font-size: 32px; 
-      cursor: pointer; 
-      transition: 0.3s; 
-      opacity: 0.6; 
+    .lang-flag {
+      font-size: 32px;
+      cursor: pointer;
+      transition: 0.3s;
+      opacity: 0.6;
     }
     /* 301 */
-    .lang-flag.active { 
-      opacity: 1; 
-      transform: scale(1.2); 
+    .lang-flag.active {
+      opacity: 1;
+      transform: scale(1.2);
     }
     /* 305 */
-    .bg-options, .avatar-options { 
-      display: grid; 
-      grid-template-columns: repeat(3, 1fr); 
-      gap: 15px; 
+    .bg-options, .avatar-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
     }
     /* 310 */
-    .bg-option, .avatar-option { 
-      height: 110px; 
-      border-radius: 16px; 
-      cursor: pointer; 
-      border: 4px solid transparent; 
-      transition: var(--transition); 
-      background-size: cover; 
-      background-position: center; 
+    .bg-option, .avatar-option {
+      height: 110px;
+      border-radius: 16px;
+      cursor: pointer;
+      border: 4px solid transparent;
+      transition: var(--transition);
+      background-size: cover;
+      background-position: center;
     }
     /* 319 */
-    .bg-option.active, .avatar-option.active { 
-      border-color: var(--primary); 
-      transform: scale(1.08); 
-      box-shadow: 0 10px 30px rgba(0,212,193,0.4); 
+    .bg-option.active, .avatar-option.active {
+      border-color: var(--primary);
+      transform: scale(1.08);
+      box-shadow: 0 10px 30px rgba(0,212,193,0.4);
     }
     /* 324 */
-    .avatar-option { 
-      background-size: contain; 
-      background-repeat: no-repeat; 
-      background-color: #f0f8ff; 
+    .avatar-option {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: #f0f8ff;
     }
     /* 329 */
-    .modal-buttons { 
-      display: flex; 
-      gap: 15px; 
-      margin-top: 30px; 
+    .modal-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
     }
     /* 334 */
-    .modal-btn { 
-      flex: 1; 
-      padding: 14px; 
-      background: var(--primary); 
-      color: white; 
-      border: none; 
-      border-radius: 16px; 
-      font-size: 16px; 
-      cursor: pointer; 
-      transition: var(--transition); 
+    .modal-btn {
+      flex: 1;
+      padding: 14px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 16px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition);
     }
     /* 345 */
-    .modal-btn:hover { 
-      background: var(--primary-dark); 
-      transform: translateY(-3px); 
+    .modal-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
     }
     /* 349 */
-    .modal-btn.secondary { 
-      background: #95a5a6; 
+    .modal-btn.secondary {
+      background: #95a5a6;
     }
     /* 352 */
     /* Main layout */
-    .main { 
-      display: flex; 
-      flex: 1; 
-      overflow: hidden; 
-      position: relative; 
+    .main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
     }
     /* 359 */
-    .chat-section { 
-      flex: 1; 
-      background: var(--light); 
-      display: flex; 
-      flex-direction: column; 
+    .chat-section {
+      flex: 1;
+      background: var(--light);
+      display: flex;
+      flex-direction: column;
     }
     /* 365 */
-    .chat-controls { 
-      display: flex; 
-      gap: 10px; 
-      padding: 12px 20px; 
-      justify-content: flex-end; 
-      background: var(--card); 
-      border-bottom: 1px solid var(--border); 
-      flex-wrap: wrap; 
+    .chat-controls {
+      display: flex;
+      gap: 10px;
+      padding: 12px 20px;
+      justify-content: flex-end;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
     }
     /* 374 */
-    .chat-btn { 
-      padding: 10px 18px; 
-      background: var(--primary); 
-      color: white; 
-      border: none; 
-      border-radius: 25px; 
-      font-size: 14px; 
-      cursor: pointer; 
-      transition: var(--transition); 
-      box-shadow: 0 4px 15px rgba(0,212,193,0.2); 
+    .chat-btn {
+      padding: 10px 18px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0,212,193,0.2);
     }
     /* 385 */
-    .chat-btn:hover { 
-      background: var(--primary-dark); 
-      transform: translateY(-2px); 
+    .chat-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
     }
     /* 389 */
-    .chat-window { 
-      flex: 1; 
-      padding: 20px; 
-      overflow-y: auto; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 16px; 
-      justify-content: flex-end; 
+    .chat-window {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      justify-content: flex-end;
     }
     /* 398 */
-    .message { 
-      max-width: 75%; 
-      padding: 14px 20px; 
-      border-radius: 20px; 
-      line-height: 1.6; 
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-      word-wrap: break-word; 
-      font-size: 15.5px; 
-      animation: msgIn 0.5s ease-out; 
+    .message {
+      max-width: 75%;
+      padding: 14px 20px;
+      border-radius: 20px;
+      line-height: 1.6;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      word-wrap: break-word;
+      font-size: 15.5px;
+      animation: msgIn 0.5s ease-out;
     }
     /* 408 */
-    @keyframes msgIn { 
-      from { opacity: 0; transform: translateY(30px) scale(0.9); } 
-      to { opacity: 1; transform: none; } 
+    @keyframes msgIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.9); }
+      to { opacity: 1; transform: none; }
     }
     /* 412 */
-    .message.user { 
-      align-self: flex-end; 
-      background: var(--primary); 
-      color: white; 
-      border-bottom-right-radius: 6px; 
+    .message.user {
+      align-self: flex-end;
+      background: var(--primary);
+      color: white;
+      border-bottom-right-radius: 6px;
     }
     /* 418 */
-    .message.ai { 
-      align-self: flex-start; 
-      background: var(--card); 
-      color: var(--text); 
-      border: 1px solid var(--border); 
-      border-bottom-left-radius: 6px; 
+    .message.ai {
+      align-self: flex-start;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 6px;
     }
     /* 425 */
-    .typing-indicator { 
-      align-self: flex-start; 
-      background: var(--card); 
-      border: 1px solid var(--border); 
-      padding: 14px 20px; 
-      border-radius: 20px; 
-      border-bottom-left-radius: 6px; 
-      font-style: italic; 
-      color: #888; 
+    .typing-indicator {
+      align-self: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 14px 20px;
+      border-radius: 20px;
+      border-bottom-left-radius: 6px;
+      font-style: italic;
+      color: #888;
     }
     /* 435 */
-    .input-area { 
-      padding: 14px 18px; 
-      background: var(--card); 
-      border-top: 1px solid var(--border); 
-      display: flex; 
-      gap: 14px; 
-      align-items: center; 
-      flex-shrink: 0; 
+    .input-area {
+      padding: 14px 18px;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-shrink: 0;
     }
     /* 444 */
-    .input-area input { 
-      flex: 1; 
-      padding: 16px 22px; 
-      border: 2px solid var(--border); 
-      background: var(--input-bg); 
-      color: var(--text); 
-      border-radius: 50px; 
-      font-size: 16px; 
+    .input-area input {
+      flex: 1;
+      padding: 16px 22px;
+      border: 2px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
+      border-radius: 50px;
+      font-size: 16px;
     }
     /* 453 */
-    .input-area button { 
-      width: 52px; 
-      height: 52px; 
-      background: var(--primary); 
-      color: white; 
-      border: none; 
-      border-radius: 50%; 
-      font-size: 22px; 
-      cursor: pointer; 
-      transition: var(--transition); 
-      box-shadow: 0 6px 20px rgba(0,212,193,0.3); 
+    .input-area button {
+      width: 52px;
+      height: 52px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(0,212,193,0.3);
     }
     /* 464 */
-    .input-area button:hover { 
-      transform: scale(1.1); 
+    .input-area button:hover {
+      transform: scale(1.1);
     }
     /* 467 */
     /* Doctors section */
-    .doctors-section { 
-      background: var(--card); 
-      padding: 20px; 
-      overflow-y: auto; 
-      width: 380px; 
-      border-left: 1px solid var(--border); 
-      flex-shrink: 0; 
-      transition: transform 0.4s ease; 
+    .doctors-section {
+      background: var(--card);
+      padding: 20px;
+      overflow-y: auto;
+      width: 380px;
+      border-left: 1px solid var(--border);
+      flex-shrink: 0;
+      transition: transform 0.4s ease;
     }
     /* 476 */
-    .doctors-toggle { 
-      display: none; 
-      position: fixed; 
-      bottom: 90px; 
-      right: 20px; 
-      width: 60px; 
-      height: 60px; 
-      background: var(--primary); 
-      color: white; 
-      border: none; 
-      border-radius: 50%; 
-      font-size: 26px; 
-      box-shadow: 0 10px 30px rgba(0,212,193,0.5); 
-      cursor: pointer; 
-      z-index: 100; 
-      transition: var(--transition); 
+    .doctors-toggle {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 26px;
+      box-shadow: 0 10px 30px rgba(0,212,193,0.5);
+      cursor: pointer;
+      z-index: 100;
+      transition: var(--transition);
     }
     /* 494 */
-    .doctors-toggle:hover { 
-      transform: scale(1.15); 
+    .doctors-toggle:hover {
+      transform: scale(1.15);
     }
     /* 497 */
-    .search-box { 
-      margin-bottom: 20px; 
-      position: relative; 
+    .search-box {
+      margin-bottom: 20px;
+      position: relative;
     }
     /* 501 */
-    .search-box input { 
-      width: 100%; 
-      padding: 16px 50px 16px 22px; 
-      border: 2px solid var(--border); 
-      background: var(--input-bg); 
-      color: var(--text); 
-      border-radius: 50px; 
-      font-size: 16px; 
+    .search-box input {
+      width: 100%;
+      padding: 16px 50px 16px 22px;
+      border: 2px solid var(--border);
+      background: var(--input-bg);
+      color: var(--text);
+      border-radius: 50px;
+      font-size: 16px;
     }
     /* 510 */
-    .search-box i { 
-      position: absolute; 
-      right: 18px; 
-      top: 50%; 
-      transform: translateY(-50%); 
-      color: #aaa; 
-      font-size: 20px; 
+    .search-box i {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+      font-size: 20px;
     }
     /* 518 */
-    .doctor-card { 
-      background: var(--card); 
-      border-radius: 20px; 
-      overflow: hidden; 
-      margin-bottom: 18px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12); 
-      transition: var(--transition); 
+    .doctor-card {
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      transition: var(--transition);
     }
     /* 526 */
-    .doctor-card:hover { 
-      transform: translateY(-8px); 
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
+    .doctor-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     }
     /* 530 */
-    .doc-header { 
-      display: flex; 
-      padding: 18px; 
-      gap: 16px; 
-      align-items: center; 
+    .doc-header {
+      display: flex;
+      padding: 18px;
+      gap: 16px;
+      align-items: center;
     }
     /* 536 */
-    .doc-header img { 
-      width: 75px; 
-      height: 75px; 
-      border-radius: 16px; 
-      object-fit: cover; 
-      border: 4px solid var(--primary); 
-      transition: var(--transition); 
+    .doc-header img {
+      width: 75px;
+      height: 75px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      transition: var(--transition);
     }
     /* 544 */
-    .doc-header img:hover { 
-      transform: scale(1.05); 
+    .doc-header img:hover {
+      transform: scale(1.05);
     }
     /* 547 */
-    .doc-info h3 { 
-      font-size: 17px; 
-      margin-bottom: 6px; 
-      color: var(--text); 
-      font-weight: 600; 
+    .doc-info h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-weight: 600;
     }
     /* 553 */
-    .specialty { 
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
-      color: white; 
-      padding: 8px 16px; 
-      border-radius: 30px; 
-      font-size: 14px; 
+    .specialty {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 14px;
     }
     /* 560 */
-    .rating { 
-      color: #f1c40f; 
-      font-size: 17px; 
-      font-weight: bold; 
-      margin: 8px 0; 
+    .rating {
+      color: #f1c40f;
+      font-size: 17px;
+      font-weight: bold;
+      margin: 8px 0;
     }
     /* 566 */
-    .doc-footer { 
-      background: linear-gradient(135deg, #f0fffe, #e6fffa); 
-      padding: 18px; 
-      text-align: center; 
+    .doc-footer {
+      background: linear-gradient(135deg, #f0fffe, #e6fffa);
+      padding: 18px;
+      text-align: center;
     }
     /* 571 */
-    .call-btn, .book-btn { 
-      padding: 14px 32px; 
-      background: var(--primary); 
-      color: white; 
-      border: none; 
-      border-radius: 50px; 
-      font-size: 16px; 
-      font-weight: 700; 
-      cursor: pointer; 
-      width: 100%; 
-      text-decoration: none; 
-      display: block; 
-      margin-top: 10px; 
-      transition: var(--transition); 
+    .call-btn, .book-btn {
+      padding: 14px 32px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+      transition: var(--transition);
     }
     /* 586 */
-    .book-btn { 
-      background: #667eea; 
+    .book-btn {
+      background: #667eea;
     }
     /* 589 */
-    .call-btn:hover, .book-btn:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    .call-btn:hover, .book-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
     /* 593 */
     /* Admin panel */
-    .admin-panel { 
-      padding: 35px; 
-      flex: 1; 
-      overflow-y: auto; 
+    .admin-panel {
+      padding: 35px;
+      flex: 1;
+      overflow-y: auto;
     }
     /* 599 */
-    table { 
-      width: 100%; 
-      background: var(--card); 
-      border-radius: 20px; 
-      overflow: hidden; 
-      box-shadow: var(--shadow); 
+    table {
+      width: 100%;
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
     /* 606 */
-    th { 
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark)); 
-      color: white; 
-      padding: 22px; 
-      font-size: 17px; 
+    th {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 22px;
+      font-size: 17px;
     }
     /* 612 */
-    td { 
-      padding: 18px; 
-      border-bottom: 1px solid var(--border); 
-      color: var(--text); 
+    td {
+      padding: 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
     }
     /* 617 */
-    tr:hover td { 
-      background: #f0fffe; 
-      transition: 0.3s; 
+    tr:hover td {
+      background: #f0fffe;
+      transition: 0.3s;
     }
     /* 621 */
-    #topSymptoms { 
-      margin: 30px 0; 
-      padding: 25px; 
-      background: var(--card); 
-      border-radius: 18px; 
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08); 
+    #topSymptoms {
+      margin: 30px 0;
+      padding: 25px;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     }
     /* 628 */
-    #topSymptoms ul { 
-      list-style: none; 
+    #topSymptoms ul {
+      list-style: none;
     }
     /* 631 */
-    #topSymptoms li { 
-      padding: 14px; 
-      background: rgba(0,212,193,0.12); 
-      margin: 10px 0; 
-      border-radius: 14px; 
-      font-size: 16px; 
+    #topSymptoms li {
+      padding: 14px;
+      background: rgba(0,212,193,0.12);
+      margin: 10px 0;
+      border-radius: 14px;
+      font-size: 16px;
     }
     /* 638 */
     /* Media queries for responsiveness */
@@ -764,6 +764,33 @@
       .modal-content { padding: 20px; }
     }
     /* 664 */
+
+    /* дополнительные стили для таблицы заявок */
+    .appointments-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .appointments-table thead th {
+      background: linear-gradient(135deg, #00d4c1, #00a89a);
+      color: #fff;
+      padding: 12px;
+    }
+    .appointments-table td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+    }
+    .appointments-table button {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .appointments-table .accept { background: #2ecc71; color: #fff; }
+    .appointments-table .reject { background: #e74c3c; color: #fff; }
   </style>
 </head>
 <body>
@@ -791,7 +818,7 @@
           <input type="text" id="firstName" placeholder="Имя" style="display:none;">
           <!-- 678 -->
           <input type="text" id="lastName" placeholder="Фамилия" style="display:none;">
-          
+         
           <!-- 679 -->
           <input type="tel" id="phone" placeholder="Телефон (+992...)" style="display:none;">
           <!-- 680 -->
@@ -806,7 +833,6 @@
       </div>
       <!-- 685 -->
     </div>
-
     <!-- Patient app -->
     <div id="patientApp" style="display:none; flex-direction:column; height:100%;">
       <!-- 687 -->
@@ -879,7 +905,6 @@
       </div>
       <!-- 721 -->
     </div>
-
     <!-- Admin app -->
     <div id="adminApp" style="display:none; flex-direction:column; height:100%;">
       <!-- 723 -->
@@ -906,7 +931,6 @@
       <div class="admin-panel">
         <!-- 734 -->
         <h2 data-tr="Пользователи системы">Пользователи системы</h2>
-        <!-- 735 -->
         <table id="usersTable">
           <!-- 736 -->
           <thead><tr><th>#</th><th>Email</th><th data-tr="Имя">Имя</th><th data-tr="Фамилия">Фамилия</th><th data-tr="Телефон">Телефон</th><th data-tr="Устройство">Устройство</th><th data-tr="Роль">Роль</th></tr></thead>
@@ -929,12 +953,12 @@
           <!-- 745 -->
         </table>
         <!-- 746 -->
+        <!-- Здесь будет секция заявок (renderAdminPanel добавляет её динамически) -->
       </div>
       <!-- 747 -->
     </div>
     <!-- 748 -->
   </div>
-
   <!-- Settings modal -->
   <div class="modal" id="settingsModal">
     <!-- 750 -->
@@ -942,7 +966,6 @@
       <!-- 751 -->
       <h3 data-tr="Настройки приложения">Настройки приложения</h3>
       <!-- 752 -->
-
       <div class="settings-section">
         <!-- 754 -->
         <h4 data-tr="Язык">Язык</h4>
@@ -958,7 +981,6 @@
         </div>
         <!-- 760 -->
       </div>
-
       <div class="settings-section">
         <!-- 762 -->
         <h4 data-tr="Фон приложения">Фон приложения</h4>
@@ -980,7 +1002,6 @@
         </div>
         <!-- 771 -->
       </div>
-
       <div class="settings-section">
         <!-- 773 -->
         <h4 data-tr="Ваш аватар">Ваш аватар</h4>
@@ -1012,7 +1033,6 @@
         </div>
         <!-- 787 -->
       </div>
-
       <div class="modal-buttons">
         <!-- 789 -->
         <button class="modal-btn" onclick="document.getElementById('settingsModal').classList.remove('open')" data-tr="Закрыть">Закрыть</button>
@@ -1022,7 +1042,6 @@
     </div>
     <!-- 792 -->
   </div>
-
   <!-- Book appointment modal -->
   <div class="modal" id="bookModal">
     <!-- 794 -->
@@ -1059,7 +1078,6 @@
     </div>
     <!-- 810 -->
   </div>
-
   <!-- Suggestions -->
   <datalist id="suggestions">
     <!-- 812 -->
@@ -1084,11 +1102,9 @@
     <option value="Ребёнок болеет">
     <!-- 822 -->
   </datalist>
-
   <!-- Sound -->
   <audio id="notificationSound" src="https://assets.mixkit.co/sfx/preview/mixkit-software-interface-start-2574.mp3" preload="auto"></audio>
   <!-- 824 -->
-
   <!-- JavaScript -->
   <script>
     // 826 -->
@@ -1212,9 +1228,7 @@
         "Отправить заявку": "Фиристодани дархост"
       }
     };
-
     let currentLang = localStorage.getItem('sd_lang') || 'ru';
-
     function translate() {
       document.querySelectorAll('[data-tr]').forEach(el => {
         const key = el.getAttribute('data-tr');
@@ -1224,7 +1238,6 @@
       });
       document.documentElement.lang = currentLang;
     }
-
     document.querySelectorAll('.lang-flag').forEach(flag => {
       flag.onclick = () => {
         currentLang = flag.dataset.lang;
@@ -1234,7 +1247,6 @@
       };
       if (flag.dataset.lang === currentLang) flag.classList.add('active');
     });
-
     const doctors = [
       {name:"Др. Алишер Каримов", spec:"Терапевт", rating:4.9, clinic:"Центральная клиника", address:"ул. Рудаки 12", phone:"+992 90 123 45 67", photo:"https://randomuser.me/api/portraits/men/32.jpg"},
       {name:"Др. Мадина Юсуфова", spec:"ЛОР-врач", rating:5.0, clinic:"МЦ Сомон", address:"пр. Сомони 23", phone:"+992 90 987 65 43", photo:"https://randomuser.me/api/portraits/women/44.jpg"},
@@ -1247,38 +1259,37 @@
       {name:"Др. Дилшод Мирзоев", spec:"Офтальмолог", rating:4.9, clinic:"Глазная клиника", address:"ул. Шевченко 21", phone:"+992 91 777 22 33", photo:"https://randomuser.me/api/portraits/men/41.jpg"},
       {name:"Др. Парвина Шарипова", spec:"Педиатр", rating:5.0, clinic:"Детский центр", address:"ул. Расулов 10", phone:"+992 90 700 11 22", photo:"https://randomuser.me/api/portraits/women/33.jpg"}
     ];
-
     let users = JSON.parse(localStorage.getItem("sd_users")) || [
       {email:"admin@smartdoctor.tj", password:"admin123", firstName:"Админ", lastName:"Системы", phone:"", role:"admin", device:"PC", avatar:"https://randomuser.me/api/portraits/men/1.jpg"}
     ];
     let currentUser = null;
     let chatHistory = [];
     let symptomStats = JSON.parse(localStorage.getItem("sd_symptoms") || "{}");
+    // appointments will be loaded from localStorage or empty array
     let appointments = JSON.parse(localStorage.getItem("sd_appointments") || "[]");
 
-    const isMobile = /Mobi|Android|iPhone|iPad|iPod/.test(navigator.userAgent) || window.innerWidth < 992;
-    const notificationSound = document.getElementById('notificationSound');
+    // Автоопределение мобильного устройства (Android/iPhone)
+    const isMobile = /Android|iPhone|iPad|iPod/.test(navigator.userAgent) || /Mobi/.test(navigator.userAgent);
+    const isAndroid = /Android/.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
 
+    const notificationSound = document.getElementById('notificationSound');
     if ('Notification' in window && Notification.permission === "default") {
       Notification.requestPermission();
     }
-
     function playSound() {
       notificationSound.currentTime = 0;
       notificationSound.play().catch(() => {});
     }
-
     function showNotification(title, body) {
       if (Notification.permission === "granted") {
         new Notification(title, { body });
       }
     }
-
     function applyBackground(bg) {
       document.body.style.setProperty('--bg', bg);
       localStorage.setItem('sd_background', bg);
     }
-
     function applyAvatar(url) {
       document.getElementById('userAvatar').src = url;
       document.getElementById('currentAvatarPreview').src = url;
@@ -1290,27 +1301,22 @@
         localStorage.setItem("sd_users", JSON.stringify(users));
       }
     }
-
     const settingsModal = document.getElementById('settingsModal');
     const bookModal = document.getElementById('bookModal');
-
     document.getElementById('settingsBtn')?.addEventListener('click', () => {
       document.getElementById('currentAvatarPreview').src = document.getElementById('userAvatar').src;
       settingsModal.classList.add('open');
     });
     document.getElementById('adminSettingsBtn')?.addEventListener('click', () => settingsModal.classList.add('open'));
     document.querySelectorAll('.modal').forEach(m => m.onclick = e => { if (e.target === m) m.classList.remove('open'); });
-
     document.querySelectorAll('.bg-option').forEach(o => o.onclick = () => {
       applyBackground(o.dataset.bg);
       document.querySelectorAll('.bg-option').forEach(x => x.classList.toggle('active', x === o));
     });
-
     document.querySelectorAll('.avatar-option').forEach(o => o.onclick = () => {
       applyAvatar(o.dataset.avatar);
       document.querySelectorAll('.avatar-option').forEach(x => x.classList.toggle('active', x === o));
     });
-
     let currentDoctor = null;
     function openBookModal(doc) {
       currentDoctor = doc;
@@ -1322,10 +1328,10 @@
       const time = document.getElementById('bookTime').value;
       const comment = document.getElementById('bookComment').value.trim();
       if (!date || !time) return alert("Выберите дату и время");
-      const appointment = {doctor: currentDoctor.name, date, time, comment, user: currentUser.email};
+      const appointment = {id: Date.now(), doctor: currentDoctor.name, date, time, comment, user: currentUser.email, status: "Новая", adminResponse: ""};
       appointments.push(appointment);
       localStorage.setItem("sd_appointments", JSON.stringify(appointments));
-      addMessage(`Заявка отправлена!<br>Врач: ${currentDoctor.name}<br>Дата: ${date}<br>Время: ${time}<br>${comment ? 'Комментарий: ' + comment : ''}<br><br>Мы свяжемся с вами в ближайшее время!`, "ai");
+      addMessage(`✅ Заявка отправлена!<br>Врач: ${currentDoctor.name}<br>Дата: ${date}<br>Время: ${time}<br>${comment ? 'Комментарий: ' + comment : ''}<br><br>Мы свяжемся с вами в ближайшее время! ❤️`, "ai");
       playSound();
       showNotification("SmartDoctor", "Заявка на приём отправлена!");
       bookModal.classList.remove('open');
@@ -1333,21 +1339,18 @@
       document.getElementById('bookTime').value = '';
       document.getElementById('bookComment').value = '';
     };
-
     const authScreen = document.getElementById('authScreen');
     const patientApp = document.getElementById('patientApp');
     const adminApp = document.getElementById('adminApp');
     const chat = document.getElementById('chat');
     const doctorsSection = document.getElementById('doctorsSection');
     const doctorsToggle = document.getElementById('doctorsToggle');
-
     doctorsToggle.onclick = () => doctorsSection.classList.toggle('open');
     document.addEventListener('click', (e) => {
       if (!doctorsSection.contains(e.target) && !doctorsToggle.contains(e.target) && doctorsSection.classList.contains('open')) {
         doctorsSection.classList.remove('open');
       }
     });
-
     let isLoginMode = true;
     document.getElementById('toggleLink').onclick = () => {
       isLoginMode = !isLoginMode;
@@ -1356,7 +1359,6 @@
       document.getElementById('authBtn').textContent = isLoginMode ? translations[currentLang]["Войти"] : translations[currentLang]["Зарегистрироваться"];
       document.getElementById('toggleLink').textContent = isLoginMode ? translations[currentLang]["Нет аккаунта? Зарегистрироваться"] : translations[currentLang]["Уже есть аккаунт? Войти"];
     };
-
     document.getElementById('authBtn').onclick = () => {
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
@@ -1374,7 +1376,11 @@
         const p = document.getElementById('phone').value.trim();
         if (!f || !l || !p) return alert("Заполните все поля");
         if (users.some(u => u.email === email)) return alert("Этот email уже зарегистрирован");
-        const device = isMobile ? "Mobile" : "PC";
+        // Автоматическое определение устройства при регистрации
+        let device = "PC";
+        if (isAndroid) device = "Android";
+        else if (isIOS) device = "iPhone/iPad";
+        else if (isMobile) device = "Mobile";
         const newUser = {email, password, firstName: f, lastName: l, phone: p, role: "patient", device, avatar:"https://randomuser.me/api/portraits/men/1.jpg"};
         users.push(newUser);
         localStorage.setItem("sd_users", JSON.stringify(users));
@@ -1382,7 +1388,6 @@
         document.getElementById('toggleLink').click();
       }
     };
-
     function showMainApp() {
       authScreen.style.display = 'none';
       chatHistory = JSON.parse(localStorage.getItem(`sd_chat_${currentUser.email}`) || "[]");
@@ -1397,14 +1402,12 @@
         patientApp.style.display = 'flex';
         document.getElementById('userName').textContent = currentUser.firstName + " " + currentUser.lastName;
         if (chatHistory.length === 0) {
-          addMessage(`Здравствуйте, ${currentUser.firstName}!<br>Я ваш умный медицинский помощник.<br><br>Напишите, что вас беспокоит — подберу лучшего врача за 10 секунд!`, "ai");
+          addMessage(`Здравствуйте, ${currentUser.firstName}! ❤️<br>Я ваш умный медицинский помощник.<br><br>Напишите, что вас беспокоит — подберу лучшего врача за 10 секунд!`, "ai");
         }
         renderDoctors(doctors);
       }
     }
-
     document.querySelectorAll('.logout').forEach(btn => btn.onclick = () => { localStorage.removeItem("sd_current"); location.reload(); });
-
     function addMessage(text, sender, save = true) {
       const div = document.createElement('div');
       div.className = `message ${sender}`;
@@ -1420,7 +1423,6 @@
         localStorage.setItem(`sd_chat_${currentUser.email}`, JSON.stringify(chatHistory));
       }
     }
-
     function showTyping() {
       const typing = document.createElement('div');
       typing.className = 'typing-indicator';
@@ -1429,57 +1431,42 @@
       chat.appendChild(typing);
       chat.scrollTo({ top: chat.scrollHeight, behavior: 'smooth' });
     }
-
     function hideTyping() {
       const indicator = document.getElementById('typingIndicator');
       if (indicator) indicator.remove();
     }
-
-    document.getElementById('sendBtn').onclick = () => {
-      const input = document.getElementById('messageInput');
-      const text = input.value.trim();
-      if (!text) return;
-      addMessage(text, 'user');
-      updateSymptomStats(text);
-      input.value = '';
-      showTyping();
-      setTimeout(() => {
-        hideTyping();
-        addMessage(getDoctorResponse(text), 'ai');
-      }, 1000 + Math.random() * 1000);
-    };
-
-    document.getElementById('messageInput').addEventListener('keypress', e => {
-      if (e.key === 'Enter') document.getElementById('sendBtn').click();
-    });
-
-    document.getElementById('clearChat')?.addEventListener('click', () => {
-      if (confirm("Очистить всю переписку?")) {
-        chatHistory = [];
-        localStorage.removeItem(`sd_chat_${currentUser.email}`);
-        chat.innerHTML = '';
-        addMessage("Чат очищен. Чем могу помочь?", "ai", false);
-      }
-    });
-
-    document.getElementById('exportChat')?.addEventListener('click', () => {
-      const text = chatHistory.map(m => (m.sender === 'user' ? 'Вы' : 'SmartDoctor') + ': ' + m.text.replace(/<br>/g, '\n')).join('\n\n');
-      const blob = new Blob([text], {type: 'text/plain'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `SmartDoctor_чат_${new Date().toLocaleDateString()}.txt`;
-      a.click();
-    });
-
-    function updateSymptomStats(query) {
-      const q = query.toLowerCase();
-      symptomStats[q] = (symptomStats[q] || 0) + 1;
-      localStorage.setItem("sd_symptoms", JSON.stringify(symptomStats));
+    const empathy = [
+      "Понимаю, как это неприятно...",
+      "Не переживайте, сейчас помогу!",
+      "Жаль, что вы плохо себя чувствуете...",
+      "Спасибо, что рассказали ❤️",
+      "Давайте разберёмся вместе",
+      "Я здесь, чтобы помочь ❤️"
+    ];
+    const proverbs = [
+      "Здоровье — самое дорогое богатство",
+      "В здоровом теле — здоровый дух",
+      "Береги здоровье смолоду",
+      "Болезнь легче предупредить, чем лечить",
+      "Движение — это жизнь",
+      "Смех — лучшее лекарство",
+      "Яблоко в день — и врач не нужен"
+    ];
+    const tips = [
+      "Пейте 1,5–2 литра воды в день",
+      "Гуляйте на свежем воздухе 30 минут",
+      "Спите 7–8 часов — это лучшее лекарство",
+      "Ешьте больше овощей и фруктов",
+      "Улыбайтесь чаще — это укрепляет иммунитет",
+      "Делайте зарядку по утрам"
+    ];
+    function getRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
     }
-
     function getDoctorResponse(query) {
+      let response = getRandom(empathy) + " ❤️<br><br>";
       const q = query.toLowerCase();
+      let specialist = null;
       const map = {
         "сердце давление пульс грудь кардио": "Кардиолог",
         "живот желудок тошнота рвота понос": "Гастроэнтеролог",
@@ -1494,16 +1481,86 @@
       };
       for (let keys in map) {
         if (keys.split(' ').some(k => q.includes(k))) {
-          const found = doctors.filter(d => d.spec === map[keys]);
-          if (found.length) {
-            const doc = found[Math.floor(Math.random() * found.length)];
-            return `<b>${doc.name}</b><br>${doc.spec} ★ ${doc.rating}<br>${doc.clinic}<br><b>Тел: ${doc.phone}</b><br>${doc.address}<br><br><button class="book-btn" onclick="openBookModal(${JSON.stringify(doc).replace(/"/g, '&quot;')})">Записаться на приём</button>`;
-          }
+          specialist = map[keys];
+          break;
         }
       }
-      return "Расскажите подробнее о симптомах — подберу идеального врача!";
+      if (specialist) {
+        const found = doctors.filter(d => d.spec === specialist);
+        response += `Рекомендую обратиться к <b>${specialist}</b>! 🩺<br><br>`;
+        if (found.length) {
+          found.slice(0, 2).forEach(doc => {
+            response += `
+              <div style="background:#f0fffe;padding:16px;border-radius:16px;margin:14px 0;border-left:5px solid var(--primary);">
+                <b>${doc.name}</b><br>${doc.spec} ★ ${doc.rating}<br>${doc.clinic}<br><b>Тел: ${doc.phone}</b><br>${doc.address}<br><br>
+                <button class="book-btn" onclick="openBookModal(${JSON.stringify(doc).replace(/"/g, '&quot;')})">Записаться на приём</button>
+              </div>`;
+          });
+        }
+        response += `<br><i>Точный диагноз ставит только врач после осмотра.</i> ⚠️`;
+      } else {
+        response += "Расскажите подробнее о симптомах — подберу идеального врача! 😊";
+      }
+      response += `<br><br><div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start;">`;
+      const quickReplies = [
+        "Да, есть температура 🔥",
+        "Нет аллергии",
+        "Болит уже несколько дней",
+        "Есть хронические заболевания",
+        "Хочу записаться к этому врачу",
+        "Расскажите подробнее"
+      ];
+      quickReplies.forEach(reply => {
+        response += `<button class="chat-btn" style="padding:10px 16px;font-size:14px;" onclick="quickSend('${reply}')">${reply}</button>`;
+      });
+      response += `</div>`;
+      response += `<br><br>💭 <i>${getRandom(proverbs)}</i>`;
+      response += `<br><br>🩺 <b>Совет дня:</b> ${getRandom(tips)}`;
+      response += `<br><br>Выздоравливайте скорее! Обнимаю крепко ❤️`;
+      return response;
     }
-
+    function quickSend(text) {
+      document.getElementById('messageInput').value = text;
+      document.getElementById('sendBtn').click();
+    }
+    document.getElementById('sendBtn').onclick = () => {
+      const input = document.getElementById('messageInput');
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      updateSymptomStats(text);
+      input.value = '';
+      showTyping();
+      setTimeout(() => {
+        hideTyping();
+        addMessage(getDoctorResponse(text), 'ai');
+      }, 1000 + Math.random() * 1000);
+    };
+    document.getElementById('messageInput').addEventListener('keypress', e => {
+      if (e.key === 'Enter') document.getElementById('sendBtn').click();
+    });
+    document.getElementById('clearChat')?.addEventListener('click', () => {
+      if (confirm("Очистить всю переписку?")) {
+        chatHistory = [];
+        localStorage.removeItem(`sd_chat_${currentUser.email}`);
+        chat.innerHTML = '';
+        addMessage("Чат очищен. Чем могу помочь?", "ai", false);
+      }
+    });
+    document.getElementById('exportChat')?.addEventListener('click', () => {
+      const text = chatHistory.map(m => (m.sender === 'user' ? 'Вы' : 'SmartDoctor') + ': ' + m.text.replace(/<br>/g, '\n')).join('\n\n');
+      const blob = new Blob([text], {type: 'text/plain'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `SmartDoctor_чат_${new Date().toLocaleDateString()}.txt`;
+      a.click();
+    });
+    function updateSymptomStats(query) {
+      const q = query.toLowerCase();
+      symptomStats[q] = (symptomStats[q] || 0) + 1;
+      localStorage.setItem("sd_symptoms", JSON.stringify(symptomStats));
+    }
     function renderDoctors(list) {
       const container = document.getElementById('doctorsContainer');
       container.innerHTML = '';
@@ -1527,7 +1584,6 @@
           </div>`;
       });
     }
-
     document.getElementById('searchInput').oninput = e => {
       const q = e.target.value.toLowerCase();
       let filtered = doctors.filter(d =>
@@ -1535,24 +1591,26 @@
         d.spec.toLowerCase().includes(q) ||
         d.clinic.toLowerCase().includes(q)
       );
-      const symptomMap = {
-        "сердце": "Кардиолог", "голова": "Невролог", "живот": "Гастроэнтеролог",
-        "ухо": "ЛОР-врач", "горло": "ЛОР-врач", "нос": "ЛОР-врач",
-        "температура": "Терапевт", "кашель": "Терапевт",
-        "кожа": "Дерматолог", "зуб": "Стоматолог", "беременность": "Гинеколог",
-        "глаза": "Офтальмолог", "ребёнок": "Педиатр"
-      };
-      for (let key in symptomMap) {
-        if (q.includes(key)) {
-          const priority = doctors.filter(d => d.spec === symptomMap[key]);
-          filtered = priority.concat(filtered.filter(d => d.spec !== symptomMap[key]));
-          break;
-        }
-      }
       renderDoctors(filtered.length ? filtered : doctors);
     };
 
+    /* ===== ОТРИСОВКА АДМИН-ПАНЕЛИ (с секцией заявок) ===== */
     function renderAdminPanel() {
+      // Очищаем панель перед рендером
+      document.querySelector('.admin-panel').innerHTML = `
+        <h2 data-tr="Пользователи системы">Пользователи системы</h2>
+        <table id="usersTable">
+          <thead><tr><th>#</th><th>Email</th><th data-tr="Имя">Имя</th><th data-tr="Фамилия">Фамилия</th><th data-tr="Телефон">Телефон</th><th data-tr="Устройство">Устройство</th><th data-tr="Роль">Роль</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <h2 style="margin-top:50px;" data-tr="Топ-5 популярных симптомов">Топ-5 популярных симптомов</h2>
+        <div id="topSymptoms"><p data-tr="Загрузка статистики...">Загрузка статистики...</p></div>
+        <h2 style="margin-top:50px;" data-tr="Врачи в системе (10)">Врачи в системе (10)</h2>
+        <table id="doctorsTable">
+          <thead><tr><th data-tr="Фото">Фото</th><th data-tr="ФИО">ФИО</th><th data-tr="Специальность">Специальность</th><th data-tr="Рейтинг">Рейтинг</th><th data-tr="Клиника">Клиника</th><th data-tr="Телефон">Телефон</th></tr></thead>
+          <tbody></tbody>
+        </table>`;
+
       const ut = document.querySelector('#usersTable tbody');
       ut.innerHTML = users.map((u,i) => `
         <tr>
@@ -1561,7 +1619,7 @@
           <td>${u.firstName}</td>
           <td>${u.lastName}</td>
           <td>${u.phone}</td>
-          <td>${u.device === 'Mobile' ? 'Мобильный' : 'ПК'}</td>
+          <td>${u.device}</td>
           <td><span style="padding:6px 12px; background:${u.role==='admin'?'#ff4757':'#00d4c1'}; color:white; border-radius:8px;">${u.role === 'admin' ? 'Админ' : 'Пациент'}</span></td>
         </tr>
       `).join('');
@@ -1579,13 +1637,107 @@
           <td>${d.clinic}</td>
           <td>${d.phone}</td>
         </tr>`).join('');
+
+      // === Секция заявок ===
+      let appsHTML = `
+        <h2 style="margin-top:50px;">Заявки на приём (${appointments.length})</h2>
+        <table class="appointments-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Пациент</th>
+              <th>Врач</th>
+              <th>Дата</th>
+              <th>Время</th>
+              <th>Комментарий</th>
+              <th>Статус</th>
+              <th>Ответ</th>
+              <th>Действия</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentsTbody">`;
+
+      if (appointments.length === 0) {
+        appsHTML += `<tr><td colspan="9" style="text-align:center;padding:16px;background:#fff;">Пока нет заявок</td></tr>`;
+      } else {
+        appointments.forEach((a, i) => {
+          const patient = users.find(u => u.email === a.user);
+          const patientName = patient ? `${patient.firstName} ${patient.lastName}` : a.user;
+          const statusColor = a.status === "Подтверждено" ? "#4caf50" : a.status === "Отклонено" ? "#f44336" : "#ff9800";
+
+          appsHTML += `
+            <tr data-app-id="${a.id}">
+              <td>${i+1}</td>
+              <td><b>${patientName}</b><br><small>${a.user}<br>Устройство: ${patient?.device || '—'}</small></td>
+              <td>${a.doctor}</td>
+              <td>${a.date}</td>
+              <td>${a.time}</td>
+              <td>${a.comment || '—'}</td>
+              <td><span style="padding:6px 12px;border-radius:8px;background:${statusColor};color:white;">${a.status}</span></td>
+              <td>${a.adminResponse || '—'}</td>
+              <td>
+                <button class="accept" onclick="adminRespond(${a.id},'Подтверждено')">Подтвердить</button>
+                <button class="reject" onclick="adminRespond(${a.id},'Отклонено')">Отклонить</button>
+                <button class="accept" style="background:#6c7ae0;color:#fff;" onclick="adminCustomResponse(${a.id})">Написать</button>
+              </td>
+            </tr>
+          `;
+        });
+      }
+
+      appsHTML += `</tbody></table>`;
+      document.querySelector('.admin-panel').innerHTML += appsHTML;
+    }
+
+    /* ===== ФУНКЦИИ ОТВЕТА АДМИНА — ЗАЯВКА ИСЧЕЗАЕТ ПОСЛЕ ПОДТВЕРЖДЕНИЯ/ОТКЛОНЕНИЯ ===== */
+    function adminRespond(id, status) {
+      const msg = status === "Подтверждено"
+        ? "🎉 Ваша запись подтверждена! Ждём вас в назначенное время. Если нужно перенести — просто напишите сюда ❤️"
+        : "😔 К сожалению, на выбранное время запись невозможна. Предлагаем другие варианты — напишите удобное время!";
+      // removeAfter = true — заявка удаляется после ответа
+      sendAdminMessageToPatient(id, msg, status, true);
+    }
+
+    function adminCustomResponse(id) {
+      const custom = prompt("Введите сообщение пациенту:");
+      if (custom && custom.trim()) {
+        sendAdminMessageToPatient(id, custom.trim(), "В обработке", false);
+      }
+    }
+
+    function sendAdminMessageToPatient(appId, message, status, removeAfter = false) {
+      const appIndex = appointments.findIndex(a => a.id === appId);
+      if (appIndex === -1) return;
+      const app = appointments[appIndex];
+
+      app.status = status;
+      app.adminResponse = message;
+
+      // Добавляем сообщение в чат пациента
+      const patientChat = JSON.parse(localStorage.getItem(`sd_chat_${app.user}`) || "[]");
+      patientChat.push({text: `✉️ <b>Ответ от клиники:</b><br><br>${message}`, sender: "ai"});
+      localStorage.setItem(`sd_chat_${app.user}`, JSON.stringify(patientChat));
+
+      // Если пациент онлайн — показываем сразу
+      if (currentUser && currentUser.email === app.user) {
+        addMessage(`✉️ <b>Ответ от клиники:</b><br><br>${message}`, "ai");
+      }
+
+      // Уведомление пациенту
+      showNotification("SmartDoctor", `Ответ по заявке: ${message.substring(0,50)}...`);
+
+      if (removeAfter) {
+        appointments.splice(appIndex, 1);
+      }
+      localStorage.setItem("sd_appointments", JSON.stringify(appointments));
+
+      renderAdminPanel();
     }
 
     window.onload = () => {
       translate();
       const savedBg = localStorage.getItem('sd_background') || 'linear-gradient(135deg, #1b38bb 0%, #1249c0 100%)';
       applyBackground(savedBg);
-
       const saved = localStorage.getItem('sd_current');
       if (saved) {
         currentUser = JSON.parse(saved);
@@ -1593,444 +1745,6 @@
         showMainApp();
       }
     };
-    
   </script>
 </body>
-</html>
-
-      <div class="settings-section">
-        <!-- 769 -->
-        <h4 data-tr="Фон приложения">Фон приложения</h4>
-        <!-- 770 -->
-        <div class="bg-options">
-          <!-- 771 -->
-          <div class="bg-option active" data-bg="linear-gradient(135deg, #1b38bb 0%, #1249c0 100%)"></div>
-          <!-- 772 -->
-          <!-- 773 -->
-          <div class="bg-option" data-bg="linear-gradient(135deg, #11998e 0%, #38ef7d 100%)"></div>
-          <!-- 774 -->
-          <!-- 775 -->
-          <div class="bg-option" data-bg="linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%)"></div>
-          <!-- 776 -->
-          <!-- 777 -->
-          <div class="bg-option" data-bg="linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"></div>
-          <!-- 778 -->
-          <!-- 779 -->
-          <div class="bg-option" data-bg="linear-gradient(135deg, #fa709a 0%, #fee140 100%)"></div>
-          <!-- 780 -->
-          <!-- 781 -->
-          <div class="bg-option" data-bg="linear-gradient(135deg, #30cfd0 0%, #330867 100%)"></div>
-          <!-- 782 -->
-          <!-- 783 -->
-          <div class="bg-option" data-bg="linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"></div>
-          <!-- 784 -->
-          <!-- 785 -->
-          <div class="bg-option" data-bg="linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%)"></div>
-          <!-- 786 -->
-          <!-- 787 -->
-          <div class="bg-option" data-bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
-          <!-- 788 -->
-        </div>
-        <!-- 789 -->  
-         <script> 
-           
-  // === СУПЕР-УМНЫЙ ЧАТ БЕЗ ОШИБОК ===
-  function getRandom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  }
-
-  const proverbs = [
-    "Здоровье — самое дорогое богатство",
-    "В здоровом теле — здоровый дух",
-    "Береги здоровье смолоду",
-    "Болезнь легче предупредить, чем лечить",
-    "Движение — это жизнь",
-    "Смех — лучшее лекарство",
-    "Чистота — залог здоровья",
-    "Яблоко в день — и врач не нужен",
-    "Кто рано ложится и рано встаёт — здоровье наживёт",
-    "Здоровье не купишь — его разум дарит",
-    "Лук от семи недуг",
-    "Солнце, воздух и вода — наши лучшие друзья",
-    "Кто не курит и не пьёт — тот здоровье бережёт",
-    "После обеда полежи, после ужина погуляй",
-    "Горьким лечат, а сладким калечат",
-    "Здоровый нищий счастливее больного короля",
-    "Спорт — это здоровье и сила",
-    "Улыбка снижает стресс",
-    "Кто ходит пешком — тот живёт дольше",
-    "Сон — лучшее восстановление",
-    "Кто ест овощи — тот крепче всех",
-    "Тишина лечит нервы",
-    "Вода — источник жизни",
-    "Кто не бережёт здоровье — тот плачет потом",
-    "Здоровье — в ногах"
-  ];
-
-  const tips = [
-    "Пейте 1,5–2 литра воды в день",
-    "Гуляйте на свежем воздухе 30 минут",
-    "Спите 7–8 часов — это лучшее лекарство",
-    "Ешьте больше овощей и фруктов",
-    "Мойте руки перед едой",
-    "Улыбайтесь чаще — это укрепляет иммунитет",
-    "Делайте зарядку по утрам",
-    "Не сидите долго в телефоне",
-    "Дышите глубоко — это успокаивает",
-    "Избегайте стресса"
-  ];
-
-  const empathy = [
-    "Понимаю, как это неприятно...",
-    "Не переживайте, сейчас помогу!",
-    "Жаль, что вы плохо себя чувствуете...",
-    "Спасибо, что рассказали",
-    "Давайте разберёмся вместе",
-    "Я здесь, чтобы помочь ❤️"
-  ];
-
-  function getDoctorResponse(query) {
-    let response = getRandom(empathy);
-
-    const q = query.toLowerCase();
-
-    let specialist = null;
-    const symptoms = {
-      "сердце давление пульс грудь одышка кардио": "Кардиолог",
-      "живот желудок тошнота рвота понос запор": "Гастроэнтеролог",
-      "голова боль мигрень головокружение": "Невролог",
-      "горло ухо нос кашель насморк": "ЛОР-врач",
-      "температура кашель слабость грипп простуда": "Терапевт",
-      "кожа сыпь зуд аллергия": "Дерматолог",
-      "зуб зубы десна": "Стоматолог",
-      "беременность месячные": "Гинеколог",
-      "глаза зрение": "Офтальмолог",
-      "ребёнок дети": "Педиатр"
-    };
-
-    for (let key in symptoms) {
-      if (key.split(' ').some(word => q.includes(word))) {
-        specialist = symptoms[key];
-        break;
-      }
-    }
-
-    if (specialist) {
-      const docs = doctors.filter(d => d.spec === specialist);
-      response += `<br><br>Рекомендую обратиться к <b>${specialist}</b>!<br><br>`;
-      if (docs.length > 0) {
-        docs.slice(0, 2).forEach(doc => {
-          response += `
-            <div style="background:#f0fffe;padding:16px;border-radius:16px;margin:14px 0;border-left:5px solid #00d4c1;">
-              <b>${doc.name}</b><br>${doc.spec} ★ ${doc.rating}<br>${doc.clinic}<br><b>Тел: ${doc.phone}</b><br>
-              <button class="book-btn" style="margin-top:10px;padding:12px 24px;" onclick="openBookModal(${JSON.stringify(doc).replace(/"/g, '&quot;')})">
-                Записаться
-              </button>
-            </div>
-          `;
-        });
-      }
-      response += `<br><i>Точный диагноз ставит только врач после осмотра.</i>`;
-    } else {
-      response += `<br><br>Расскажите подробнее о симптомах — я помогу подобрать врача!`;
-    }
-
-    response += `<br><br>💭 <i>${getRandom(proverbs)}</i>`;
-    response += `<br><br>🩺 <b>Совет:</b> ${getRandom(tips)}`;
-    response += `<br><br>Выздоравливайте скорее! ❤️`;
-
-    return response;
-  }
-          </script>
-          <!-- === КРАСИВЫЙ И УЮТНЫЙ ДИЗАЙН ЭКРАНА ВХОДА (ТЕПЛЫЕ ТОНА + ПОДДЕРЖКА) === -->
-<div id="authScreen">
-  <!-- Фоновый градиент + мягкие волны -->
-  <div class="bg-gradient"></div>
-  <div class="wave wave-1"></div>
-  <div class="wave wave-2"></div>
-
-  <div class="auth-wrapper">
-    <!-- Иконка и название -->
-    <div class="header-section">
-      <div class="icon-circle">
-        <i class="fas fa-heartbeat"></i>
-      </div>
-      <h1 class="app-name">SmartDoctor</h1>
-      <p class="app-tagline">Ваш умный помощник по здоровью<br>Всегда рядом, когда нужно</p>
-    </div>
-
-    <!-- Форма -->
-    <div class="login-container">
-      <h2 class="welcome-heading">Добро пожаловать!</h2>
-
-      <div class="form-field">
-        <i class="fas fa-envelope field-icon"></i>
-        <input type="email" id="email" placeholder="Email" required>
-      </div>
-
-      <div class="form-field" style="display:none;">
-        <i class="fas fa-user field-icon"></i>
-        <input type="text" id="firstName" placeholder="Имя">
-      </div>
-
-      <div class="form-field" style="display:none;">
-        <i class="fas fa-user field-icon"></i>
-        <input type="text" id="lastName" placeholder="Фамилия">
-      </div>
-
-      <div class="form-field" style="display:none;">
-        <i class="fas fa-phone field-icon"></i>
-        <input type="tel" id="phone" placeholder="Телефон (+992...)">
-      </div>
-
-      <div class="form-field">
-        <i class="fas fa-lock field-icon"></i>
-        <input type="password" id="password" placeholder="Пароль" required>
-      </div>
-
-      <button id="authBtn" class="primary-button">
-        Войти
-      </button>
-
-      <p class="switch-mode" id="toggleLink">
-        Нет аккаунта? <span class="accent-link">Зарегистрироваться</span>
-      </p>
-
-      <!-- ПОДДЕРЖКА @Vazir111 -->
-      <div class="support-container">
-        <p class="support-label">Нужна помощь? Обратитесь в поддержку:</p>
-        <a href="https://t.me/Vazir111" target="_blank" class="support-button">
-          <i class="fab fa-telegram-plane support-icon"></i>
-          <span class="support-username">@Vazir111</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<style>
-  /* Фон с теплым градиентом */
-  #authScreen {
-    position: relative;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f0fffe 0%, #e0f7fa 50%, #b2dfdb 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .bg-gradient {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at top left, rgba(0,212,193,0.2), transparent 70%);
-  }
-
-  /* Мягкие волны */
-  .wave {
-    position: absolute;
-    width: 200%;
-    height: 300px;
-    background: rgba(0,212,193,0.05);
-    border-radius: 50%;
-  }
-
-  .wave-1 {
-    bottom: -100px;
-    left: -50%;
-    animation: waveMove 20s linear infinite;
-  }
-
-  .wave-2 {
-    bottom: -150px;
-    left: -30%;
-    animation: waveMove 25s linear infinite reverse;
-    background: rgba(0,150,136,0.08);
-  }
-
-  @keyframes waveMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* Обёртка */
-  .auth-wrapper {
-    z-index: 10;
-    text-align: center;
-    max-width: 420px;
-    width: 90%;
-  }
-
-  /* Заголовок */
-  .header-section {
-    margin-bottom: 50px;
-  }
-
-  .icon-circle {
-    width: 120px;
-    height: 120px;
-    background: linear-gradient(135deg, #00d4c1, #009688);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 30px;
-    box-shadow: 0 15px 40px rgba(0,212,193,0.3);
-    animation: pulse 2s infinite;
-  }
-
-  .icon-circle i {
-    font-size: 60px;
-    color: white;
-  }
-
-  @keyframes pulse {
-    0% { box-shadow: 0 15px 40px rgba(0,212,193,0.3); }
-    50% { box-shadow: 0 20px 60px rgba(0,212,193,0.5); }
-    100% { box-shadow: 0 15px 40px rgba(0,212,193,0.3); }
-  }
-
-  .app-name {
-    font-size: 48px;
-    font-weight: 800;
-    color: #004d40;
-    margin-bottom: 10px;
-  }
-
-  .app-tagline {
-    font-size: 18px;
-    color: #00695c;
-    line-height: 1.5;
-  }
-
-  /* Форма */
-  .login-container {
-    background: white;
-    border-radius: 30px;
-    padding: 50px 40px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-  }
-
-  .welcome-heading {
-    font-size: 28px;
-    color: #004d40;
-    margin-bottom: 40px;
-    font-weight: 700;
-  }
-
-  /* Поля ввода */
-  .form-field {
-    position: relative;
-    margin-bottom: 30px;
-  }
-
-  .field-icon {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #00a89a;
-    font-size: 20px;
-  }
-
-  .form-field input {
-    width: 100%;
-    padding: 18px 20px 18px 60px;
-    border: 2px solid #e0f2f1;
-    border-radius: 20px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
-
-  .form-field input:focus {
-    outline: none;
-    border-color: #00d4c1;
-    box-shadow: 0 0 0 4px rgba(0,212,193,0.2);
-  }
-
-  /* Кнопка */
-  .primary-button {
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, #00d4c1, #009688);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 20px;
-    box-shadow: 0 10px 30px rgba(0,212,193,0.3);
-    transition: all 0.3s ease;
-  }
-
-  .primary-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,212,193,0.4);
-  }
-
-  /* Переключатель */
-  .switch-mode {
-    margin-top: 30px;
-    color: #00695c;
-    font-size: 16px;
-  }
-
-  .accent-link {
-    color: #00a89a;
-    font-weight: 600;
-    cursor: pointer;
-  }
-
-  .accent-link:hover {
-    text-decoration: underline;
-  }
-
-  /* ПОДДЕРЖКА */
-  .support-container {
-    margin-top: 50px;
-    padding-top: 30px;
-    border-top: 1px solid #e0f2f1;
-  }
-
-  .support-label {
-    color: #00695c;
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
-
-  .support-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #e0f7fa;
-    padding: 16px 32px;
-    border-radius: 50px;
-    color: #00695c;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0,212,193,0.2);
-  }
-
-  .support-button:hover {
-    background: #b2dfdb;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0,212,193,0.3);
-  }
-
-  .support-icon {
-    font-size: 28px;
-    color: #00a89a;
-  }
-
-  /* Адаптив */
-  @media (max-width: 480px) {
-    .app-name { font-size: 40px; }
-    .login-container { padding: 40px 30px; }
-    .support-button { padding: 14px 24px; font-size: 16px; }
-  }
-</style> 
-          </body>
 </html>
