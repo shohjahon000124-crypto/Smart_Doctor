@@ -9,7 +9,7 @@
   <!-- 5 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <!-- 7 -->
-  <title>SmartDoctor • Умный помощник здоровья</title>
+  <title>SmartDoctor.tj • Умный помощник здоровья </title>
   <!-- 9 -->
   <!-- Fonts and icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1745,6 +1745,333 @@
         showMainApp();
       }
     };
+
   </script>
 </body>
 </html>
+<style>
+  /* Root variables — теперь с поддержкой Dark Mode */
+  :root {
+    --primary: #00b8a9;
+    --primary-dark: #009a8d;
+    --accent: #1a3198;
+    --text: #2d3748;
+    --text-light: #718096;
+    --bg-light: linear-gradient(135deg, #e0f7fa 0%, #cffafe 100%);
+    --card: rgba(255, 255, 255, 0.92);
+    --card-border: rgba(0, 184, 169, 0.15);
+    --input-bg: white;
+    --border: #e2e8f0;
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 24px;
+    --radius-sm: 18px;
+  }
+
+  /* Dark Mode */
+  [data-theme="dark"] {
+    --primary: #00e6d0;
+    --primary-dark: #00b8a9;
+    --text: #f0f9ff;
+    --text-light: #cbd5e1;
+    --bg-light: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --card: rgba(15, 23, 42, 0.85);
+    --card-border: rgba(0, 230, 208, 0.2);
+    --input-bg: rgba(30, 41, 59, 0.8);
+    --border: #334155;
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; touch-action: manipulation; }
+  body, html {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg, var(--bg-light));
+    height: 100%;
+    color: var(--text);
+    overflow: hidden;
+    transition: background 0.8s ease;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 12px auto;
+    background: var(--card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: calc(100vh - 24px);
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+  }
+
+  /* Улучшенный чат — сообщения с хвостиками */
+  .message {
+    max-width: 78%;
+    padding: 16px 22px;
+    border-radius: var(--radius-sm);
+    line-height: 1.7;
+    box-shadow: var(--shadow-soft);
+    word-wrap: break-word;
+    font-size: 16px;
+    position: relative;
+    margin-bottom: 16px;
+    animation: msgIn 0.6s ease-out;
+  }
+
+  .message.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-bottom-right-radius: 6px;
+  }
+  .message.user::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-dark);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+  }
+
+  .message.ai {
+    align-self: flex-start;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 6px;
+    backdrop-filter: blur(10px);
+  }
+  .message.ai::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+
+  /* Карточки врачей — мягче и современнее */
+  .doctor-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(12px);
+  }
+  .doctor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+  }
+
+  .doc-header img {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    object-fit: cover;
+    border: 5px solid var(--primary);
+    box-shadow: 0 8px 25px rgba(0, 184, 169, 0.3);
+  }
+
+  .doc-footer {
+    background: linear-gradient(135deg, #f0fdfa, #ecfeff);
+    padding: 24px;
+    text-align: center;
+  }
+  [data-theme="dark"] .doc-footer {
+    background: linear-gradient(135deg, #164e63, #0e7490);
+  }
+
+  /* Кнопки записи — крупнее и мягче */
+  .call-btn, .book-btn {
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 12px;
+    box-shadow: 0 8px 25px rgba(0, 184, 169, 0.3);
+  }
+  .book-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+  }
+
+  /* Модальные окна — frosted glass */
+  .modal-content {
+    background: var(--card);
+    padding: 36px;
+    border-radius: var(--radius);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow);
+  }
+
+  /* Кнопки в чате (быстрые ответы) */
+  .chat-btn {
+    padding: 12px 20px;
+    background: rgba(0, 184, 169, 0.15);
+    color: var(--primary-dark);
+    border: 1px solid var(--primary);
+    border-radius: 50px;
+    font-size: 15px;
+    backdrop-filter: blur(8px);
+  }
+  [data-theme="dark"] .chat-btn {
+    background: rgba(0, 230, 208, 0.15);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
+  /* Важное предупреждение в ответах AI */
+  .disclaimer {
+    margin-top: 24px;
+    padding: 16px;
+    background: rgba(255, 107, 107, 0.1);
+    border-left: 5px solid #ff6b6b;
+    border-radius: 12px;
+    font-size: 14.5px;
+    color: #e74c3c;
+    font-weight: 600;
+  }
+</style>
+<script>
+  // ... весь ваш предыдущий JavaScript до функции addMessage ...
+
+  function addMessage(text, sender, save = true) {
+    const div = document.createElement('div');
+    div.className = `message ${sender}`;
+    div.innerHTML = text;
+
+    const chat = document.getElementById('chat');
+
+    // Проверяем, был ли пользователь близко к низу чата (в пределах 100px)
+    const isNearBottom = (chat.scrollHeight - chat.scrollTop - chat.clientHeight) < 100;
+
+    // Добавляем сообщение
+    chat.appendChild(div);
+
+    // Автопрокрутка вниз ТОЛЬКО если пользователь был внизу или это первое сообщение
+    if (isNearBottom || chat.children.length === 1) {
+      chat.scrollTo({
+        top: chat.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+
+    // Звук и уведомление для сообщений от AI
+    if (sender === 'ai') {
+      playSound();
+      showNotification("SmartDoctor", "Новое сообщение от помощника");
+    }
+
+    // Сохранение в историю
+    if (save && currentUser) {
+      chatHistory.push({text, sender});
+      localStorage.setItem(`sd_chat_${currentUser.email}`, JSON.stringify(chatHistory));
+    }
+  }
+
+  // ... остальной ваш JavaScript ...
+</script>
+<style>
+  /* ... ваш предыдущий CSS остаётся до этого места ... */
+
+  .chat-window {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-start; /* КЛЮЧЕВОЕ ИСПРАВЛЕНИЕ: теперь можно скроллить вверх! */
+    
+    /* Плавная и красивая прокрутка */
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+  }
+
+  /* Красивый скроллбар для Chrome/Safari/мобильных */
+  .chat-window::-webkit-scrollbar {
+    width: 8px;
+  }
+  .chat-window::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .chat-window::-webkit-scrollbar-thumb {
+    background: rgba(0, 184, 169, 0.3);
+    border-radius: 8px;
+  }
+  .chat-window::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 184, 169, 0.5);
+  }
+
+  /* Тёмная тема — скроллбар тоже меняется */
+  [data-theme="dark"] .chat-window::-webkit-scrollbar-thumb {
+    background: rgba(0, 230, 208, 0.4);
+  }
+  [data-theme="dark"] .chat-window::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 230, 208, 0.6);
+  }
+
+  /* ... остальной ваш CSS остаётся без изменений ... */
+</style>
+<div id="doctorApp" style="display:none; flex-direction:column; height:100%; background:#f0f2f5;">
+    <div class="header" style="background: #1a3198;">
+        <div class="header-left">
+            <div class="logo"><i class="fas fa-user-md"></i> Кабинет Врача</div>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <img class="user-avatar" src="https://randomuser.me/api/portraits/women/10.jpg">
+                <span>Д-р Одинаева</span>
+            </div>
+            <button class="logout" onclick="location.reload()">Выйти</button>
+        </div>
+    </div>
+
+    <div class="admin-panel" style="padding: 25px; overflow-y: auto;">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+            <div style="background: white; padding: 20px; border-radius: 15px; border-left: 5px solid #1a3198; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <h4 style="color: #666; font-size: 14px; text-transform: uppercase;">Всего пациентов</h4>
+                <p id="totalCount" style="font-size: 32px; font-weight: 800; color: #1a3198;">0</p>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 15px; border-left: 5px solid #f1c40f; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <h4 style="color: #666; font-size: 14px; text-transform: uppercase;">Ожидают</h4>
+                <p id="pendingCount" style="font-size: 32px; font-weight: 800; color: #f1c40f;">0</p>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 15px; border-left: 5px solid #2ecc71; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <h4 style="color: #666; font-size: 14px; text-transform: uppercase;">Принято</h4>
+                <p id="acceptedCount" style="font-size: 32px; font-weight: 800; color: #2ecc71;">0</p>
+            </div>
+        </div>
+
+        <h2 style="margin-bottom: 20px; color: #2c3e50;">Новые заявки на прием</h2>
+        <table style="width: 100%; background: white; border-radius: 15px; overflow: hidden; border-collapse: collapse;">
+            <thead>
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 15px; text-align: left; border-bottom: 2px solid #eee;">Пациент</th>
+                    <th style="padding: 15px; text-align: left; border-bottom: 2px solid #eee;">Жалоба</th>
+                    <th style="padding: 15px; text-align: left; border-bottom: 2px solid #eee;">Дата/Время</th>
+                    <th style="padding: 15px; text-align: left; border-bottom: 2px solid #eee;">Статус</th>
+                    <th style="padding: 15px; text-align: center; border-bottom: 2px solid #eee;">Действие</th>
+                </tr>
+            </thead>
+            <tbody id="doctorTableBody">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+   
